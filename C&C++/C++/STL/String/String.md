@@ -5,7 +5,7 @@
  * @Email:  
  * @Date: 2022-01-13 12:21:39
  * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-16 23:26:46
+ * @LastEditTime: 2024-07-21 21:37:28
 -->
 
 # String
@@ -38,10 +38,10 @@ getline(std::cin, str);
 
 int main() {
     int sum = 0;
-    std::string s1, s2;
+    std::string s1;
+    std::string s2;
 
     std::cin >> s1 >> s2;
-
     for(int i = 0; i < s1.size(); i++){
         if(s1.find(s2, i) != std::string::npos){
             sum++;
@@ -60,14 +60,13 @@ int main() {
 #include<string>
 
 int main() {
-    std::string str = " 123 456237";
+    std::string s = " 123 456237";
 
     int index = 3;
     int length = 1;
+    s.erase(index, length);
 
-    std::str.erase(index, length);
-
-    std::cout << str << std::endl;
+    std::cout << s << std::endl;
     return 0;
 }
 ```

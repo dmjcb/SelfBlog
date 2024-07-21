@@ -38,7 +38,7 @@ void getList(Linklist head, int index)
 {
     Linklist p;
     p = head->next;
-    // j为计数器，用以记录当前的位置
+    // j为计数器,用以记录当前的位置
     int j = 1;
     // 当P不为空且未到指定位置时,指针向后移动,计数器增加
     while (p && j < index)
