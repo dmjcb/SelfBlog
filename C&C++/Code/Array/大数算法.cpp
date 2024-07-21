@@ -7,7 +7,7 @@ void addNumbers(char num1[], char num2[], int sum[])
     int i, j, length;
     int n2[100] = {0};
     length = max(strlen(num1), strlen(num2));
-    // 低位在前，高位在后
+    // 低位在前,高位在后
     for (i = strlen(num1) - 1, j = 0; i >= 0; i--, j++)
     {
         sum[j] = num1[i] - '0';

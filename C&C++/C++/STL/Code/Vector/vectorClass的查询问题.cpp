@@ -4,8 +4,8 @@
  * @Author: dalao
  * @Email: dalao_li@163.com
  * @Date: 2022-03-29 21:57:16
- * @LastEditors: dalao
- * @LastEditTime: 2022-03-29 22:39:06
+ * @LastEditors: dmjcb
+ * @LastEditTime: 2024-07-21 21:43:17
  */
 #include <iostream>
 #include <algorithm>
@@ -60,7 +60,7 @@ int main() {
         stu.push_back(s);
     }
     //输入指令
-    cout<<"输入指令，1是按照姓名排序,2是按照成绩排序，3是查询某人成绩"<<endl;
+    cout<<"输入指令,1是按照姓名排序,2是按照成绩排序,3是查询某人成绩"<<endl;
     int ins;
     cin>>ins;
     if(ins==1) {

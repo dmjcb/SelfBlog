@@ -27,7 +27,7 @@ int add(int a, int b)
     // cout<<"p1<<1="<<p1<<endl;
     // 位异或。不考虑进位
     int p2 = a ^ b;
-    // 结束的标志是a为0了，或者b为0了
+    // 结束的标志是a为0了,或者b为0了
     // cout<<"p1="<<p1<<" "<<"P2="<<p2<<endl;
     return add(p2, p1);
 }

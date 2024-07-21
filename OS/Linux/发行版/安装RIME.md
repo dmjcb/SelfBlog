@@ -9,7 +9,7 @@
 -->
 # Ubuntu 安装RIME
 
-- [ubuntu20.04安装rime输入法，设置简体输入，同时更改fcitx皮肤,导入搜狗词库](https://www.cnblogs.com/pipci/p/16200966.html)
+- [ubuntu20.04安装rime输入法,设置简体输入,同时更改fcitx皮肤,导入搜狗词库](https://www.cnblogs.com/pipci/p/16200966.html)
 
 
 ## KUbuntu 安装 rime
