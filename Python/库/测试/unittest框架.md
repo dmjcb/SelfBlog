@@ -66,12 +66,12 @@ def register(name, pwd1, pwd2):
         if name == user['name']:
             return {
                 "code": 0, 
-                "msg": "该用户名已存在！"
+                "msg": "该用户名已存在!"
             }
     if pwd1 != pwd2:
         return {
             "code": 0, 
-            "msg": "两次密码输入不一致！"
+            "msg": "两次密码输入不一致!"
         }
     if 6 <= len(name) <=18 and 6 <= len(pwd1) <= 18:
         users.append({'name': name, 'pwd': pwd2})
@@ -118,7 +118,7 @@ class TestRegister(unittest.TestCase):
         result = register(*data)
         expected = {
             "code": 0, 
-            "msg": "所有参数不能为空！"
+            "msg": "所有参数不能为空!"
         }
         self.assertEqual(expected, result)
 
@@ -129,7 +129,7 @@ class TestRegister(unittest.TestCase):
         # 这条用例应该是不通过的, 注册代码bug
         expected = {
             "code": 0, 
-            "msg": "用户名和密码必须在6-18位之间！"
+            "msg": "用户名和密码必须在6-18位之间!"
         }
         self.assertEqual(expected, result)
 
@@ -139,7 +139,7 @@ class TestRegister(unittest.TestCase):
         result = register(*data)
         expected = {
             "code": 0, 
-            "msg": "两次密码输入不一致！"
+            "msg": "两次密码输入不一致!"
         }
         self.assertEqual(expected, result)
 

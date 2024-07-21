@@ -1,11 +1,11 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Author: dalao
- * @Email: dalao_li@163.com
+ * @Author: dmjcb
+ * @Email:
  * @Date: 2022-03-29 21:57:16
- * @LastEditors: dalao
- * @LastEditTime: 2022-03-29 22:03:35
+ * @LastEditors: dmjcb
+ * @LastEditTime: 2024-07-21 23:11:25
  */
 // T代表总共能够用来采药的时间,M代表山洞里的草药的数目。
 // 接下来的M行每行包括两个在1到100之间（包括1和100）的的

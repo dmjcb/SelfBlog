@@ -54,4 +54,4 @@ pyinstaller -F *.spec
 
 [Python-web Flask框架项目打包成exe文件](https://www.cxyzjd.com/article/qq_42370335/114276385)  
 
-[Flask项目能打包为单个exe文件运行？掌握原理后居然如此简单！](https://bbs.huaweicloud.com/blogs/210229)
+[Flask项目能打包为单个exe文件运行？掌握原理后居然如此简单!](https://bbs.huaweicloud.com/blogs/210229)

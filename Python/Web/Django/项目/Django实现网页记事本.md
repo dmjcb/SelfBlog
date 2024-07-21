@@ -445,7 +445,7 @@ function delNote(n_id) {
       if (!isConfirm) {
         swal({
           title: "已取消", 
-          text: "您取消了删除操作！", 
+          text: "您取消了删除操作!", 
           type: "warning", 
         });
         return;

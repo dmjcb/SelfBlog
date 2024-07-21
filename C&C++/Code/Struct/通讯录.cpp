@@ -70,7 +70,7 @@ int main()
         case 5:
             exit(0); /*终止程序*/
         default:
-            cout << "命令输入错误！！！" << endl;
+            cout << "命令输入错误!!!" << endl;
         }
     }
     return 0;
@@ -143,7 +143,7 @@ void ouput(struct Info mes[])
             cin >> number;
             if (number > N || number < 1)
             {
-                cout << "查无此人, 错误！！！:" << endl;
+                cout << "查无此人, 错误!!!:" << endl;
                 break;
             }
             cout << "第" << number << "位成员的学号为:    "
@@ -273,7 +273,7 @@ void ouput(struct Info mes[])
                     wign = 0;
                     break;
                 default:
-                    cout << "命令输入错误！！！" << endl;
+                    cout << "命令输入错误!!!" << endl;
                 }
             }
             break;
@@ -281,7 +281,7 @@ void ouput(struct Info mes[])
             sign = 0;
             break;
         default:
-            cout << "命令输入错误！！！" << endl;
+            cout << "命令输入错误!!!" << endl;
         }
     }
 }
@@ -332,7 +332,7 @@ void query(struct Info mes[])
                 }
                 else if (i == N)
                 {
-                    cout << "未查询到匹配的记录！" << endl;
+                    cout << "未查询到匹配的记录!" << endl;
                     break;
                 }
             };
@@ -436,7 +436,7 @@ void query(struct Info mes[])
                     sign = 0;
                     break;
                 default:
-                    cout << "命令输入错误！！！" << endl;
+                    cout << "命令输入错误!!!" << endl;
                 }
             }
             break;
@@ -450,7 +450,7 @@ void query(struct Info mes[])
             sign = 0;
             break;
         default:
-            cout << "命令输入错误！！！" << endl;
+            cout << "命令输入错误!!!" << endl;
         }
     }
 }
@@ -484,7 +484,7 @@ void modify()
         cin >> number;
         if (number > N)
         {
-            cout << "该学生信息不存在！！！请重新输入" << endl;
+            cout << "该学生信息不存在!!!请重新输入" << endl;
         }
         else
             break;

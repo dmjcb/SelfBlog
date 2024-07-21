@@ -2,7 +2,7 @@
  * @Description: 
  * @Version: 1.0
  * @Author: dmjcb
- * @Email: dmjcb@163.com
+ * @Email: 
  * @Date: 2023-02-07 00:12:47
  * @LastEditors: dmjcb
  * @LastEditTime: 2023-09-23 13:23:00
@@ -15,7 +15,7 @@
 ```dockerfile
 from alpine as builder
 
-label dmjcb <dmjcb@163.com>
+label dmjcb <>
 
 workdir /
 
