@@ -1,10 +1,10 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Author: dalao
- * @Email: dalao_li@163.com
+ * @Author: dmjcb
+ * @Email:
  * @Date: 2022-03-29 21:57:16
- * @LastEditors: dalao
+ * @LastEditors: dmjcb
  * @LastEditTime: 2022-03-29 22:06:09
  */
 // 程序目的,求0 1 ... 99 100 这个数组中每个元素需几次二分查找才能找到的次数

@@ -85,7 +85,7 @@ void post()
         if (select(fd + 1, &t_set1, NULL, NULL, &tv) == -1)
         {
             close(fd);
-            printf("在读取数据报文时SELECT检测到异常, 该异常导致线程终止！\n");
+            printf("在读取数据报文时SELECT检测到异常, 该异常导致线程终止!\n");
             return;
         }
         // 判断描述符fd是否在给定的描述符集t_set1中, 通常配合select函数使用

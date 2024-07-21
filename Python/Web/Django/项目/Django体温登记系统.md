@@ -303,7 +303,7 @@ function addCallback(value) {
 function delRecord(id) {
     swal({
        title: "您确定要删除该记录吗", 
-       text: "删除后将无法恢复, 请谨慎操作！", 
+       text: "删除后将无法恢复, 请谨慎操作!", 
        type: "warning", 
        showCancelButton: true, 
        confirmButtonColor: "#DD6B55", 
@@ -318,7 +318,7 @@ function delRecord(id) {
         } else {
             swal({
                 title: "已取消", 
-                text: "您取消了删除操作！", 
+                text: "您取消了删除操作!", 
                 type: "warning", 
             });
         }

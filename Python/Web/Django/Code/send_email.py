@@ -36,7 +36,7 @@ class CompanyEmail:
         <tbody>
             <tr>
                 <td id="QQMAILSTATIONERY" style="background:url(https://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/xinzhi/bg/a_02.jpg) no-repeat #fffaf6; min-height:550px; padding:100px 55px 200px 100px; ">
-                <div style="text-align: center;font-size: xx-large;"><font size="4">亲爱的用户 ！</font>&nbsp;</div>
+                <div style="text-align: center;font-size: xx-large;"><font size="4">亲爱的用户 !</font>&nbsp;</div>
                 <div style="text-align: center;"><font size="4"><br>
                     </font>
                 </div>
