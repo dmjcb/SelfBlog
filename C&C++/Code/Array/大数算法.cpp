@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
-void addNumbers(char num1[], char num2[], int sum[])
+
+void AddNums(char num1[], char num2[], int sum[])
 {
     int i, j, length;
     int n2[100] = {0};
@@ -40,6 +41,6 @@ int main()
     char num1[] = "1234567891234567891234"; // 第一个大数
     char num2[] = "2345678912345678913345"; // 第二个大数
     int sum[1000];
-    addNumbers(num1, num2, sum);
+    AddNums(num1, num2, sum);
     return 0;
 }
