@@ -1,7 +1,16 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dmjcb
+ * @Email: 
+ * @Date: 2024-07-19 16:00:27
+ * @LastEditors: dmjcb
+ * @LastEditTime: 2024-07-30 13:55:13
+ */
 #include <iostream>
 using namespace std;
 
-// жǷ
+
 bool isLeapYear(int year)
 {
     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
@@ -11,7 +20,6 @@ bool isLeapYear(int year)
     return false;
 }
 
-// ȷڸеλ
 int dayOfYear(int y, int m, int d)
 {
     int a[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, sum = 0;
@@ -27,10 +35,9 @@ int dayOfYear(int y, int m, int d)
     return sum;
 }
 
-int dateDiffer(int ey, int em, int ed, int sy, int sm, int sd)
+int GetDateDiffer(int ey, int em, int ed, int sy, int sm, int sd)
 {
     int syDay, eyDay;
-    // ͬһĻڵλ֮
     if (ey == sy)
     {
         return dayOfYear(ey, em, ed) - dayOfYear(sy, sm, sd);
@@ -60,6 +67,6 @@ int main()
 {
     int syear, smonth, sday, eyear, emonth, eday;
     cin >> syear >> smonth >> sday >> eyear >> emonth >> eday;
-    cout << dateDiffer(eyear, emonth, eday, syear, smonth, sday) << endl;
+    cout << GetDateDiffer(eyear, emonth, eday, syear, smonth, sday) << endl;
     return 0;
 }

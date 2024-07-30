@@ -5,7 +5,7 @@
  * @Email:
  * @Date: 2024-02-13 19:00:24
  * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-05 02:06:27
+ * @LastEditTime: 2024-07-30 13:01:40
  */
 
 #include <iostream>
@@ -13,6 +13,7 @@
 #include <vector>
 #include <map>
 #include <set>
+
 
 // defintion of Line
 typedef struct Line
@@ -31,6 +32,7 @@ typedef struct Line
         this->isSelect = false;
     }
 } Line;
+
 
 // defintion of Graph
 class Graph
@@ -97,8 +99,7 @@ public:
 
     double RunKruskal()
     {
-        std::sort(mLines.begin(), mLines.end(), [=](const Line &e1, const Line &e2)
-                  { return e1.weight < e2.weight; });
+        std::sort(mLines.begin(), mLines.end(), [=](const Line &e1, const Line &e2) { return e1.weight < e2.weight; });
 
         double sum = 0;
         for (auto &line : mLines)
