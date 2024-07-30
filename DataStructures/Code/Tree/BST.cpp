@@ -1,11 +1,11 @@
 /*
- * @Description:
+ * @Description: 二叉排序树
  * @Version: 1.0
  * @Author: dmjcb
  * @Email:
  * @Date: 2022-04-08 22:47:18
  * @LastEditors: dmjcb
- * @LastEditTime: 2022-07-19 21:56:30
+ * @LastEditTime: 2024-07-30 13:04:12
  */
 
 #include <iostream>
@@ -173,29 +173,32 @@ void DeleteNode(BSTNode<T> *&root, T value)
 
 int main(int argv, char *argc[])
 {
-    vector<int> v = {11, 45, 9, 23, 76, 68};
+    std::vector<int> v = {11, 45, 9, 23, 76, 68};
 
     BSTNode<int> *root = nullptr;
 
     CreateBST(root, v);
 
-    cout << "二叉排序树的中序遍历结果: ";
+    std::cout << "二叉排序树的中序遍历结果: ";
     PrintBST(root);
-    cout << endl;
+    std::cout << endl;
 
     // 插入值
     int newNode = 35;
-    cout << "插入新值:" << newNode << endl;
+    std::cout << "插入新值:" << newNode << endl;
     root = InsertNode(root, newNode);
-    cout << "插入新值后二叉排序树的中序遍历结果: ";
+    std::cout << "插入新值后二叉排序树的中序遍历结果: ";
+    
     PrintBST(root);
-    cout << endl;
+    std::cout << endl;
 
     // 删除值
     int delNode = 11;
-    cout << "删除值:" << delNode << endl;
+    std::cout << "删除值:" << delNode << endl;
+
     DeleteNode(root, delNode);
-    cout << "删除值后二叉排序树的中序遍历结果: ";
+    std::cout << "删除值后二叉排序树的中序遍历结果: ";
+
     PrintBST(root);
-    cout << endl;
+    std::cout << endl;
 }
