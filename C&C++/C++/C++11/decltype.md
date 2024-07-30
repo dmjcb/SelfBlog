@@ -5,7 +5,7 @@
  * @Email:  
  * @Date: 2022-10-26 19:54:53
  * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-19 11:59:27
+ * @LastEditTime: 2024-07-31 01:08:58
 -->
 
 # decltype
@@ -60,7 +60,6 @@ decltype 能够根据变量、字面量、带有运算符的表达式推导出�
 
 假设 exp 的类型为 T, 那么 decltype(exp) 的类型就是 T&
 
-- 一般情况
 
 ```c++
 #include <iostream>
@@ -71,11 +70,9 @@ class Student
 public:
     static int total;
 
-    std::string name;
-
     int age;
-
     float scores;
+    std::string name;
 };
 
 int Student::total = 0;
@@ -106,7 +103,7 @@ int main()
 
 按照推导规则 1, 对于一般的表达式, decltype 的推导结果就和这个表达式的类型一致
 
-- 函数调用
+### 函数调用
 
 ```c++
 // 函数声明
@@ -147,7 +144,7 @@ decltype(func_cint_rr()) y = 0;
 
 参数exp 中调用函数时需要带上括号和参数, 但这仅仅是形式, 并不会真的去执行函数代码
 
-- 参数exp 是左值, 或者被( )包围:
+### 参数exp 是左值, 或者被( )包围:
 
 ```c++
 #include <iostream>
@@ -189,7 +186,7 @@ int main()
 
 有一种很简单的方法来区分左值和右值, 对表达式取地址, 如果编译器不报错就为左值, 否则为右值
 
-## 实际应用
+## 应用
 
 auto 只能用于类的静态成员, 不能用于类的非静态成员(普通成员)
 
@@ -240,7 +237,6 @@ public:
         m_it = container.begin();
     }
 private:
-    //  注意这里
     decltype(T().begin()) m_it;
 };
 ```

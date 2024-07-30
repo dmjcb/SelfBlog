@@ -5,11 +5,10 @@
  * @Email:  
  * @Date: 2022-09-29 23:05:52
  * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-01 16:35:51
+ * @LastEditTime: 2024-07-31 01:09:28
 -->
 
 # new与malloc区别
-
 
 - [C++ 中 malloc 和 new 的区别](https://murphypei.github.io/blog/2021/03/malloc-new-diff.html)
 
