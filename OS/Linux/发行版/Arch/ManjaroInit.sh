@@ -79,26 +79,6 @@ set_node(){
 }
 
 
-set_proxy(){
-    url="https://service-33p4qzr4-1256078775.gz.apigw.tencentcs.com/link/905nAdJlOb1QYJZU?clash=1"
-    
-    path=".config/clash/config.yaml"
-    
-    sudo mkdir -p "${HOME}/.config/clash"
-
-    sudo wget ${url} -O "${HOME}/${path}"
- 
-    sudo docker run -itd \
-        -p 7890:7890 -p 7891:7891 -p 9090:9090 \
-        --mount type=bind, source="${HOME}/${path}", target="/root/${path}", readonly \
-        --restart=unless-stopped \
-        --name=clash_test \
-        dreamacro/clash:v1.8.0 
-    # https://clash.razord.top/ 
-    # https://www.woccloud.io/
-}
-
-
 set_python(){
     pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
 

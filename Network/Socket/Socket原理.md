@@ -14,8 +14,6 @@
 
 ![](/.imgur/2023-11-21-23-28.svg)
 
-
-
 ```mermaid
 sequenceDiagram
     participant Client
