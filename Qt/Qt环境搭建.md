@@ -52,13 +52,11 @@ sudo apt install qml-module-qtquick-controls2
 sudo apt install qml-module-qtquick-dialogs
 ```
 
-
 ## Windows
 
-
 ### 离线安装
-[QT5.14下载地址](https://download.qt.io/archive/qt/5.14/5.14.0/qt-opensource-windows-x86-5.14.0.exe)
 
+[QT5.14下载地址](https://download.qt.io/archive/qt/5.14/5.14.0/qt-opensource-windows-x86-5.14.0.exe)
 
 ### 在线安装
 

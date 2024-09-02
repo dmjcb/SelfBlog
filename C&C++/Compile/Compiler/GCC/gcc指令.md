@@ -17,6 +17,7 @@
 ```sh
 gcc main.c -fPIC -shared -o main.so
 ```
+
 - fPIC
 
 创建与地址无关的编译程序 (pic, position independent code),为了能够在多个应用程序间共享

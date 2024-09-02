@@ -10,17 +10,7 @@
 
 # Winodws设置
 
-## 设置Host
 
-```sh
-C:\Windows\System32\drivers\etc\host
-```
-
-## 关闭window defener
-
-```sh
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORD /f
-```
 
 ## MBR->GPT
 
@@ -37,3 +27,22 @@ clean
 # 转换位gpt分区
 convert gpt
 ```
+
+## 系统设置
+
+### 设置Host
+
+```sh
+C:\Windows\System32\drivers\etc\host
+```
+
+### 关闭window defener
+
+```sh
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORD /f
+```
+
+
+### 关闭win10搜索栏热门搜索
+
+[win10搜索栏热门搜索](https://blog.csdn.net/onecdll/article/details/137139604)

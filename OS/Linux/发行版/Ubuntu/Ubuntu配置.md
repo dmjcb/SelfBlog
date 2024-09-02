@@ -159,47 +159,6 @@ EOF
 source ~/.bashrc
 ```
 
-### QQ Wechat
-
-```sh
-#!/bin/bash
-
-xhost +
-
-docker run -itd                                     \
-   --name qq                                        \
-   --device /dev/snd                                \
-   --ipc="host"                                     \
-   -v ${HOME}/QQ/TencentFiles:/TencentFiles         \
-   -v /tmp/.X11-unix:/tmp/.X11-unix                 \
-   -e XMODIFIERS=@im=fcitx                          \
-   -e QT_IM_MODULE=fcitx                            \
-   -e GTK_IM_MODULE=fcitx                           \
-   -e DISPLAY=unix$DISPLAY                          \
-   -e AUDIO_GID=$(getent group audio | cut -d: -f3) \
-   -e VIDEO_GID=$(getent group video | cut -d: -f3) \
-   -e GID=$(id -g)                                  \
-   -e UID=$(id -u)                                  \
-   bestwu/qq:office
-
-
-docker run -itd                                     \
-   --name wechat                                    \
-   --device /dev/snd                                \
-   --ipc="host"                                     \
-   -v /tmp/.X11-unix:/tmp/.X11-unix                 \
-   -v ${HOME}/WeChatFiles:/WeChatFiles              \
-   -e XMODIFIERS=@im=fcitx                          \
-   -e QT_IM_MODULE=fcitx                            \
-   -e GTK_IM_MODULE=fcitx                           \
-   -e DISPLAY=unix$DISPLAY                          \
-   -e AUDIO_GID=$(getent group audio | cut -d: -f3) \
-   -e VIDEO_GID=$(getent group video | cut -d: -f3) \
-   -e GID=$(id -g)                                  \
-   -e UID=$(id -u)                                  \
-   bestwu/wechat
-```
-
 ## 分辨率设置
 
 [解决 Ubuntu 22.04 Fractional Scaling 画面伸缩后应用程序模糊](https://blog.csdn.net/wu_weijie/article/details/126401259)
