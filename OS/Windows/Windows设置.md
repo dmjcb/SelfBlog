@@ -44,3 +44,13 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "Di
 ### 关闭win10搜索栏热门搜索
 
 [win10搜索栏热门搜索](https://blog.csdn.net/onecdll/article/details/137139604)
+
+### 关闭防火墙
+
+regedit 打开注册表
+
+```
+计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mpsSvc
+```
+
+右边的Start 改成4
