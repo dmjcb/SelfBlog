@@ -1,11 +1,8 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-10-06 13:11:32
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-19 12:02:20
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-10-06 13:11:32
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-04 18:43:29
 -->
 
 # Docker网络
@@ -23,7 +20,6 @@ Docker进程启动时会在主机上创建虚拟网桥 $docker0$, 处于七层�
 docker默认的网络模式, 为容器创建独立的网络命名空间, 容器具有独立的网卡等所有单独的网络栈
 
 桥接模式下创建容器, $docker0$ 会创建一组对等虚拟设备接口 $veth$ 与 容器内部虚拟网卡$eth0$
-
 
 ![](/.imgur/2024_09_03_22_55_53.jpg)
 

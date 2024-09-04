@@ -1,12 +1,10 @@
 /*
- * @Description: RunKruskal Demo
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2024-02-13 19:00:24
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-30 13:01:40
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2024-08-27 00:16:31
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-05 00:34:57
  */
+
 
 #include <iostream>
 #include <algorithm>
@@ -15,7 +13,10 @@
 #include <set>
 
 
-// defintion of Line
+/**
+ * @brief: defintion of Line
+ * @return {*}
+ */
 typedef struct Line
 {
     std::string startNode = "";
@@ -34,10 +35,14 @@ typedef struct Line
 } Line;
 
 
-// defintion of Graph
+/**
+ * @brief: defintion of Graph
+ * @return {*}
+ */
 class Graph
 {
 public:
+
     Graph(std::vector<Line> lines)
     {
         mLines = std::move(lines);
@@ -57,6 +62,11 @@ public:
         }
     };
 
+    /**
+     * @brief 
+     * @param {string} node
+     * @return {*}
+     */        
     std::string Find(std::string node)
     {
         if (mParent[node] == node)

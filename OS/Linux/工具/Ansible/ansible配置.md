@@ -18,8 +18,9 @@ Ansible本质是在多设备按情况(判断循环)指定每台设备要执行�
 
 ## 安装
 
+新增 epel-release 第三方套件来源, 安装Ansible
+
 ```sh
-# 新增 epel-release 第三方套件来源, 安装Ansible
 yum install -y epel-release ansible
 
 # 配置文件/etc/ansible/ansible.cfg
