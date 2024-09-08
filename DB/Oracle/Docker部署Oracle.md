@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Autor: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:34
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-05-19 23:28:02
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-01-16 17:59:34
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:43:42
 -->
 
 # Docker部署Oracle
@@ -13,13 +11,8 @@
 ## 指令
 
 ```sh
-docker run -itd  \
-    --name=orace \
-    -p 8080:8080 \
-    -p 1521:1521 \
-    truevoly/oracle-12c
+docker run -itd --name=orace -p 8080:8080 -p 1521:1521 truevoly/oracle-12c
 ```
-
 
 ## 指令
 

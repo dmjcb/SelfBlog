@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Autor: dmjcb
- * @Email:  
- * @Date: 2021-01-24 15:25:28
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-19 14:04:13
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-01-24 15:25:28
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:44:35
 -->
 
 # Readis
@@ -73,11 +71,7 @@ requirepass 123456
 - 拉取容器
 
 ```sh
-docker run -itd                              \
-    -p 6379:6379                             \
-    -v $PWD/redis.conf:/etc/redis/redis.conf \
-    --name redis-test                        \
-    redis
+docker run -itd --name redis-test -p 6379:6379 -v $PWD/redis.conf:/etc/redis/redis.conf redis
 ```
 
 ```sh

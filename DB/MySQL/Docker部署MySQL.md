@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Autor: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:34
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-06 23:49:14
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-01-16 17:59:34
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:42:28
 -->
 
 # Docker部署MySQL
@@ -13,16 +11,10 @@
 ## 指令
 
 ```sh
-docker run -itd                  \
-    --name=mysql                 \
-    -p 3306:3306                 \
-    -v $PWD/mysql:/var/lib/mysql \
-    # 建立普通用户
-    -e MYSQL_USER=dmjcb          \
-    # 设置用户密码
-    -e MYSQL_PASSWORD=456        \
-    # 设置root用户密码
-    -e MYSQL_ROOT_PASSWORD=123   \
+docker run -itd --name=mysql_test                    \
+    -p 3306:3306                                     \
+    -v $PWD/mysql:/var/lib/mysql                     \
+    -e MYSQL_PASSWORD=456 -e MYSQL_ROOT_PASSWORD=123 \
     mysql:5.7
 ```
 

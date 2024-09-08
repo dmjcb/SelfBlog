@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:35
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-04 01:19:32
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-01-16 17:59:35
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:42:52
 -->
 
 # MySQL事务

@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-10-06 13:11:32
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-06-06 16:15:16
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-10-06 13:11:32
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:43:24
 -->
 
 # MySQL 授权

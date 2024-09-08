@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-02-04 23:48:41
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-07 02:02:37
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2021-02-04 23:48:41
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:46:43
 -->
 
 # Docker部署SQLServer
@@ -13,14 +11,7 @@
 ## 部署
 
 ```sh
-# 用户名 SA
-# 密码 dmjcb@13546!
-docker run -itd                   \
-    -e "ACCEPT_EULA=Y"            \
-    -e "SA_PASSWORD=dmjcb@13546!" \
-    -p 1433:1433                  \
-    --name sqlserver2019          \
-    registry.cn-hangzhou.aliyuncs.com/vex/sqlserver:v1
+docker run -itd -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=dmjcb@13546!" -p 1433:1433 --name sqlserver2019 sqlserver
 ```
 
 ## 命令
@@ -49,7 +40,6 @@ GO
 
 ![](/.imgur/2020-10-12_13-09-31.jpg)
 
-别忘记输入`GO`, 那样才会执行命令(反人类的SQLServer)
 
 ## Python 交互
 
@@ -57,7 +47,7 @@ GO
 
 ![](/.imgur/20201012105710.png)
 
-注意:反人类的SQLServer的主机地址需写为: `ip, 端口`, 注意是`逗号`
+主机地址需写为: `ip, 端口`, 注意是`逗号`
 
 ![](/.imgur/20201012130100.png)
 

@@ -1,15 +1,12 @@
 <!--
- * @Description指令
- * @Version: 1.0
- * @Author: dmjcb
- * @Email: 
- * @Date: 2023-09-16 16:02:42
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-06-10 17:57:47
+ * @Brief        : 
+ * @Author       : dmjcb@outlook.com
+ * @Date         : 2023-09-16 16:02:42
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-07 00:47:17
 -->
 
 # CMake命令
-
 
 ## 实例
 
@@ -23,7 +20,6 @@ int main(void) {
 
     return 0;
 }
-
 ```
 
 - CMakeLists.txt
