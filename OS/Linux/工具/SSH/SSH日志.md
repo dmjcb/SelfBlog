@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-03-10 10:19:22
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:28:56
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-03-10 10:19:22
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-12 16:31:49
 -->
 
 # SSH信息

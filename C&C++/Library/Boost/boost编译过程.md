@@ -1,4 +1,11 @@
 <!--
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-09-10 02:06:36
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-11 22:37:14
+-->
+<!--
  * @Description: 
  * @Version: 1.0
  * @Author: dmjcb
@@ -16,13 +23,15 @@
 
 下载指定版本源码, 此处以boost_1_80_0.tar.bz2为例
 
+## Linux
+
 ### 解压
 
 ```sh
 sudo tar -jxvf boost_1_80_0.tar.bz2
 ```
 
-## 编译
+### 编译
 
 ```sh
 cd boost_1_80_0
@@ -40,6 +49,18 @@ sudo ./bootstrap.sh
 sudo ./b2 --buildtype=complete install
 ```
 
+## Windows
+
+### VS2022编译
+
+进入运行
+
+![](/.imgur/20240911_223643.jpg)
+
+```
+b2.exe install --build-type=complete --toolset=msvc-14.3 threading=multi --build-type=complete address-model=64
+```
+
 ## 测试
 
 ```c++
@@ -53,14 +74,6 @@ int main() {
 }
 ```
 
-编译验证
-
-```sh
-g++ test.cpp -o test
-
-# Boost 版本108000
-./test
-```
 
 ## 参考
 

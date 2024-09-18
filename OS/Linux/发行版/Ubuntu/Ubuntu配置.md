@@ -1,13 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-07-15 11:40:19
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-09-16 16:18:19
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-22 18:19:06
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2023-09-16 16:18:19
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-12 16:15:41
 -->
 
 # Ubuntu系统配置

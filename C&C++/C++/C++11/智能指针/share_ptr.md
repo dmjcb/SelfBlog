@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-03-27 21:36:47
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-31 00:57:38
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-03-27 21:36:47
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-10 22:29:01
 -->
 
 # shared_ptr
@@ -24,7 +22,7 @@ std::shared_ptr<T> p;
 std::make_shared<T>
 ```
 
-- 指向一块10 个 int 类型数据的堆内存空间
+- 指向一块 10 个 int 类型数据的堆内存空间
 
 ```c
 std::shared_ptr<int> p = std::make_shared<int>(10);
@@ -32,7 +30,7 @@ std::shared_ptr<int> p = std::make_shared<int>(10);
 
 ## 引用
 
-### 查看引用个数
+### 查看引用数
 
 ```c
 use_count()
@@ -53,7 +51,7 @@ int main()
 }
 ```
 
-## 获取指针并且不增加引用个数
+## 获取指针且不增加引用数
 
 ```c
 get()

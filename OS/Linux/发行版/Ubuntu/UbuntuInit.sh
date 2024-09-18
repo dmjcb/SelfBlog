@@ -1,15 +1,12 @@
 #!/bin/bash
 
 ###
- # @Description: 
- # @Version: 1.0
- # @Author: dmjcb
- # @Email:  
- # @Date: 2021-07-10 13:27:20
- # @LastEditors: dmjcb
- # @LastEditTime: 2024-06-10 16:52:35
+ # @Brief        : 
+ # @Author       : dmjcb
+ # @Date         : 2021-07-10 13:27:20
+ # @LastEditors  : dmjcb@outlook.com
+ # @LastEditTime : 2024-09-12 16:21:34
 ### 
-
  
 init_system(){
     sudo sed -i 's#security.ubuntu.com#mirrors.aliyun.com#g' /etc/apt/sources.list

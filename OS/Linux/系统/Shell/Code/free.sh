@@ -1,13 +1,10 @@
 #! /bin/bash
-
 ###
- # @Description: 
- # @Version: 1.0
- # @Author: dmjcb
- # @Email:  
- # @Date: 2022-07-09 23:24:40
- # @LastEditors: dmjcb
- # @LastEditTime: 2023-05-07 00:13:57
+ # @Brief        : 
+ # @Author       : dmjcb
+ # @Date         : 2022-07-09 23:24:40
+ # @LastEditors  : dmjcb@outlook.com
+ # @LastEditTime : 2023-05-07 00:13:57
 ### 
 
 # Memory小于400M时 释放Cached的内存

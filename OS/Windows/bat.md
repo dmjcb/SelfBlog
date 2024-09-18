@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-10-26 22:19:58
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:49:21
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-10-26 22:19:58
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-12 16:38:12
 -->
 
 # bat

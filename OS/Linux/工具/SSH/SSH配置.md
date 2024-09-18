@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-03-14 13:31:07
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-05-19 22:08:26
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-03-14 13:31:07
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-12 16:29:24
 -->
 
 # SSH

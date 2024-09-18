@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-03-11 11:44:56
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-06 23:41:11
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-03-11 11:44:56
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-12 16:35:27
 -->
 
 # inode
@@ -50,11 +48,11 @@ OS读取硬盘时为提高效率, 会一次性连续读取多个扇区
 
 - 文件的时间戳
 
-    ctime指inode上一次变动的时间
+ctime指inode上一次变动的时间
 
-    mtime指文件内容上一次变动的时间
+mtime指文件内容上一次变动的时间
 
-    atime指文件上一次打开的时间
+atime指文件上一次打开的时间
 
 - 链接数, 即有多少文件名指向这个inode
 
