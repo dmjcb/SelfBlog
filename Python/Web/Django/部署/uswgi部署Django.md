@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-02-03 13:54:04
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:16:38
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-02-03 13:54:04
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-20 00:57:16
 -->
 
 # uwsgi部署Django

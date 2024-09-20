@@ -1,15 +1,13 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: 
- * @Email: 
- * @Date: 2023-11-09 21:31:16
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-07 01:42:27
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2023-11-09 21:31:16
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-20 00:53:03
 -->
 
-# VS2022使用DLL
 
+# VS2022使用DLL
 
 ## 开发
 

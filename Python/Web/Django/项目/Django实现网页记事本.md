@@ -10,10 +10,6 @@
 
 # Django网页笔记本
 
-## 完整代码
-
-> https://github.com/dmjcb-Li/WebNotepad-Django.git
-
 ## 运行结果
 
 ![](/.imgur/20200809153325.png)

@@ -3,14 +3,14 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2021-02-13 19:00:24
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-07 00:40:22
+ * @LastEditTime : 2024-09-20 00:56:00
 -->
 
 # MongoDB 部署
 
 ## 创建
 
-### 创建容器
+### 容器
 
 ```sh
 docker run -itd --name mongo -p 27017:27017 mongo --auth 
@@ -20,7 +20,7 @@ docker exec -it mongo mongo admin
 
 ![](/.imgur/20220112183733.png)
 
-### 创建用户
+### 用户
 
 创建名为 admin, 密码为 123456 的用户
 
@@ -38,7 +38,7 @@ db.auth(用户名, 密码)
 
 ![](/.imgur/20220112184110.png)
 
-## 命令
+## 操作
 
 ### 数据库
 
