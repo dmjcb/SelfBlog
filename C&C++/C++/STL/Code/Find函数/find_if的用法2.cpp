@@ -1,3 +1,11 @@
+/*
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-09-10 02:06:36
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-22 01:42:45
+ */
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -8,7 +16,7 @@ using namespace std;
 class Student {
     public:
         Student() {}
-        Student(string iname,float iscore):name(iname),score(iscore) {}
+        Student(string iname, float iscore):name(iname),score(iscore) {}
         ~Student() {}
 
         string name;
@@ -20,34 +28,20 @@ class StudentAdapter:public unary_function<Student,bool> {
         string name;
     public:
         explicit StudentAdapter(string iname):name(iname) {}
-        //重载()运算符
-        bool operator()(const Student& student) {
-            return (student.name==name);
+        // 重载()运算符
+        bool operator()(const Student& s) {
+            return s.name == name;
         }
 };
 
 int main() {
-    vector<Student> v;
-    vector<Student>::iterator it;
-    Student stu1("lanzhihui",89.1);
-    Student stu2("wangdan",89.2);
-    Student stu3("wangqian",89.3);
-    v.push_back(stu1);
-    v.push_back(stu2);
-    v.push_back(stu3);
+    vector<Student> v = {Student("A",89.1), Student("B",89.1), Student("C",89.1)};
 
-    for(it=v.begin(); it!=v.end(); ++it) {
-        cout<<it->name<<" "<<it->score<<endl;
-    }
-    cout<<endl;
-    cout<<"输入名字"<<endl;
-    string str;
-    cin>>str;
-    //实验find_if
-    it=find_if(v.begin(),v.end(),StudentAdapter(str));
+    string str = "";
 
-    if(it!=v.end()) {
-        cout<<"找到了"<<endl;
+    auto it = std::find_if(v.begin(),v.end(),StudentAdapter(str));
+
+    if(it != v.end()) {
         cout<<it->name<<" "<<it->score<<endl;
     }
 

@@ -40,8 +40,8 @@ std::cin
 
 - 回车结束输入
 
-```c
-vector<T> v;
+```c++
+std::vector<T> v;
 
 T value;
 
@@ -126,7 +126,6 @@ ofstream out(path, ios::out|ios::app);
 ```c
 const std::string path = "main.txt";
 
-
 ofstream out(path, ios::out|ios::app);
 
 out << "Hello ";
@@ -144,7 +143,6 @@ write()
 uint32_t value = 0xFF00FF00;
 
 const std::string path = "image.rgb";
-
 
 ofstream out(path, ios::out|ios::app);
 
@@ -173,16 +171,16 @@ sstream
 - stringstream 读写string 可用于数据类型转换
 
 ```c++
-template <class T, class V>
-void change_type(T &target, V &source)
+template <class SourceType, class TargetType>
+void ChangeType(SourceType &source, TargetType &target)
 {
-    std::stringstream stream;
+    std::stringstream ss;
 
-    stream << source;
-    stream >> target;
+    ss << source;
+    ss >> target;
 
-    stream.str("");
-    stream.clear();
+    ss.str("");
+    ss.clear();
 }
 ```
 
@@ -199,7 +197,7 @@ int main()
 
     int32_t target = 0;
 
-    change_type(target, source);
+    ChangeType(source, target);
 
     // 123456
     std::cout << target << std::endl;

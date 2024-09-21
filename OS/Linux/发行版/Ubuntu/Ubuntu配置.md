@@ -3,14 +3,14 @@
  * @Author       : dmjcb
  * @Date         : 2023-09-16 16:18:19
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-12 16:15:41
+ * @LastEditTime : 2024-09-22 01:29:43
 -->
 
 # Ubuntu系统配置
 
 ## 设置回收站
 
-> [Trash-Cli：Linux 上的命令行回收站工具](https://zhuanlan.zhihu.com/p/44948578)
+> [Trash-Cliz: Linux 上的命令行回收站工具](https://zhuanlan.zhihu.com/p/44948578)
 
 - 安装
 

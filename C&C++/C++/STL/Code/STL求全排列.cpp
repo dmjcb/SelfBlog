@@ -1,4 +1,4 @@
-/*即求括号中内容的下一个排列。如：a[4]={1,2,3,4}.next_permutation(a,a+4) 即为1,2,4,3.*/
+/*即求括号中内容的下一个排列如：a[4]={1,2,3,4}.next_permutation(a,a+4) 即为1,2,4,3.*/
 #include<iostream>
 #include<algorithm>
 using namespace std;

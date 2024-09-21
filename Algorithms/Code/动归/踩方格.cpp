@@ -7,8 +7,8 @@
  * @LastEditors: dmjcb
  * @LastEditTime: 2022-03-29 22:03:51
  */
-// 一个无限大的方格矩阵,能向北、东、西三个方向走。
-// 问走N步共有多少种不同的方案。
+// 一个无限大的方格矩阵,能向北、东、西三个方向走
+// 问走N步共有多少种不同的方案
 #include <iostream>
 using namespace std;
 /*Ii = Ni+Ei+Wi;Ni=Ni-1+Ei-1+Wi-1;

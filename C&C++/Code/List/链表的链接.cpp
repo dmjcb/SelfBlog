@@ -16,7 +16,7 @@ struct student
     struct student *next;
 };
 
-// 程序首先完成创建两个链表,要求补充完成实现将第二个链表合并到第一个链表未尾的函数。
+// 程序首先完成创建两个链表,要求补充完成实现将第二个链表合并到第一个链表未尾的函数
 struct student *merge(struct student *head, struct student *head1)
 {
     struct student *g_St;

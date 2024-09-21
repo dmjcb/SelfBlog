@@ -11,7 +11,7 @@ int main()
         scanf("%d", &temp);
         v.push_back(temp);
     }
-    //只读迭代器
+    // 只读迭代器
     for (vector<int>::const_iterator iter = v.begin(); iter != v.end(); iter++)
     {
         printf("%d ", *iter);
