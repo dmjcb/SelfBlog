@@ -10,15 +10,15 @@
 
 # String
 
-## c_str
+## 函数
+
+### c_str
 
 ```c
 const char* c_str() const
 ```
 
 返回一个指向正规C字符串的指针常量, 内容与本string串相同
-
-## 函数
 
 ### getline
 

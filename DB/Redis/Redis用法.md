@@ -3,7 +3,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2021-01-24 15:25:28
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-07 00:44:35
+ * @LastEditTime : 2024-09-23 00:04:48
 -->
 
 # Readis
@@ -54,9 +54,11 @@ CONFIG set requirepass "密码"
 CONFIG get requirepass
 ```
 
-## Docker部署
+## 使用
 
-### 允许远程访问
+### Docker部署
+
+#### 允许远程访问
 
 - 新建redis.conf
 
@@ -78,13 +80,13 @@ docker run -itd --name redis-test -p 6379:6379 -v $PWD/redis.conf:/etc/redis/red
 docker run -itd -p 6379:6379 -v $PWD/redis.conf:/etc/redis/redis.conf --name redis-server redis 
 ```
 
-### 连接
+#### 连接
 
 ```sh
 docker exec -it redis-test redis-cli
 ```
 
-## GUI软件
+### GUI软件
 
 ```sh
 sudo snap install redis-desktop-manager
