@@ -1,12 +1,11 @@
 /*
- * @Description:
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-03-29 21:57:16
- * @LastEditors: dmjcb
- * @LastEditTime: 2022-03-29 22:02:01
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         :  2022-03-29 21:57:16
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-22 22:03:08
  */
+
 
 #include <iostream>
 using namespace std;

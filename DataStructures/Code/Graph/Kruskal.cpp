@@ -1,10 +1,10 @@
 /*
- * @Author       : dmjcb@outlook.com
+ * @Brief        : 
+ * @Author       : dmjcb
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-05 00:34:57
+ * @LastEditTime : 2024-09-22 21:54:02
  */
-
 
 #include <iostream>
 #include <algorithm>
@@ -22,7 +22,6 @@ typedef struct Line
     std::string startNode = "";
     std::string endNode = "";
     double weight;
-
     bool isSelect;
 
     Line(std::string startNode, std::string endNode, double weight)
@@ -96,7 +95,7 @@ public:
         mParent[Find(node1)] = Find(node2);
     }
 
-    void PrintResult()
+    void PrintResult() const
     {
         for (auto line : mLines)
         {
@@ -127,6 +126,7 @@ public:
 
 private:
     std::map<std::string, std::string> mParent;
+
     std::vector<Line> mLines;
 };
 
