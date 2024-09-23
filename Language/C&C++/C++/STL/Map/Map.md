@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-08-18 16:22:55
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-06 20:44:32
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-08-18 16:22:55
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-23 14:27:14
 -->
 
 # Map
@@ -13,8 +11,8 @@
 ## 定义
 
 ```c++
-template <class T, class V>
-std::map<T, V> m;
+template <class Key, class Value>
+std::map<Key, Value> m;
 ```
 
 ## 插入
@@ -54,11 +52,7 @@ for (auto &[k, v] : m) {
 #include <map>
 
 int main(void) {
-    std::map<std::string, int32_t> m = {
-        {"Wang", 20},
-        {"Li", 22},
-        {"Deng", 19}
-    };
+    std::map<std::string, int32_t> m = { {"Wang", 20}, {"Li", 22}, {"Deng", 19} };
 
     for (auto &[k, v] : m) {
         std::cout << k << ", " << v << std::endl;

@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:34
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 09:25:27
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-01-16 17:59:34
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-23 14:32:00
 -->
 
 # Numpy
@@ -16,14 +14,14 @@
 numpy.array(object, dtype = None, copy = True, order = None, subok = False, ndmin = 0)
 ```
 
-| 名称   | 描述                                                       |
-| ------ | ---------------------------------------------------------- |
-| object | 数组或嵌套的数列                                           |
-| dtype  | 数组元素的数据类型, 可选                                   |
-| copy   | 对象是否需要复制, 可选                                     |
+| 名称   | 描述                                                    |
+| ------ | ------------------------------------------------------ |
+| object | 数组或嵌套的数列                                        |
+| dtype  | 数组元素的数据类型, 可选                                 |
+| copy   | 对象是否需要复制, 可选                                   |
 | order  | 创建数组的样式, C 为行方向, F 为列方向, A 为任意方向(默认) |
-| subok  | 默认返回一个与基类类型一致的数组                           |
-| ndmin  | 指定生成数组的最小维度                                     |
+| subok  | 默认返回一个与基类类型一致的数组                          |
+| ndmin  | 指定生成数组的最小维度                                   |
 
 ### 单维度
 

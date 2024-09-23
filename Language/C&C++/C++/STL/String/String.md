@@ -1,16 +1,14 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-01-13 12:21:39
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-21 21:37:28
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-01-13 12:21:39
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-23 14:28:38
 -->
 
 # String
 
-## 函数
+## 接口
 
 ### c_str
 
@@ -37,11 +35,10 @@ getline(std::cin, str);
 #include<string>
 
 int main() {
-    int sum = 0;
-    std::string s1;
-    std::string s2;
+    std::string s1 = "abcdef";
+    std::string s2 = "abc";
 
-    std::cin >> s1 >> s2;
+    int sum = 0;
     for(int i = 0; i < s1.size(); i++){
         if(s1.find(s2, i) != std::string::npos){
             sum++;
