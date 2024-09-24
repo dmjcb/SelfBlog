@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-07-06 20:08:07
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-05 02:23:42
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-07-06 20:08:07
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-24 23:05:44
 -->
 
 # Winodws设置
@@ -39,7 +37,6 @@ C:\Windows\System32\drivers\etc\host
 ```sh
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORD /f
 ```
-
 
 ### 关闭win10搜索栏热门搜索
 

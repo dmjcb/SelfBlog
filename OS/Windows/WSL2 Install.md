@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Autor: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:34
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-12-03 00:40:54
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-01-16 17:59:34
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-24 23:06:12
 -->
 
 # WSL2
