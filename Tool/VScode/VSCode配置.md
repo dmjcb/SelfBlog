@@ -101,8 +101,3 @@ highlight-icemode
 | 当前行上/下移        | <kbd>Alt</kbd> + <kbd>↑</kbd> / <kbd>Alt</kbd> + <kbd>↓</kbd>                                |
 | 删除当前行           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>                                            |
 | 切换行注释           | <kbd>Ctrl</kbd> + <kbd>/</kbd>                                                               |
-
-
-## 图床
-
-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
