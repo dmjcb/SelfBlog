@@ -48,7 +48,7 @@ datas=[('./static', 'static'), ('./templates', 'templates')],
 pyinstaller -F *.spec
 ```
 
-![](/.imgur/20211230223519.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211230223519.png)
 
 ## 参考
 

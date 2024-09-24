@@ -12,15 +12,15 @@
 
 ## 效果
 
-![](/.imgur/20200526231712.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200526231712.png)
 
-![](/.imgur/20200526231734.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200526231734.png)
 
-![](/.imgur/20200526231855.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200526231855.png)
 
 - 项目结构
 
-![](/.imgur/20200526233425.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200526233425.png)
 
 ## head 部分
 

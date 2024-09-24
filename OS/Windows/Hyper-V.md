@@ -35,7 +35,7 @@ Hypervisor不但协调着这些硬件资源的访问, 也同时在各个虚拟�
 
 - 运行效率高
 
-![](/.imgur/20210207190941.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207190941.png)
 
 ## 寄居或托管hypervisor
 
@@ -47,7 +47,7 @@ Hypervisor不但协调着这些硬件资源的访问, 也同时在各个虚拟�
 
 - 运行效率一般较原生低
 
-![](/.imgur/20210207191615.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207191615.png)
 
 ## Hyper-v
 
@@ -59,7 +59,7 @@ Hypervisor不但协调着这些硬件资源的访问, 也同时在各个虚拟�
 Get-VM
 ```
 
-![](/.imgur/20210207140309.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207140309.png)
 
 此处虚拟机名为CentOS 7
 
@@ -67,7 +67,7 @@ Get-VM
 Get-VMProcessor -VMName 虚拟机名 | fl
 ```
 
-![](/.imgur/20210207140508.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207140508.png)
 
 显示嵌套虚拟化选项值为False
 
@@ -77,7 +77,7 @@ Set-VMProcessor -ExposeVirtualizationExtensions $true -VMName 虚拟机名
 
 正常情况没有输出
 
-![](/.imgur/20210207140853.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207140853.png)
 
 ### Vmware于Hyper共存
 

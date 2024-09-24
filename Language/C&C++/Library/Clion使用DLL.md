@@ -14,21 +14,21 @@
 
 建立一个 C Library 项目 hello
 
-![](/.imgur/20201028180820.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201028180820.png)
 
 library.c 文件中已有默认代码
 
-![](/.imgur/20201028181141.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201028181141.png)
 
 <kbd>ctrl</kbd> + <kbd>F9</kbd> 编译, 右侧生成了 libhello.dll 文件
 
-![](/.imgur/2020-10-28_18-10-58.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2020-10-28_18-10-58.jpg)
 
 ## 调用
 
 另建立一个项目 Demo, 在其根目录下建立 lib 目录, 将上一步生成的 dll 文件拷入
 
-![](/.imgur/20201028182033.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201028182033.png)
 
 main.cpp 内写入
 
@@ -76,9 +76,9 @@ target_link_libraries(Demo libhello.dll)
 
 编辑 Configurations, 设置 Environment variables, 值为 lib 目录的绝对路径
 
-![](/.imgur/20201028184033.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201028184033.png)
 
-![](/.imgur/20201028184425.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201028184425.png)
 
 ## 测试
 
@@ -146,7 +146,7 @@ int main() {
 }
 ```
 
-![](/.imgur/2020-10-28_19-40-47.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2020-10-28_19-40-47.jpg)
 
 ## Python 调用
 
@@ -160,7 +160,7 @@ print(pdll.add(1, 3))
 pdll.hello()
 ```
 
-![](/.imgur/20210120113618.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210120113618.png)
 
 ## dll 与 lib的区别
 

@@ -44,11 +44,11 @@
 
 新建VMnet10网卡
 
-![](/.imgur/20210325105620.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325105620.png)
 
-![](/.imgur/20210325105957.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325105957.png)
 
-![](/.imgur/20210325110230.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325110230.png)
 
 安装DHCP服务
 
@@ -83,18 +83,18 @@ subnet 192.168.100.0 netmask 255.255.255.0{
 systemctl start dhcpd
 ```
 
-![](/.imgur/20210325112141.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325112141.png)
 
 可以看到已经在监听相应的IP段
 
 配置虚拟网络编辑器, 关闭VMnet10的"使用本地DHCP服务器的选项"
 
-![](/.imgur/20210325112452.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325112452.png)
 
 重新开启一台主机, 选择VMnet10网卡
 
-![](/.imgur/20210325112725.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325112725.png)
 
 开机查看IP地址
 
-![](/.imgur/20210325113017.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210325113017.png)

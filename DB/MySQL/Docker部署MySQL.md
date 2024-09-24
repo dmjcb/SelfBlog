@@ -34,11 +34,11 @@ grant all privileges on *.* to '用户名'@'%' identified by '密码';
 flush privileges;
 ```
 
-![](/.imgur/20211227135258.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211227135258.png)
 
 目录映射到宿主机下
 
-![](/.imgur/2021-12-27_13-55-02.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-12-27_13-55-02.jpg)
 
 ## 常见问题
 

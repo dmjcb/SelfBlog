@@ -16,7 +16,7 @@
 platform.system()
 ```
 
-![](/.imgur/20211217223115.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211217223115.png)
 
 - 获取操作系统名称及版本号
 
@@ -24,7 +24,7 @@ platform.system()
 platform.platform()
 ```
 
-![](/.imgur/20211217223143.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211217223143.png)
 
 - 获取操作系统版本号
 
@@ -32,7 +32,7 @@ platform.platform()
 platform.version()
 ```
 
-![](/.imgur/20211217223210.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211217223210.png)
 
 - 获取操作系统位数
 
@@ -40,7 +40,7 @@ platform.version()
 platform.architecture()
 ```
 
-![](/.imgur/20211217223239.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211217223239.png)
 
 - 获取操作系统信息
 
@@ -48,4 +48,4 @@ platform.architecture()
 platform.uname()
 ```
 
-![](/.imgur/20211217223509.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211217223509.png)

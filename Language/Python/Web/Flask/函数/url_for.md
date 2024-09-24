@@ -33,4 +33,4 @@ def test(name):
     return name
 ```
 
-![](/.imgur/20211001235447.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211001235447.png)

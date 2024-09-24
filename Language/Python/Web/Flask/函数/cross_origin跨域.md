@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
 使用 F12 进入控制台后发现如下错误
 
-![](/.imgur/20200722234713.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200722234713.png)
 
 通过查询此为跨域问题, 所以需设置Flask允许跨域
 
@@ -102,8 +102,8 @@ if __name__ == '__main__':
     app.run()
 ```
 
-![](/.imgur/20200722235455.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200722235455.png)
 
-![](/.imgur/20200722235514.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200722235514.png)
 
 

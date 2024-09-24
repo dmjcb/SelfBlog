@@ -22,11 +22,11 @@
 
     在平衡因子大于 $1$ 时, 会通过旋转来调整树的结构, 以重新满足平衡因子不超过$1$
 
-![](/.imgur/2022-3-26-2311.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2311.svg)
 
 标记平衡因子
 
-![](/.imgur/2022-3-26-2313.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2313.svg)
 
 该树为$AVL$树
 
@@ -103,7 +103,7 @@ bool IsBalance(AVLNode<T> *node) {
 - 旋转围绕最小失衡子树的根节点进行
 
 
-![](/.imgur/2022-3-26-2325.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2325.svg)
 
 原本平衡的$AVL$树插入节点$7$后导致不平衡
 
@@ -132,7 +132,7 @@ AVLNode<T> *LeftRotate(AVLNode<T> *root) {
 
 - 旋转围绕最小失衡子树的根节点进行
 
-![](/.imgur/2022-3-26-2336.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2336.svg)
 
 ```c++
 template <class T>
@@ -160,7 +160,7 @@ AVLNode<T>* RightAndLeftRotate(AVLNode<T> *&root) {
 }
 ```
 
-![](/.imgur/2022-3-26-2354.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2354.svg)
 
 红色为插入节点;绿色为最小失衡子树的根节点
 
@@ -176,6 +176,6 @@ AVLNode<T>* LeftAndRightRotate(AVLNode<T> *&root) {
 }
 ```
 
-![](/.imgur/2022-3-27-0000.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-27-0000.svg)
 
 红色为插入节点, 绿色为最小失衡子树的根节点

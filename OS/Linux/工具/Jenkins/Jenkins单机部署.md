@@ -10,7 +10,7 @@
 
 # Jenkins
 
-![](/.imgur/20210308111903.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210308111903.png)
 
 ## 安装
 
@@ -32,11 +32,11 @@ sudo wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war/2.284/jenkins.war
 java -jar -Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true  jenkins.war --httpPort=8080
 ```
 
-![](/.imgur/20210309093313.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309093313.png)
 
-![](/.imgur/20210309093347.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309093347.png)
 
-![](/.imgur/20210309094244.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309094244.png)
 
 ### Windows安装
 
@@ -69,9 +69,9 @@ docker run -itd                                  \
     jenkinsci/blueocean
 ```
 
-![](/.imgur/20210308113221.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210308113221.png)
 
-![](/.imgur/20210308113523.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210308113523.png)
 
 ## 示例
 
@@ -79,34 +79,34 @@ docker run -itd                                  \
 
 建立仓库
 
-![](/.imgur/20210309105037.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105037.png)
 
 新建Item
 
-![](/.imgur/20210309105123.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105123.png)
 
-![](/.imgur/20210309105307.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105307.png)
 
 填写git仓库地址
 
-![](/.imgur/20210309105406.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105406.png)
 
 填写构建时执行的脚本
 
-![](/.imgur/20210309105442.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105442.png)
 
 选择立即构建, 然后可以看到工作空间里的文件夹
 
-![](/.imgur/20210309105553.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105553.png)
 
 查看控制台日志发现构建成功
 
-![](/.imgur/20210309105711.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309105711.png)
 
 本地修改代码, push
 
-![](/.imgur/20210309111504.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309111504.png)
 
 再次构建项目
 
-![](/.imgur/20210309111613.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210309111613.png)

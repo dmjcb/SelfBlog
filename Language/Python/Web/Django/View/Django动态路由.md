@@ -37,9 +37,9 @@ urlpatterns = [
 
 此时可匹配`127.0.0.1:8000/dis/<字符>`这类 url, 并且<字符>部分的值将作为 dis 函数的第二个参数
 
-![](/.imgur/20200903085713.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200903085713.png)
 
-![](/.imgur/20200903091232.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200903091232.png)
 
 ### 多关键字
 
@@ -92,7 +92,7 @@ def goodbye_world(request):
 
 访问`http:127.0.0.1:8000/dis/hello_world`, 会自动调用 hello_world()
 
-![](/.imgur/20200903103754.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200903103754.png)
 
 ### 删除硬编码URL
 

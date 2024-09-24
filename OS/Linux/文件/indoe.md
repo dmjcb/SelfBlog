@@ -58,7 +58,7 @@ atime指文件上一次打开的时间
 
 - 文件数据block的位置
 
-![](/.imgur/20220401223348.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220401223348.png)
 
 ## inode作用
 
@@ -88,7 +88,7 @@ atime指文件上一次打开的时间
 df -i
 ```
 
-![](/.imgur/2021-12-27_23-28-39.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-12-27_23-28-39.jpg)
 
 - 查看文件indoe信息
   
@@ -96,7 +96,7 @@ df -i
 stat 文件
 ```
 
-![](/.imgur/20211227232930.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211227232930.png)
 
 - 查看文件的indoe号码
   
@@ -104,7 +104,7 @@ stat 文件
 ls -il
 ```
 
-![](/.imgur/20211227233018.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211227233018.png)
 
 ### indoe号码
 
@@ -116,7 +116,7 @@ indoe号码与源文件相同
 ln [源文件] [链接文件]
 ```
 
-![](/.imgur/20211227234119.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211227234119.png)
 
 - 软链接
 

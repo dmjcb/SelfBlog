@@ -24,7 +24,7 @@ Web 框架 : Django
 
 - 建立 Django 项目
 
-![](/.imgur/20200805181844.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805181844.png)
 
 ```py
 # 建立一个应用 app
@@ -33,21 +33,21 @@ python manage.py startapp app
 
 项目结构
 
-![](/.imgur/20200805182327.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182327.png)
 
 - 修改 settings.py文件
 
 在 INSTALLED_APPS 中添加刚创建的应用
 
-![](/.imgur/20200805182554.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182554.png)
 
 在 MIDDLEWARE 中注释 django.middleware.csrf.CsrfViewMiddleware
 
-![](/.imgur/20200805182720.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182720.png)
 
 修改语言与时区
 
-![](/.imgur/20200805182830.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182830.png)
 
 ## 数据库设计
 
@@ -93,7 +93,7 @@ python manage.py createsuperuser
 
 输入用户名和密码, 邮箱地址可选
 
-![](/.imgur/20200802153640.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802153640.png)
 
 ### 视图
 
@@ -101,7 +101,7 @@ python manage.py createsuperuser
 
 编辑 settings.py文件, 找到 TEMPLATES, 将新增模板的路径添加至 DIRS 项中:
 
-![](/.imgur/20200805185510.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805185510.png)
 
 在 app/templates 下新建 index.html
 
@@ -343,7 +343,7 @@ function delCallback(value) {
 }
 ```
 
-![](/.imgur/20200805190123.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805190123.png)
 
 ## 视图函数
 
@@ -418,7 +418,7 @@ urlpatterns = [
 
 运行项目, 访问http://127.0.0.1/app/, 查看
 
-![](/.imgur/20200806160425.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200806160425.png)
 
 ## 部署
 
@@ -503,4 +503,4 @@ docker build -t mydemo .
 docker run -itd -p 80:8000 --name django_test mydemo
 ```
 
-![](/.imgur/20200806190407.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200806190407.png)

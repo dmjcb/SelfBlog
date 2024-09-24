@@ -46,7 +46,7 @@ sudo add-apt-repository ppa:danielrichter2007/grub-customizer
 sudo apt-get install -y grub-customizer
 ```
 
-![](/.imgur/20210817002414.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210817002414.png)
 
 ### 美化引导页面
 

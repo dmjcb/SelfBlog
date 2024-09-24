@@ -13,7 +13,7 @@
 
 建立项目DLLTest
 
-![](/.imgur/20231109213828.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109213828.png)
 
 pch.h 与 pch.cpp分别写入
 
@@ -42,10 +42,10 @@ int add(int x, int y) {
 
 - extern "C" 声明该函数按C语言方式进行编译
 
-![](/.imgur/20231109220258.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109220258.png)
 
 
-![](/.imgur/20231109220434.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109220434.png)
 
 ## 使用
 
@@ -65,11 +65,11 @@ DLLEXPORT int add(int x, int y);
 
 ### 添加
 
-![](/.imgur/20231109221318.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109221318.png)
 
 添加.lib的路径
 
-![](/.imgur/20231109221410.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109221410.png)
 
 
 ### 运行
@@ -87,4 +87,4 @@ int main()
 }
 ```
 
-![](/.imgur/20231109221606.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109221606.png)

@@ -49,7 +49,7 @@ void hello(){
 gcc -o hellomake hellomake.c hellofunc.c -I.
 ```
 
-![](/.imgur/20211112220904.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211112220904.png)
 
 ## Makefile 1
 
@@ -58,7 +58,7 @@ hellomake: hellomake.c hellofunc.c
     gcc -o hellomake hellomake.c hellofunc.c -I.
 ```
 
-![](/.imgur/20211112222231.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211112222231.png)
 
 make命令不带参数会默认执行makefile文件中的第一条规则
 
@@ -84,7 +84,7 @@ hellofunc.o:
     $(CC) -c hellofunc.c
 ```
 
-![](/.imgur/20211112225303.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211112225303.png)
 
 ## Makefile 3
 
@@ -111,7 +111,7 @@ hellomake:hellomake.o hellofunc.o
 | `-o $@` | 将输出文件命名为上一行`:`左边的文件名 |
 | `$<`    | 依赖列表中首项                        |
 
-![](/.imgur/20211113010244.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211113010244.png)
 
 ## Makefile 4
 

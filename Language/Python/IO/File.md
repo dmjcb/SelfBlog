@@ -21,7 +21,7 @@ if os.path.exists(path):
     return
 ```
 
-![](/.imgur/20211225130907.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211225130907.png)
 
 ### 创建临时文件
 
@@ -46,7 +46,7 @@ with open(path, 'w', encoding = 'utf-8') as f:
 f.close()
 ```
 
-![](/.imgur/20211225132548.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211225132548.png)
 
 ### 重命名
   
@@ -67,7 +67,7 @@ with open(path, 'r', encoding = 'utf-8') as f:
 f.close()
 ```
 
-![](/.imgur/20211225142026.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211225142026.png)
 
 ## 移动
 
@@ -109,7 +109,7 @@ def display_all_files(folder_path: str):
             print(path)
 ```
 
-![](/.imgur/20211225150924.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211225150924.png)
 
 ### 递归显示
 

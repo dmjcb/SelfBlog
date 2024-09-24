@@ -20,7 +20,7 @@
 
 在 app 目录下新建 templates 文件夹
 
-![](/.imgur/20200803191147.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803191147.png)
 
 注册模板目录, 新建的模板目录需在项目设置文件中进行注册
 
@@ -107,7 +107,7 @@ urlpatterns = [
 
 运行项目, 访问http://127.0.0.1:8000/app/index
 
-![](/.imgur/20200803193631.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803193631.png)
 
 ### 读取数据
 
@@ -166,4 +166,4 @@ urlpatterns = [
 
 运行项目, 访问http://127.0.0.1:8000/app/db
 
-![](/.imgur/20200803222027.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803222027.png)

@@ -40,7 +40,7 @@ ssh-keygen -R [远程主机IP]
 ssh-copy-id -i ~/.ssh/id_rsa.pub [远程用户]@[远程主机IP]
 ```
 
-![](/.imgur/20211229213337.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211229213337.png)
 
 ## SSH配置
 
@@ -52,7 +52,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub [远程用户]@[远程主机IP]
 ssh-keygen -t rsa
 ```
 
-![](/.imgur/20210312104415.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210312104415.png)
 
 | 文件            | 作用                     |
 | --------------- | ------------------------ |

@@ -57,7 +57,7 @@ python_version = "3.6"
 
 进入目录, 创建虚拟环境
 
-![](/.imgur/20210122224056.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210122224056.png)
 
 打开 Pipfile 文件, 修改为
 
@@ -79,7 +79,7 @@ python_version = "3.8"
 
 安装, 查看安装的包
 
-![](/.imgur/20210122224537.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210122224537.png)
 
 可以看到 Flask 包已经安装
 
@@ -115,8 +115,8 @@ python_version = "3.8"
 
 若输入 pipenv install 则只会安装[packages] 下的包
 
-![](/.imgur/20210123141415.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210123141415.png)
 
 若输入 pipenv install --dev 则安装项目的所有依赖项(包括dev)
 
-![](/.imgur/20210123141743.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210123141743.png)

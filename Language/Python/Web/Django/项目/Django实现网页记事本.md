@@ -12,17 +12,17 @@
 
 ## 运行结果
 
-![](/.imgur/20200809153325.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200809153325.png)
 
-![](/.imgur/20200809153600.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200809153600.png)
 
-![](/.imgur/20200809153721.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200809153721.png)
 
-![](/.imgur/20200809153802.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200809153802.png)
 
-![](/.imgur/20200809154003.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200809154003.png)
 
-![](/.imgur/20200816225928.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200816225928.png)
 
 ## 涉及技术
 
@@ -94,15 +94,15 @@ python manage.py startapp app
 
 在 INSTALLED_APPS 中添加刚创建的应用
 
-![](/.imgur/20200805182554.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182554.png)
 
 在 MIDDLEWARE 中注释 django.middleware.csrf.CsrfViewMiddleware
 
-![](/.imgur/20200805182720.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182720.png)
 
 修改语言与时区
 
-![](/.imgur/20200805182830.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200805182830.png)
 
 在 app 目录下新建 static 与 templates 目录, 用于存放静态文件和模板文件
 
@@ -561,7 +561,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-![](/.imgur/20200809154710.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200809154710.png)
 
 ### 视图函数
 

@@ -117,4 +117,4 @@ function get_form_value() {
 | return false | `break`    |
 | return true  | `continue` |
 
-![](/.imgur/20200528224751.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200528224751.png)

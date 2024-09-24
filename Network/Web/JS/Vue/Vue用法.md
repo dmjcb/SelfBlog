@@ -90,7 +90,7 @@ data = [
 ];
 ```
 
-![](/.imgur/20200725123717.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200725123717.png)
 
 ### POST 请求
 
@@ -150,6 +150,6 @@ def post_api():
     return json.dumps(data)
 ```
 
-![](/.imgur/20200725151620.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200725151620.png)
 
-![](/.imgur/20200725151641.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200725151641.png)

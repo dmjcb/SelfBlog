@@ -13,7 +13,7 @@ Docker进程启动时会在主机上创建虚拟网桥 $docker0$, 处于七层�
 
 虚拟网桥的工作方式和物理交换机类似, 此时所有容器就通过交换机连在一个二层网络中
 
-![](/.imgur/20240904_010600.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240904_010600.jpg)
 
 ## bridge
 
@@ -21,7 +21,7 @@ docker默认的网络模式, 为容器创建独立的网络命名空间, 容器�
 
 桥接模式下创建容器, $docker0$ 会创建一组对等虚拟设备接口 $veth$ 与 容器内部虚拟网卡$eth0$
 
-![](/.imgur/2024_09_03_22_55_53.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2024_09_03_22_55_53.jpg)
 
 ### 创建网络
 
@@ -37,11 +37,11 @@ docker network create --driver [类型] [网络名]
 docker network create --driver bridge MyBridge
 ```
 
-![](/.imgur/20240903_230708.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_230708.jpg)
 
 创建好自定义网络后docker会自定义为其分配IP网段和网关
 
-![](/.imgur/20240903_230918.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_230918.jpg)
 
 #### 自定义IP网关
 
@@ -51,9 +51,9 @@ docker network create --driver [类型] --subnet [网段] --gateway [网关] [�
 
 - 创建网段172.20.0.0/24, 网关172.20.0.1的网络
 
-![](/.imgur/20240903_231310.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_231310.jpg)
 
-![](/.imgur/20240903_231643.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_231643.jpg)
 
 
 #### 使用
@@ -64,7 +64,7 @@ docker network create --driver [类型] --subnet [网段] --gateway [网关] [�
 docker run -itd --name ubuntu1 --network=MyBridge busybox
 ```
 
-![](/.imgur/20240903_233210.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_233210.jpg)
 
 - 创建容器busybox2, 使用SelfBridge网络并指定IP
 
@@ -72,7 +72,7 @@ docker run -itd --name ubuntu1 --network=MyBridge busybox
 docker run -itd --name busybox2 --network=SelfBridge --ip=172.20.0.100 busybox
 ```
 
-![](/.imgur/20240903_233717.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_233717.jpg)
 
 
 #### 互联
@@ -89,11 +89,11 @@ docker network connect MyBridge busybox2
 
 在容器busybox2内ping 容器ubuntu1, 实现使用自定义网络实现容器间的通信
 
-![](/.imgur/20240903_234705.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_234705.jpg)
 
 此时可发现busybox2内新增属于MyBridge网络的IP
 
-![](/.imgur/20240903_234917.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240903_234917.jpg)
 
 ### 运行时指定
 

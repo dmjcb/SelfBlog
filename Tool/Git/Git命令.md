@@ -2,9 +2,9 @@
 
 ## 提交过程
 
-![](/.imgur/202407231550.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/202407231550.svg)
 
-![](/.imgur/2022-3-17-2310.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-17-2310.svg)
 
 ## init
 
@@ -22,7 +22,7 @@ git init
 git init 项目名
 ```
 
-![](/.imgur/20220112075837.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112075837.png)
 
 ### 查看文件状态
 
@@ -49,7 +49,7 @@ git add .
 git reset HEAD
 ```
 
-![](/.imgur/20220112080614.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112080614.png)
 
 ## branch
 
@@ -65,7 +65,7 @@ git branch
 git branch -a
 ```
 
-![](/.imgur/20220112081438.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112081438.png)
 
 ### 建立分支
 
@@ -95,7 +95,7 @@ git checkout -b 分支名
 
 ## commit
 
-![](/.imgur/2022-3-18-2158.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-18-2158.svg)
 
 将暂存区里的改动给提交到本地的版本库
 
@@ -113,7 +113,7 @@ git commit
 git commit -m "注释"`
 ```
 
-![](/.imgur/20220112081127.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112081127.png)
 
 ### 修改
 
@@ -281,6 +281,6 @@ git remote set-url --add origin [远程 URL]
 
 或配置.git/config
 
-![](/.imgur/20211214220953.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211214220953.png)
 
 此时`git push origin master` 就可一次性`push`到多个库

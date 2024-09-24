@@ -73,7 +73,7 @@ server2 ansible_ssh_host=172.17.0.3 ansible_ssh_port=22 ansible_ssh_pass=docker
 ansible all -m command -a 'echo Hello World!'
 ```
 
-![](/.imgur/20210308100822.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210308100822.png)
 
 - 批量SSH免密
 
@@ -104,7 +104,7 @@ ansible_ssh_user="远程主机用户名"
 ansible_ssh_pass="远程主机密码"
 ```
 
-![](/.imgur/20210310120137.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310120137.png)
 
 宿主机修改/etc/ansible/ansible.cfg
 
@@ -119,7 +119,7 @@ remote_user = docker
 host_key_checking = True
 ```
 
-![](/.imgur/20210310120159.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310120159.png)
 
 将宿主机的`id_ras.pub`文件拷贝到远程主机的`authorized_key`中, 注意此处远程登录的用户名为docker, 本地为root用户
 
@@ -129,11 +129,11 @@ ansible all -m authorized_key -a "user=docker key='{{ lookup('file', '.ssh/id_ra
 
 输入宿主机的SSH密码
 
-![](/.imgur/20210310115926.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310115926.png)
 
 尝试控制所有远程主机
 
-![](/.imgur/20210310100850.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310100850.png)
 
 ## Ansible 命令
 

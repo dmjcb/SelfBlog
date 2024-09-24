@@ -46,7 +46,7 @@ sudo ./b2 --buildtype=complete install
 
 进入运行
 
-![](/.imgur/20240911_223643.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240911_223643.jpg)
 
 ```
 b2.exe install --build-type=complete --toolset=msvc-14.3 threading=multi --build-type=complete address-model=64

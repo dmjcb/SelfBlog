@@ -32,9 +32,9 @@ create user 'dmjcb'@'%' identified by '123456'
 select host, user, authentication_string from mysql.user;
 ```
 
-![](/.imgur/20200516001828.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516001828.png)
 
-![](/.imgur/20200516001919.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516001919.png)
 
 ## 查看
 
@@ -70,9 +70,9 @@ grant all privileges on *.* to '用户名'@'%' identified by '密码';
 
 - 授予dmjcb用户对所有数据库所有表的所有操作权限
 
-![](/.imgur/20200516003253.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516003253.png)
 
-![](/.imgur/20200516003557.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516003557.png)
 
 - 新建用户 user_test, 仅授予 SELECT 权限
 
@@ -82,7 +82,7 @@ create user 'user_test'@'%' identified by '999';
 grant select on *.* to 'user_test'@'%';
 ```
 
-![](/.imgur/20200516004045.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516004045.png)
 
 使用 user_test 登录, 尝试创建数据库 test_db, 可以发现被拒绝了
 
@@ -90,11 +90,11 @@ grant select on *.* to 'user_test'@'%';
 create database test_db;
 ```
 
-![](/.imgur/20200516004259.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516004259.png)
 
 使用 user_test 用户, 尝试查询
 
-![](/.imgur/20200516004447.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516004447.png)
 
 - 新建用户 test_4, 授予 select create权限
 
@@ -104,7 +104,7 @@ create user 'test_4'@'%' identified by '999';
 grant select, create on *.* to 'test_4'@'%';
 ```
 
-![](/.imgur/20200516084018.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516084018.png)
 
 使用 test_4 登录, 尝试创建数据库 test_db
 
@@ -112,4 +112,4 @@ grant select, create on *.* to 'test_4'@'%';
 create database test_db;
 ```
 
-![](/.imgur/20200516084301.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200516084301.png)

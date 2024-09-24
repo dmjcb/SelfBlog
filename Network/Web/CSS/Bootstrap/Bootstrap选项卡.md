@@ -12,9 +12,9 @@
 
 ## 效果
 
-![](/.imgur/20200524194114.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200524194114.png)
 
-![](/.imgur/20200524194134.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200524194134.png)
 
 - nav-link active 即默认选择的选项卡
 

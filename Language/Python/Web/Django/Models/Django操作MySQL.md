@@ -16,11 +16,11 @@
 python3 manage.py startapp app
 ```
 
-![](/.imgur/20200802134308.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802134308.png)
 
 主目录下 settings.py文件中的DATABASES为默认配置, 会建立 sqlite3 数据库
 
-![](/.imgur/20200802140333.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802140333.png)
 
 若使用其他数据库, 需进行修改, 此处以 MySQL 为例:
 
@@ -95,11 +95,11 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-![](/.imgur/20200802152633.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802152633.png)
 
 此时 app/migrations 下生成 0001_initial.py 文件
 
-![](/.imgur/20200802233105.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802233105.png)
 
 ## 管理
 
@@ -111,12 +111,12 @@ python manage.py createsuperuser
 
 输入用户名和密码, 邮箱地址可选
 
-![](/.imgur/20200802153640.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802153640.png)
 
 启动项目, 访问http://127.0.0.1:8000/admin/
 
-![](/.imgur/20200802153902.png)
-![](/.imgur/20200802154127.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802153902.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802154127.png)
 
 现在还无法看到建好的表, 需在 admin 中注册, 将 app 的模型加入站点内, 接受站点管理
 
@@ -131,15 +131,15 @@ from .models import Stu
 admin.site.register(Stu)
 ```
 
-![](/.imgur/20200802213738.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802213738.png)
 
 ## 新增
 
 可视化, 直接使用 Django 管理页面新增数据
 
-![](/.imgur/20200802223956.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802223956.png)
 
-![](/.imgur/20200802224031.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802224031.png)
 
 由于之前设定了 ordering = ['age'], 故添加的数据会按从小到大的顺序排列
 
@@ -155,9 +155,9 @@ s.save()
 s = Stu.objects.create(num='D-123', name='强', age=19, sex='M')
 ```
 
-![](/.imgur/20200802235206.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802235206.png)
 
-![](/.imgur/20200802235230.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802235230.png)
 
 ## 查询
 
@@ -167,7 +167,7 @@ s = Stu.objects.create(num='D-123', name='强', age=19, sex='M')
 stu_list = Stu.objects.all()
 ```
 
-![](/.imgur/20200802235655.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200802235655.png)
 
 - 过滤查询
 
@@ -176,7 +176,7 @@ stu_list = Stu.objects.all()
 stu = Stu.objects.filter(sex='M')
 ```
 
-![](/.imgur/20200803001551.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803001551.png)
 
 - 单一查询
 
@@ -185,7 +185,7 @@ stu = Stu.objects.filter(sex='M')
 stu = Stu.objects.get(num='A-123')
 ```
 
-![](/.imgur/20200803001831.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803001831.png)
 
 - 查询是否存在
 
@@ -194,20 +194,20 @@ stu = Stu.objects.get(num='A-123')
 Stu.objects.filter(num='B-456').exists()
 ```
 
-![](/.imgur/20200803004453.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803004453.png)
 
 ## 修改
 
-![](/.imgur/20200803002039.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803002039.png)
 
 ```py
 # 所有男性同学年龄改为 18 岁
 Stu.objects.filter(sex='M').update(age=18)
 ```
 
-![](/.imgur/20200803004011.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803004011.png)
 
-![](/.imgur/20200803004052.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803004052.png)
 
 ## 删除
 
@@ -216,6 +216,6 @@ Stu.objects.filter(sex='M').update(age=18)
 Stu.objects.filter(num='A-123').delete()
 ```
 
-![](/.imgur/20200803004719.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803004719.png)
 
-![](/.imgur/20200803004753.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200803004753.png)

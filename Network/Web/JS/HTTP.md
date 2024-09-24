@@ -31,7 +31,7 @@ function get(url, callback) {
 }
 ```
 
-![](/.imgur/2021-11-13_20-47-54.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-11-13_20-47-54.jpg)
 
 ### POST
 

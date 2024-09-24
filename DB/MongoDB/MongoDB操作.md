@@ -18,7 +18,7 @@ docker run -itd --name mongo -p 27017:27017 mongo --auth
 docker exec -it mongo mongo admin
 ```
 
-![](/.imgur/20220112183733.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112183733.png)
 
 ### 用户
 
@@ -28,7 +28,7 @@ docker exec -it mongo mongo admin
 db.createUser({ user:'admin', pwd:'123456', roles:[{ role:'userAdminAnyDatabase', db:'admin'}, "readWriteAnyDatabase"]})
 ```
 
-![](/.imgur/20220112183857.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112183857.png)
 
 ## 连接
 
@@ -36,7 +36,7 @@ db.createUser({ user:'admin', pwd:'123456', roles:[{ role:'userAdminAnyDatabase'
 db.auth(用户名, 密码)
 ```
 
-![](/.imgur/20220112184110.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112184110.png)
 
 ## 操作
 
@@ -48,7 +48,7 @@ use 数据库
 
 创建 test 数据库, 这里暂不会显示, 因为其中还未插入数据
 
-![](/.imgur/20220112184225.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112184225.png)
 
 ### 集合
 
@@ -60,7 +60,7 @@ db.createCollection("集合")
 
 - 创建 stu 集合
 
-![](/.imgur/20220112184407.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112184407.png)
 
 ### 增加
 
@@ -76,7 +76,7 @@ db.[集合].insert(JSON数据1, JSON数据2...)
 db.stu.insert([{name:"Ling", age:20}, {name:"Wang", age:22}])
 ```
 
-![](/.imgur/20220112184807.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112184807.png)
 
 ### 查询
 
@@ -92,7 +92,7 @@ db.[集合].find()
 db.[集合].find().pretty()
 ```
 
-![](/.imgur/20220112185029.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112185029.png)
 
 #### 条件查询
 
@@ -133,7 +133,7 @@ db.[集合].update({key1:value}, {$set:{key2:new_value}})
 db.stu.update({name:"Ling"}, {$set:{age:30}})
 ```
 
-![](/.imgur/20220112185815.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220112185815.png)
 
 ### 删除
 

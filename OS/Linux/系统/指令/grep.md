@@ -67,7 +67,7 @@ grep '模式1' [匹配项] | grep '模式2'
 grep 'Mar 10 16:3' /var/log/secure | grep Accepted
 ```
 
-![](/.imgur/20210310175209.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310175209.png)
 
 ## 或查询
 
@@ -91,7 +91,7 @@ grep -v 模式1 [匹配项]
 ps -aux | grep vlc | grep -v grep
 ```
 
-![](/.imgur/20220221184345.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220221184345.png)
 
 ## 正则
 
@@ -113,7 +113,7 @@ grep pattern$
 grep human /root/test.txt
 ```
 
-![](/.imgur/20210310151418.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310151418.png)
 
 - 查找/root/test.txt文件中以The开头的句子
 
@@ -121,4 +121,4 @@ grep human /root/test.txt
 grep ^The /root/test.txt
 ```
 
-![](/.imgur/20210310151535.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210310151535.png)

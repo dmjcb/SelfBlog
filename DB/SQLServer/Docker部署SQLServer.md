@@ -29,7 +29,7 @@ SELECT Name FROM Master..SysDatabases ORDER BY Name
 GO
 ```
 
-![](/.imgur/2020-10-21_11-05-13.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2020-10-21_11-05-13.jpg)
 
 ### 显示表
 
@@ -38,18 +38,18 @@ SELECT * FROM [表名]
 GO
 ```
 
-![](/.imgur/2020-10-12_13-09-31.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2020-10-12_13-09-31.jpg)
 
 
 ## Python 交互
 
 ### 连接
 
-![](/.imgur/20201012105710.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201012105710.png)
 
 主机地址需写为: `ip, 端口`, 注意是`逗号`
 
-![](/.imgur/20201012130100.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201012130100.png)
 
 ```py
 import pymssql
@@ -78,4 +78,4 @@ except:
 conn.close()
 ```
 
-![](/.imgur/20201012180210.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201012180210.png)

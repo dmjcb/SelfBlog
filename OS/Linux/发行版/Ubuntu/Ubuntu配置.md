@@ -47,7 +47,7 @@ source .zshrc
 sudo vim /etc/sudoers
 ```
 
-![9](/.imgur/2021-07-17_00-08.png)
+![9](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-07-17_00-08.png)
 
 ```sh
 dmjcb ALL=(ALL:ALL) ALL

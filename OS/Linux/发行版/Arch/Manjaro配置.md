@@ -69,7 +69,7 @@ sudo pacman -Syudd
 xdg-mime query default inode/directory   
 ```
 
-![](/.imgur/20220109184225.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220109184225.png)
 
 - 设置默认文件管理器
 

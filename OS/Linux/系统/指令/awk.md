@@ -30,4 +30,4 @@ awk [参数] '{pattern action}' {文件名}
 last -n 5 | awk '{print $1}'
 ```
 
-![](/.imgur/20220109114810.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220109114810.png)

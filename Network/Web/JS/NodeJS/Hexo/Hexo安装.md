@@ -35,7 +35,7 @@ sudo npm install hexo-wordcount --save
 sudo npm install hexo-wordcount --save
 ```
 
-![](/.imgur/20211207224409.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211207224409.png)
 
 ## 启动
 
@@ -55,9 +55,9 @@ hexo s
 hexo g && hexo s
 ```
 
-![](/.imgur/2021-12-07_23-10-56.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-12-07_23-10-56.jpg)
 
-![](/.imgur/20211207231203.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211207231203.jpg)
 
 ### 修改主题
 
@@ -169,17 +169,17 @@ source ~/.bashrc
 
 - 1
 
-![](/.imgur/2021-12-07_23-04-41.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-12-07_23-04-41.jpg)
 
 - 将nodejs升级到高于12.0.0的版本
 
 - _config.xml中的 highlight->enable的值修改为false
 
-![](/.imgur/2021-12-07_23-09-48.jpg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2021-12-07_23-09-48.jpg)
 
 - 2
 
-![](/.imgur/20211208001031.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211208001031.png)
 
 ```sh
 sudo cnpm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive

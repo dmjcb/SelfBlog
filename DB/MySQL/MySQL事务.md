@@ -67,7 +67,7 @@ INSERT INTO info (id, name) VALUES ('000A-X', 'WANG-LI');
 COMMIT;
 ```
 
-![](/.imgur/20200712233125.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200712233125.png)
 
 ### 回滚
 
@@ -88,7 +88,7 @@ ROLLBACK;
 
 可以看到第二条数据并未写入
 
-![](/.imgur/20200712235320.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200712235320.png)
 
 ```sql
 BEGIN;
@@ -101,4 +101,4 @@ ROLLBACK;
 
 数据没有被删除
 
-![](/.imgur/20200713000345.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200713000345.png)

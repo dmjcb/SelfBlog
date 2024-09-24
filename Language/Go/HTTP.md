@@ -29,7 +29,7 @@ func main() {
 }
 ```
 
-![](/.imgur/20210110181933.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210110181933.png)
 
 ## 并发 Hello World
 
@@ -53,4 +53,4 @@ func printHello(i int) {
 }
 ```
 
-![](/.imgur/20210110194117.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210110194117.png)

@@ -12,7 +12,7 @@
 
 ## 流程图
 
-![](/.imgur/2023-11-21-23-28.svg)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2023-11-21-23-28.svg)
 
 ```mermaid
 sequenceDiagram

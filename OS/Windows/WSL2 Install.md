@@ -42,7 +42,7 @@ sudo apt install -y docker-ce
 
 使用 docker info 命令出现权限不足问题
 
-![](/.imgur/20200721210505.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200721210505.png)
 
 ```sh
 # 添加docker用户组
@@ -61,11 +61,11 @@ newgrp docker
 sudo service docker start
 ```
 
-![](/.imgur/20200721210744.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200721210744.png)
 
 ## 关闭
 
-![](/.imgur/20200721211633.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20200721211633.png)
 
 该进程是 WSL 的进程,比较占内存, 不使用 WSL2 的时候可关闭
 

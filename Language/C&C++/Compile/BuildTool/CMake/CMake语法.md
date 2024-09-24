@@ -93,7 +93,7 @@ set(SRC_LIST API.cpp)
 add_library(API SHARED ${SRC_LIST})
 ```
 
-![](/.imgur/20231203003301.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231203003301.png)
 
 
 ### add_subdirectory

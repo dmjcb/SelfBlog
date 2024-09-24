@@ -48,7 +48,7 @@ t.join()
 print('线程 %s 结束.' % ct.name)
 ```
 
-![](/.imgur/20211217234005.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211217234005.png)
 
 任何进程默认就会启动一个主线程, 主线程又可以启动新的线程
 

@@ -170,7 +170,7 @@ run sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 docker build -t gpp:v1 .
 ```
 
-![](/.imgur/20230207002040.png)
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20230207002040.png)
 
 - 拉取qemu
 
