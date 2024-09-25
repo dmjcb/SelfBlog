@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-typedef int ElemType;
-typedef struct Lnode
+
+typedef struct Node
 {
-    ElemType data;
-    struct Lnode *next;
-} Lnode, *Linklist;
+    int data;
+    struct Node *next;
+} Node;
 
 // 初始化
-Lnode *initList(Linklist head)
+Node *InitHead(Node* head)
 {
-    head = (Linklist)malloc(sizeof(Lnode));
+    head = (Node *)malloc(sizeof(Node));
     head->next = NULL;
     return head;
 }
 
 // 后插法建立链表
-Lnode *inputList(Linklist &head, int n)
+Node *CreateList(Node* head, const int *value, const int length)
 {
     head->next = NULL;
-    Linklist p, r;
-    r = head;
-    for (int i = 0; i < n; i++)
+    Node* p;
+    Node* r = head;
+    for (int i = 0; i < length; i++)
     {
-        p = (Lnode *)malloc(sizeof(Lnode));
-        scanf("%d", &p->data);
+        p = (Node *)malloc(sizeof(Node));
+        p->data = value[i];
         p->next = NULL;
         r->next = p;
         r = p;
@@ -34,9 +35,9 @@ Lnode *inputList(Linklist &head, int n)
 }
 
 // 查找
-void getList(Linklist head, int index)
+void GetIndex(const Node* head, int index)
 {
-    Linklist p;
+    Node* p;
     p = head->next;
     // j为计数器,用以记录当前的位置
     int j = 1;
@@ -54,10 +55,9 @@ void getList(Linklist head, int index)
 }
 
 // 插入
-void insertList(Linklist &head, int index, int e)
+bool InsertNode(Node* head, int index, int value)
 {
-    Linklist p;
-    p = head;
+    Node* p = head;
     // 计数器初始值为0是考虑到了空表的情况
     int j = 0;
     while (p && j < index - 1)
@@ -67,21 +67,21 @@ void insertList(Linklist &head, int index, int e)
     }
     if (!p || j > index - 1)
     {
-        return;
+        return false;
     }
-    Linklist s;
-    s = (Linklist)malloc(sizeof(Lnode));
-    ;
-    s->data = e;
+    Node* s = (Node*)malloc(sizeof(Node));
+    s->data = value;
     s->next = p->next;
+
     p->next = s;
+
+    return true;
 }
 
 // 删除
-void insertList(Linklist &head, int index)
+void EraseNode(Node* head, const int index)
 {
-    Linklist p;
-    p = head;
+    Node* p = head;
     int j = 0;
     while ((p->next) && j < index - 1)
     {
@@ -92,32 +92,18 @@ void insertList(Linklist &head, int index)
     {
         return;
     }
-    Linklist q;
-    q = p->next;
+    Node* q = p->next;
     p->next = q->next;
+
     free(q);
 }
 
 //
-void ouputList(Linklist &head)
+void OutputList(Node* head)
 {
-    Linklist p;
-    p = head->next;
-    while (p)
-    {
+    Node* p = head->next;
+    while (p) {
         printf("%d ", p->data);
         p = p->next;
     }
-}
-
-int main()
-{
-    Linklist head;
-    head = initList(head);
-    int n;
-    scanf("%d", &n);
-    head = inputList(head, n);
-
-    ouputList(head);
-    return 0;
 }

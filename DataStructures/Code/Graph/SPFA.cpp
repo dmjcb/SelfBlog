@@ -16,40 +16,35 @@
 #include <vector>
 
 // defintion of line
-typedef struct Line
-{
-    std::string startNode;
-    std::string endNode;
-    double weight;
+typedef struct Line {
+    std::string mStartNode;
+    std::string mEndNode;
+    double mWeight;
 
-    Line(std::string s, std::string e, int w) : startNode(s), endNode(e), weight(w) {}
+    Line(std::string s, std::string e, int w) : mStartNode(s), mEndNode(e), mWeight(w) {}
 } Line;
 
 
 class SPFAAlgorithm
 {
 public:
-    SPFAAlgorithm(std::vector<Line> lines)
-    {
+    SPFAAlgorithm(std::vector<Line> lines) {
         std::set<std::string> _node;
-        for (const auto line : lines)
-        {
-            _node.insert(line.startNode);
-            _node.insert(line.endNode);
+        for (const auto line : lines) {
+            _node.insert(line.mStartNode);
+            _node.insert(line.mEndNode);
         }
         mNode.assign(_node.begin(), _node.end());
 
         mLines = std::move(lines);
 
-        for (auto node : mNode)
-        {
+        for (auto node : mNode) {
             mShortestPath[node] = 0x7FFFFFFF;
             mIsInQueue[node] = false;
         }
     }
 
-    void SPFA(std::string node)
-    {
+    void SPFA(std::string node) {
         std::queue<std::string> queue;
 
         queue.push(node);
@@ -58,21 +53,19 @@ public:
 
         std::string startNode;
         std::string endNode;
-        while (!queue.empty())
-        {
+        while (!queue.empty()) {
             startNode = queue.front();
             queue.pop();
 
             mIsInQueue[startNode] = false;
             for (const auto line : mLines) {
-                if (startNode == line.startNode) {
-                    endNode = line.endNode;
+                if (startNode == line.mStartNode) {
+                    endNode = line.mEndNode;
                     // 若从点node经过点x到点end的距离比node直接到end的距离短
-                    if (mShortestPath[startNode] + line.weight < mShortestPath[endNode]) {
+                    if (mShortestPath[startNode] + line.mWeight < mShortestPath[endNode]) {
                         // 距离更新为点node到x的距离与x到end的距离之和
-                        mShortestPath[endNode] = mShortestPath[startNode] + line.weight;
-                        if (!mIsInQueue[endNode])
-                        {
+                        mShortestPath[endNode] = mShortestPath[startNode] + line.mWeight;
+                        if (!mIsInQueue[endNode]) {
                             queue.push(endNode);
                             mIsInQueue[endNode] = true;
                         }
@@ -82,10 +75,8 @@ public:
         }
     }
 
-    void PrintShortestPath()
-    {
-        for (auto k : mShortestPath)
-        {
+    void PrintShortestPath() const {
+        for (auto k : mShortestPath) {
             std::cout << k.first << "---" << k.second << std::endl;
         }
     }
@@ -98,15 +89,10 @@ private:
 };
 
 
-int main()
-{
+int main() {
     std::vector<Line> lines = {
-        Line("A", "B", 13),
-        Line("A", "E", 70),
-        Line("B", "D", 4),
-        Line("B", "C", 28),
-        Line("C", "D", 23),
-        Line("C", "E", 15)
+        Line("A", "B", 13), Line("A", "E", 70), Line("B", "D", 4),
+        Line("B", "C", 28), Line("C", "D", 23), Line("C", "E", 15)
     };
 
     std::string node = "A";
