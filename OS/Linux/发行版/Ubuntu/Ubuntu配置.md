@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2023-09-16 16:18:19
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-22 01:29:43
+ * @LastEditTime : 2024-09-26 00:54:59
 -->
 
 # Ubuntu系统配置
@@ -60,13 +60,13 @@ dmjcb ALL=(ALL) NOPASSWD:ALL
 同步sources.list 和sources.list.d 中列出软件源索引
 
 ```sh
-apt-get update
+sudo apt update
 ```
 
 对系统执行更新
   
 ```sh
-apt-get upgrade
+sudo apt upgrade
 ```
 
 ## 转换目录语言

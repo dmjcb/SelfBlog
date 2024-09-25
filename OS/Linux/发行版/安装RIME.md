@@ -1,12 +1,11 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: 
- * @Email: 
- * @Date: 2024-05-05 22:59:15
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-06-10 15:42:49
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-05-05 22:59:15
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 00:55:38
 -->
+
 
 # Ubuntu 安装RIME
 

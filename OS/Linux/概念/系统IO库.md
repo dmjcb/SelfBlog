@@ -18,22 +18,27 @@ write把缓冲区buf的前nbytes个字节写入到与文件描述符fd关联的�
 size_t write(int fildes, const void *buf, size_t nbytes)
 ```
 
-| 状态       | 返回值           |
-| ---------- | ---------------- |
+| 状态       | 返回值          |
+| ---------- | -------------- |
 | 正常写入   | 实际写入的字节数 |
-| 未写入数据 | 0                |
-| 调用错误   | -1               |
+| 未写入数据 | 0              |
+| 调用错误   | -1             |
 
 ```c
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
 
-int main(void) {
+int main(void) { 
+	const size_t WRITE_INFO_LEN = 18;
+    const size_t ERR_INFO_LEN = 46;
+
+    const char* WEITE_INFO = "Here is some data\n";
+    const char* ERR_INFO = "A write error has occurred on file descriptor 1 \n";
+
     // 向fd1(屏幕)写入
-    int length = write(1, "Here is some data\n", 18);
-    if(length != 18) {
-        write(2, "A write error has occurred on file descriptor 1 \n", 46);
+    if (write(STDOUT_FILENO, WEITE_INFO, WRITE_INFO_LEN) != WRITE_INFO_LEN) {
+        write(STDERR_FILENO, ERR_INFO, ERR_INFO_LEN);
     }
     return 0;
 }
@@ -67,18 +72,21 @@ size_t read(int fildes, void *buf, size_t nbytes)
 #include<unistd.h>
 
 int main(void) {
-    char buffer[128];
-    int nread;
-    int nwrite;
-    // 从fd0中读入
-    nread = read(0, buffer, 128);
-    if(nread == -1) {
-        write(2, "A read error has occurred\n", 26);
+	const int READ_INFO_LEN = 128;
+	const int READ_ERR_INFO_LEN = 26;
+	const int WRITE_ERR_INFO_LEN = 27;
+	
+    char buffer[READ_INFO_LEN];
+
+    // 从fd0(键盘)中读入
+    int readRes = read(STDIN_FILENO, buffer, READ_INFO_LEN);
+    if (readRes == -1) {
+        write(STDERR_FILENO, "A read error has occurred\n", READ_ERR_INFO_LEN);
     }
-    // 向fd1写入
-    nwrite = write(1, buffer, nread);
-    if(nwrite != nread) {
-        write(2, "A write error has occurred\n", 27);
+    // 向fd1(屏幕)写入
+    int writeRes = write(STDOUT_FILENO, buffer, readRes);
+    if (writeRes != readRes) {
+        write(STDERR_FILENO, "A write error has occurred\n", WRITE_ERR_INFO_LEN);
     }
     return 0;
 }
@@ -119,12 +127,10 @@ int open(const char *path, int oflags, mode_t mode);
 
 int main(void) {
     char block[1024];
-    int in;
-    int out;
     int nread;
 
-    in = open("file.in", O_RDONLY);
-    out = open("file.out", O_WRONLY|O_CREAT, S_IRUSR|S_IWUSR);
+    int in = open("file.in", O_RDONLY);
+    int out = open("file.out", O_WRONLY|O_CREAT, S_IRUSR|S_IWUSR);
     while((nread = read(in, block, sizeof(block))) > 0) {
         write(out, block, nread);
     }
