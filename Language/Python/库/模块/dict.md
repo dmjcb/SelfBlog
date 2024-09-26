@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-12-02 23:02:30
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-05-07 00:18:43
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-12-02 23:02:30
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 16:18:36
 -->
 
 # 字典

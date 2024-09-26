@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:35
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-06-06 15:05:15
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-01-16 17:59:35
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 15:42:25
 -->
 
 # SQL外键
@@ -64,9 +62,9 @@ Stu 表
 
 | s_id          | s_name |
 | ------------- | ------ |
-| 2017-XAB-3653 | Li     |
-| 2017-XAB-3663 | Sui    |
-| 2017-XAB-3669 | Wu     |
+| 0000-XAB-1 | Xi     |
+| 0000-XAB-2 | Sui    |
+| 0000-XAB-3 | Hu     |
 
 Course 表
 
@@ -79,7 +77,7 @@ Course 表
 - 向 Score 表中插入Li的量子力学成绩 97 分
 
 ```sql
-INSERT INTO Score (s_id, c_id, score) VALUES ('2017-XAB-3653', 'AV-275455', 97);
+INSERT INTO Score (s_id, c_id, score) VALUES ('0000-XAB-1', 'AV-275455', 97);
 ```
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20201005170211.png)
