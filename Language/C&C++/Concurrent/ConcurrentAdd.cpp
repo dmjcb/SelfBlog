@@ -1,4 +1,11 @@
 /*
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-09-24 20:03:51
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 22:18:52
+ */
+/*
  * @Description:
  * @Version: 1.0
  * @Author:
@@ -13,6 +20,7 @@
 #include <chrono>
 #include <mutex>
 #include <vector>
+#include <cmath>
 
 static const int MAX = 10e8;
 static double gSum = 0;

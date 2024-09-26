@@ -10,7 +10,14 @@
 
 # SPFA
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-4-4-0152.svg)
+```mermaid
+graph LR
+    a((A))--13--->b((B))
+    a((A))--70--->e((E))
+    b((B))--28--->c((C))
+    b((B))--4--->d((D))
+    c((C))--15--->e((E))
+```
 
 求$A$到其他点的最短路
 
@@ -42,8 +49,14 @@ $2)$ 点 $A$ 进入队列, 队列为$[A]$, 队列非空时,
 | ------ | --- | ---- | --- | --- | ---- |
 | $p[i]$ | $0$ | `13` | $∞$ | $∞$ | `70` |
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-4-4-0156.svg)
-
+```mermaid
+graph LR
+    a((A))-.13.->b((B))
+    a((A))-.70.->e((E))
+    b((B))--28--->c((C))
+    b((B))--4--->d((D))
+    c((C))--15--->e((E))
+```
 点 $B, E$ 的最短路径变小, 且其未在队列中, 故点 $B, E$ 入队
 
 队列为 $[B, E]$
@@ -54,7 +67,14 @@ $3)$ 队头 $B$ 出队, 对以 $B$ 为起点的所有边进行松弛, 涉及点 
 | ------ | --- | ---- | ---- | ---- | ---- |
 | $p[i]$ | $0$ | $13$ | `41` | `17` | $70$ |
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-4-4-0158.svg)
+```mermaid
+graph LR
+    a((A))-.13.->b((B))
+    a((A))--70--->e((E))
+    b((B))-.28.->c((C))
+    b((B))-.4.->d((D))
+    c((C))--15--->e((E))
+```
 
 到点 $C, D$ 的路径变小, 且点其未在队列中, 故点 $C, D$ 入队
 
@@ -68,7 +88,14 @@ $5)$ 队头 $C$ 出队, 对以 $C$ 为起点的所有边的终点进行松弛操
 | ------ | --- | ---- | ---- | ---- | ---- |
 | $p[i]$ | $0$ | $13$ | $41$ | $17$ | `56` |
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-4-4-0159.svg)
+```mermaid
+graph LR
+    a((A))-.13.->b((B))
+    a((A))--70--->e((E))
+    b((B))-.28.->c((C))
+    b((B))--4--->d((D))
+    c((C))-.15.->e((E))
+```
 
 到点 $E$ 的最短路径改变, 且其未在队列中, 点 $E$ 入队
 
@@ -92,16 +119,6 @@ $7)$ 队头 $E$ 出队, 对以 $E$ 为起点的边进行松弛
 ## 代码
 
 ```c++
-/*
- * @Description:
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-04-13 22:33:00
- * @LastEditors: dmjcb
- * @LastEditTime: 2022-07-19 21:59:52
- */
-
 #include <iostream>
 #include <cstring>
 #include <queue>

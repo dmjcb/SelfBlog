@@ -47,7 +47,7 @@ T value;
 
 while (std::cin >> value) {
     v.push_back(value);
-    if (std::cin.get() == '\n')
+    if (std::cin.get() == '\n') {
         break;
     }
 }

@@ -2,28 +2,24 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct Node
-{
-    int data;
-    struct Node *next;
+typedef struct Node {
+    int          data;
+    struct Node* next;
 } Node;
 
 // 初始化
-Node *InitHead()
-{
+Node *InitHead() {
     Node* head = (Node *)malloc(sizeof(Node));
     head->next = NULL;
     return head;
 }
 
 // 后插法建立链表
-void CreateList(Node* head, const int *value, const int length)
-{
+void CreateList(Node* head, const int *value, const int length) {
     head->next = NULL;
     Node* p;
     Node* r = head;
-    for (int i = 0; i < length; i++)
-    {
+    for (int i = 0; i < length; i++) {
         p = (Node *)malloc(sizeof(Node));
         p->data = value[i];
         p->next = NULL;
@@ -33,38 +29,32 @@ void CreateList(Node* head, const int *value, const int length)
 }
 
 // 查找
-void GetIndex(const Node* head, int index)
-{
+void GetIndex(const Node* head, int index) {
     Node* p;
     p = head->next;
     // j为计数器,用以记录当前的位置
     int j = 1;
     // 当P不为空且未到指定位置时,指针向后移动,计数器增加
-    while (p && j < index)
-    {
+    while (p && j < index) {
         p = p->next;
         ++j;
     }
-    if (!p || j > index)
-    {
+    if (!p || j > index) {
         return;
     }
     printf("%d\n", p->data);
 }
 
 // 插入
-bool InsertNode(Node* head, int index, int value)
-{
+bool InsertNode(Node* head, int index, int value) {
     Node* p = head;
     // 计数器初始值为0是考虑到了空表的情况
     int j = 0;
-    while (p && j < index - 1)
-    {
+    while (p && j < index - 1) {
         p = p->next;
         ++j;
     }
-    if (!p || j > index - 1)
-    {
+    if (!p || j > index - 1) {
         return false;
     }
     Node* s = (Node*)malloc(sizeof(Node));
@@ -77,17 +67,14 @@ bool InsertNode(Node* head, int index, int value)
 }
 
 // 删除
-void EraseNode(Node* head, const int index)
-{
+void EraseNode(Node* head, const int index) {
     Node* p = head;
     int j = 0;
-    while ((p->next) && j < index - 1)
-    {
+    while ((p->next) && j < index - 1) {
         p = p->next;
         j++;
     }
-    if (!p || j > index - 1)
-    {
+    if (!p || j > index - 1) {
         return;
     }
     Node* q = p->next;
