@@ -1,25 +1,21 @@
 /*
- * @Description: Windows下操作串口
- * @Version: 1.0
- * @Author:
- * @Email:
- * @Date: 2023-11-23 21:39:07
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-06-06 16:27:13
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2023-11-23 21:39:07
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 15:37:28
  */
 
-#include <iostream>
+#include <stdio.h>
 #include <windows.h>
 
-int main()
-{
+int main() {
     // 打开串口
     // --------------------------------------------------------------------------------------------------------
     HANDLE handle;
-    handle = CreateFile("COM1", GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
-    if (handle == INVALID_HANDLE_VALUE)
-    {
-        std::cerr << "无法打开串口" << std::endl;
+    handle = CreateFileA("COM1", GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+    if (handle == INVALID_HANDLE_VALUE) {
+        printf("无法打开串口\n");
         return 1;
     }
     // --------------------------------------------------------------------------------------------------------
@@ -28,9 +24,9 @@ int main()
     // --------------------------------------------------------------------------------------------------------
     DCB comParam = {0};
     comParam.DCBlength = sizeof(comParam);
-    if (!GetCommState(handle, &comParam))
-    {
-        std::cerr << "获取串口状态失败" << std::endl;
+    if (!GetCommState(handle, &comParam)) {
+        printf("获取串口状态失败\n");
+
         CloseHandle(handle);
         return 1;
     }
@@ -42,9 +38,9 @@ int main()
     comParam.StopBits = ONESTOPBIT;
     // 校验位
     comParam.Parity = NOPARITY;
-    if (!SetCommState(handle, &comParam))
-    {
-        std::cerr << "设置串口状态失败" << std::endl;
+    if (!SetCommState(handle, &comParam)) {
+        printf("设置串口状态失败\n");
+
         CloseHandle(handle);
         return 1;
     }
@@ -58,9 +54,8 @@ int main()
     comTime.ReadTotalTimeoutMultiplier = 10;
     comTime.WriteTotalTimeoutConstant = 50;
     comTime.WriteTotalTimeoutMultiplier = 10;
-    if (!SetCommTimeouts(handle, &comTime))
-    {
-        std::cerr << "设置超时失败" << std::endl;
+    if (!SetCommTimeouts(handle, &comTime)) {
+        printf("设置超时失败\n");
         CloseHandle(handle);
         return 1;
     }
@@ -70,9 +65,8 @@ int main()
     // --------------------------------------------------------------------------------------------------------
     DWORD bytesWritten;
     char data[] = "Hello, Serial!";
-    if (!WriteFile(handle, data, sizeof(data), &bytesWritten, NULL))
-    {
-        std::cerr << "写入数据失败" << std::endl;
+    if (!WriteFile(handle, data, sizeof(data), &bytesWritten, NULL)) {
+        printf("写入数据失败\n");
         CloseHandle(handle);
         return 1;
     }
@@ -82,13 +76,13 @@ int main()
     // --------------------------------------------------------------------------------------------------------
     DWORD bytesRead;
     char buffer[100];
-    if (!ReadFile(handle, buffer, sizeof(buffer), &bytesRead, NULL))
-    {
-        std::cerr << "读取数据失败" << std::endl;
+    if (!ReadFile(handle, buffer, sizeof(buffer), &bytesRead, NULL)) {
+        printf("读取数据失败\n");
         CloseHandle(handle);
         return 1;
     }
-    std::cout << "接收到的数据：" << buffer << std::endl;
+
+    printf("接收到的数据: %s\n", buffer);
     // --------------------------------------------------------------------------------------------------------
 
     // 关闭串口

@@ -1,12 +1,10 @@
-"""
-Description: 下载md文件中云图床文件到本地
-Version: 1.0
-Author: 
-Email: 
-Date: 2024-07-03 00:19:20
-LastEditors: 
-LastEditTime: 2024-07-03 00:19:32
-"""
+'''
+Brief        : 下载md文件中云图床文件到本地
+Author       : dmjcb
+Date         : 2024-09-24 20:03:51
+LastEditors  : dmjcb@outlook.com
+LastEditTime : 2024-09-26 15:25:22
+'''
 
 import os
 import multiprocessing

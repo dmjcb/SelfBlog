@@ -1,12 +1,10 @@
-"""
-Description: 
-Version: 1.0
-Author: dmjcb
-Email:  
-Date: 2022-04-10 14:34:20
-LastEditors: dmjcb
-LastEditTime: 2022-07-03 00:38:59
-"""
+'''
+Brief        : 
+Author       : dmjcb
+Date         : 2024-09-24 20:03:51
+LastEditors  : dmjcb@outlook.com
+LastEditTime : 2024-09-26 15:26:05
+'''
 
 import requests
 
