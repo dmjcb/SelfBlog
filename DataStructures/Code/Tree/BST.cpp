@@ -1,50 +1,37 @@
 /*
- * @Description: 二叉排序树
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-04-08 22:47:18
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-30 13:04:12
+ * @Brief        : 二叉排序树
+ * @Author       : dmjcb
+ * @Date         : 2022-04-08 22:47:18
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 14:15:25
  */
 
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 // 节点定义
 template <class T>
 struct BSTNode
 {
-    T value;
-    BSTNode<T> *leftSon;
-    BSTNode<T> *rightSon;
-    BSTNode(T value, BSTNode<T> *leftSon, BSTNode<T> *rightSon)
-    {
-        this->value = value;
-        this->leftSon = leftSon;
-        this->rightSon = rightSon;
-    }
+    T           mValue;
+    BSTNode<T>* mLeftSon;
+    BSTNode<T>* mRightSon;
+
+    BSTNode(T value, BSTNode<T> *leftSon, BSTNode<T> *rightSon) : mValue(value), mLeftSon(leftSon), mRightSon(rightSon){}
 };
 
 // 查找
 template <class T>
-BSTNode<T> *SearchNode(BSTNode<T> *&node, const T value)
-{
-    while (node)
-    {
-        if (node->value == value)
-        {
+BSTNode<T> *SearchNode(BSTNode<T>* node, const T value) {
+    while (node) {
+        if (node->mValue == value) {
             return node;
         }
-        if (node->value > value)
-        {
-            node = node->leftSon;
+        if (node->mValue > value) {
+            node = node->mLeftSon;
         }
-        if (node->value < value)
-        {
-            node = node->rightSon;
+        if (node->mValue < value) {
+            node = node->mRightSon;
         }
     }
     return nullptr;
@@ -52,127 +39,112 @@ BSTNode<T> *SearchNode(BSTNode<T> *&node, const T value)
 
 // 插入
 template <class T>
-BSTNode<T> *InsertNode(BSTNode<T> *&node, const T value)
-{
+BSTNode<T> *InsertNode(BSTNode<T>* node, const T value) {
     // 当前节点为空,说明是叶子节点,可以插入
-    if (node == nullptr)
-    {
+    if (node == nullptr) {
         node = new BSTNode<T>(value, nullptr, nullptr);
         return node;
     }
+
     // 值小于根结点时,插入根节点的左子树
-    if (node->value > value)
-    {
-        node->leftSon = InsertNode(node->leftSon, value);
+    if (node->mValue > value) {
+        node->mLeftSon = InsertNode(node->mLeftSon, value);
     }
+
     // 值大于根结点时,插入根节点的右子树
-    if (node->value < value)
-    {
-        node->rightSon = InsertNode(node->rightSon, value);
+    if (node->mValue < value) {
+        node->mRightSon = InsertNode(node->mRightSon, value);
     }
     return node;
 }
 
 // 构建
 template <class T>
-void CreateBST(BSTNode<T> *&root, vector<T> v)
-{
-    for (int i = 0, size = v.size(); i < size; i++)
-    {
-        root = InsertNode(root, v[i]);
+void CreateBST(BSTNode<T> * &root, const std::vector<T> value) {
+    for (auto v : value) {
+        root = InsertNode(root, v);
     }
 }
 
 // 遍历
 template <class T>
-void PrintBST(BSTNode<T> *&root)
+void PrintBST(BSTNode<T> *root)
 {
-    if (root == nullptr)
-    {
+    if (root == nullptr) {
         return;
     }
-    PrintBST(root->leftSon);
 
-    cout << root->value << " ";
+    PrintBST(root->mLeftSon);
 
-    PrintBST(root->rightSon);
+    std::cout << root->mValue << " ";
+
+    PrintBST(root->mRightSon);
 }
 
 // 删除
 template <class T>
-void DeleteNode(BSTNode<T> *&root, T value)
-{
-    if (root == nullptr)
-    {
+void DeleteNode(BSTNode<T> *root, const T value) {
+    if (root == nullptr) {
         return;
     }
+
     // p为待删除节点,fp为其父节点
-    BSTNode<T> *p = root;
-    BSTNode<T> *fp = nullptr;
-    while (p->value != value)
-    {
+    BSTNode<T>* p = root;
+    BSTNode<T>* fp = nullptr;
+    while (p->mValue != value) {
         fp = p;
-        if (p->value > value)
-        {
-            p = p->leftSon;
+        if (p->mValue > value) {
+            p = p->mLeftSon;
         }
-        if (p->value < value)
-        {
-            p = p->rightSon;
+        if (p->mValue < value) {
+            p = p->mRightSon;
         }
     }
 
     // 情况1:p为叶子节点,则直接删
-    if (p->leftSon == nullptr && p->rightSon == nullptr)
-    {
-        if (fp->leftSon != nullptr)
-        {
-            fp->leftSon = nullptr;
+    if (p->mLeftSon == nullptr && p->mRightSon == nullptr) {
+        if (fp->mLeftSon != nullptr) {
+            fp->mLeftSon = nullptr;
         }
-        if (fp->rightSon != nullptr)
-        {
-            fp->rightSon = nullptr;
+        if (fp->mRightSon != nullptr) {
+            fp->mRightSon = nullptr;
         }
         delete (p);
         return;
     }
 
     // 情况2:p左子树为空,则重接右子树
-    if (p->leftSon == nullptr)
-    {
-        p->value = p->rightSon->value;
-        p->rightSon = nullptr;
+    if (p->mLeftSon == nullptr) {
+        p->mValue = p->mRightSon->mValue;
+        p->mRightSon = nullptr;
         delete (p);
         return;
     }
 
     // 情况3:p右子树为空,则重接左子树
-    if (p->rightSon == nullptr)
-    {
-        p->value = p->leftSon->value;
-        p->leftSon = nullptr;
-        delete (p->leftSon);
+    if (p->mRightSon == nullptr) {
+        p->mValue = p->mLeftSon->mValue;
+        p->mLeftSon = nullptr;
+        delete (p->mLeftSon);
         return;
     }
 
     // 情况4:p左右子树均不为空时,需要找p右子树中最小节点(最左节点)q
-    BSTNode<T> *q = p->rightSon;
+    BSTNode<T> *q = p->mRightSon;
     // fq为q的父节点
     BSTNode<T> *fq = q;
     // 循环查找左节点,就会找到最小值
-    while (q->leftSon != nullptr)
-    {
+    while (q->mLeftSon != nullptr) {
         fq = q;
-        q = q->leftSon;
+        q = q->mLeftSon;
     }
-    fq->leftSon = nullptr;
+    fq->mLeftSon = nullptr;
     // 用最小值节点代替欲删除节点
-    p->value = q->value;
+    p->mValue = q->mValue;
     delete (q);
 }
 
-int main(int argv, char *argc[])
-{
+int main(int argv, char *argc[]) {
     std::vector<int> v = {11, 45, 9, 23, 76, 68};
 
     BSTNode<int> *root = nullptr;
@@ -181,24 +153,24 @@ int main(int argv, char *argc[])
 
     std::cout << "二叉排序树的中序遍历结果: ";
     PrintBST(root);
-    std::cout << endl;
+    std::cout << std::endl;
 
     // 插入值
     int newNode = 35;
-    std::cout << "插入新值:" << newNode << endl;
+    std::cout << "插入新值:" << newNode << std::endl;
     root = InsertNode(root, newNode);
     std::cout << "插入新值后二叉排序树的中序遍历结果: ";
-    
+
     PrintBST(root);
-    std::cout << endl;
+    std::cout << std::endl;
 
     // 删除值
     int delNode = 11;
-    std::cout << "删除值:" << delNode << endl;
+    std::cout << "删除值:" << delNode << std::endl;
 
     DeleteNode(root, delNode);
     std::cout << "删除值后二叉排序树的中序遍历结果: ";
 
     PrintBST(root);
-    std::cout << endl;
+    std::cout << std::endl;
 }

@@ -7,7 +7,6 @@
  * @LastEditors: dmjcb
  * @LastEditTime: 2022-07-19 21:57:23
  */
-#include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
 #define MAX 5

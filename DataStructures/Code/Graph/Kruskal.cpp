@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-26 02:49:32
+ * @LastEditTime : 2024-09-26 12:17:17
  */
 
 #include <iostream>
@@ -21,11 +21,10 @@ typedef struct Line
 {
     std::string mStartNode = "";
     std::string mEndNode = "";
-    double mWeight;
-    bool mIsSelect;
+    double      mWeight;
+    bool        mIsSelect;
 
-    Line(std::string startNode, std::string endNode, double weight)
-    {
+    Line(std::string startNode, std::string endNode, double weight) {
         this->mStartNode = mStartNode;
         this->mEndNode = mEndNode;
         this->mWeight = weight;
@@ -52,7 +51,7 @@ public:
         }
 
         // parent of each node is itself at initialization time
-        for (std::string node : nodes) {
+        for (auto node : nodes) {
             mParent[node] = node;
         }
     };
@@ -111,8 +110,7 @@ public:
 
 private:
     std::map<std::string, std::string> mParent;
-
-    std::vector<Line> mLines;
+    std::vector<Line>                  mLines;
 };
 
 int main(void) {

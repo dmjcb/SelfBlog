@@ -1,11 +1,9 @@
 /*
- * @Description:
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-04-13 22:13:16
- * @LastEditors: dmjcb
- * @LastEditTime: 2022-07-19 21:58:31
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         :  2018-04-13 22:13:16
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-26 12:26:10
  */
 
 #include <iostream>

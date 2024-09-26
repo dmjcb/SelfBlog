@@ -19,7 +19,7 @@
 typedef struct Line {
     std::string mStartNode;
     std::string mEndNode;
-    double mWeight;
+    double      mWeight;
 
     Line(std::string s, std::string e, int w) : mStartNode(s), mEndNode(e), mWeight(w) {}
 } Line;
@@ -29,16 +29,16 @@ class SPFAAlgorithm
 {
 public:
     SPFAAlgorithm(std::vector<Line> lines) {
-        std::set<std::string> _node;
+        std::set<std::string> nodes;
         for (const auto line : lines) {
-            _node.insert(line.mStartNode);
-            _node.insert(line.mEndNode);
+            nodes.insert(line.mStartNode);
+            nodes.insert(line.mEndNode);
         }
-        mNode.assign(_node.begin(), _node.end());
+        mNode.assign(nodes.begin(), nodes.end());
 
         mLines = std::move(lines);
 
-        for (auto node : mNode) {
+        for (const auto node : mNode) {
             mShortestPath[node] = 0x7FFFFFFF;
             mIsInQueue[node] = false;
         }
@@ -82,10 +82,10 @@ public:
     }
 
 private:
-    std::vector<Line> mLines;
-    std::vector<std::string> mNode;
+    std::vector<Line>             mLines;
+    std::vector<std::string>      mNode;
     std::map<std::string, double> mShortestPath;
-    std::map<std::string, bool> mIsInQueue;
+    std::map<std::string, bool>   mIsInQueue;
 };
 
 

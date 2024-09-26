@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 typedef struct Node
 {
     int data;
@@ -10,15 +9,15 @@ typedef struct Node
 } Node;
 
 // 初始化
-Node *InitHead(Node* head)
+Node *InitHead()
 {
-    head = (Node *)malloc(sizeof(Node));
+    Node* head = (Node *)malloc(sizeof(Node));
     head->next = NULL;
     return head;
 }
 
 // 后插法建立链表
-Node *CreateList(Node* head, const int *value, const int length)
+void CreateList(Node* head, const int *value, const int length)
 {
     head->next = NULL;
     Node* p;
@@ -31,7 +30,6 @@ Node *CreateList(Node* head, const int *value, const int length)
         r->next = p;
         r = p;
     }
-    return head;
 }
 
 // 查找
@@ -101,9 +99,40 @@ void EraseNode(Node* head, const int index)
 //
 void OutputList(Node* head)
 {
+    if (head == NULL) {
+        return;
+    }
+
     Node* p = head->next;
     while (p) {
         printf("%d ", p->data);
         p = p->next;
     }
+    printf("\n");
+}
+
+int main(void) {
+    Node *head = InitHead();
+
+    const int LENGTH = 5;
+    int *array = (int *)malloc(sizeof(int) * LENGTH);
+    array[0] = 1;
+    array[1] = 2;
+    array[2] = 3;
+    array[3] = 4;
+    array[4] = 5;
+
+    CreateList(head, array, LENGTH);
+    OutputList(head);
+
+    bool flag = InsertNode(head, 5, 99);
+    OutputList(head);
+
+    free(array);
+    array = NULL;
+
+    free(head);
+    head = NULL;
+
+    return 0;
 }
