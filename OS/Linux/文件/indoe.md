@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-03-11 11:44:56
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-22 21:34:07
+ * @LastEditTime : 2024-09-27 13:22:51
 -->
 
 # inode
@@ -24,7 +24,7 @@
 
 ## inode区
 
-硬盘格式化的时候OS自动将硬盘分成两个区域
+硬盘格式化的时候OS自动将硬盘分为:
 
 - 数据区, 存放文件数据
 
@@ -38,25 +38,33 @@
 
 每个文件对应的inode内容包含
 
-- 文件的字节数
+```mermaid
+graph LR;
+    n(inode)
 
-- 文件拥有者的User ID
+    a0(文件的字节数)
+    a1(文件拥有者User ID)
+    a2(文件 Group ID)
+    a3(文件的读、写、执行权限)
+    a4(文件的时间戳)
+    a41(ctime : inode上一次变动时间)
+    a42(mtime : 文件内容上一次变动时间)
+    a43(atime : 文件上一次打开的时间)
 
-- 文件的Group ID
+    a5(链接数, 即有多少文件名指向该inode)
+    a6(文件数据block位置)
 
-- 文件的读、写、执行权限
-
-- 文件的时间戳
-
-ctime指inode上一次变动的时间
-
-mtime指文件内容上一次变动的时间
-
-atime指文件上一次打开的时间
-
-- 链接数, 即有多少文件名指向这个inode
-
-- 文件数据block的位置
+    n-->a0
+    n-->a1
+    n-->a2
+    n-->a3
+    n-->a4
+        a4-->a41
+        a4-->a42
+        a4-->a43
+    n-->a5
+    n-->a6
+```
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220401223348.png)
 

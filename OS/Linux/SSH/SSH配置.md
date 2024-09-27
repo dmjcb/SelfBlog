@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-03-14 13:31:07
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-12 16:29:24
+ * @LastEditTime : 2024-09-27 13:46:47
 -->
 
 # SSH
@@ -54,12 +54,32 @@ ssh-keygen -t rsa
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210312104415.png)
 
-| 文件            | 作用                     |
-| --------------- | ------------------------ |
-| authorized_keys | 存储其他主机的公钥       |
-| id_rsa          | 本机私钥文件             |
-| id_rsa.pub      | 本机公钥文件             |
-| know_hosts      | 存储已认证主机的host key |
+
+```mermaid
+graph LR;
+    s(.ssh目录)
+
+    s1(authorized_keys)
+    s2(id_rsa)
+    s3(id_rsa.pub)
+    s4(know_hosts)
+
+    s11(存储其他主机公钥)
+    s21(本机私钥)
+    s31(本机公钥)
+    s41(存储已认证主机host key)
+
+    s-->s1
+    s-->s2
+    s-->s3
+    s-->s4
+
+    s1-->s11
+    s2-->s21
+    s3-->s31
+    s4-->s41
+
+```
 
 ### 配置文件
 

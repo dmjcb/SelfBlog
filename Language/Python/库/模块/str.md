@@ -16,7 +16,7 @@
 s = "Hello World"
 ```
 
-## input
+### input
 
 Python input() 接受的输入数据均为字符串格式
 

@@ -22,6 +22,29 @@ b = [1, 2, 'A', 4]
 c = [[1, 2], 'A', 3]
 ```
 
+```mermaid
+graph LR;
+    subgraph c
+        c0([1, 2])
+        c1('A')
+        c2(3)
+    end
+
+    subgraph b
+        a0(1)
+        a1(2)
+        a2('A')
+        a3(4)
+    end
+
+    subgraph a
+        b0(1)
+        b1(2)
+        b2(3)
+        b3(4)
+    end
+```
+
 ### 多维
 
 - 建立 $x*y$ 大小的数组, 初始值为 $z$

@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-12-02 23:02:30
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-26 16:18:36
+ * @LastEditTime : 2024-09-27 13:06:37
 -->
 
 # 字典
@@ -21,6 +21,25 @@ d = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
 # 7
 d['Age']
+```
+
+```mermaid
+graph LR;
+    subgraph V
+        v1(Zara)
+        v2(7)
+        v3(First)
+    end
+
+    subgraph K
+        k1(Name)
+        k2(Age)
+        k3(Class)
+    end
+
+    k1-->v1
+    k2-->v2
+    k3-->v3
 ```
 
 ### 遍历
