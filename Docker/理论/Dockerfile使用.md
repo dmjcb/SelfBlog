@@ -2,7 +2,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 23:17:30
+ * @LastEditTime : 2024-09-28 01:47:07
 -->
 
 # Dockerfile
@@ -68,7 +68,6 @@ CMD ["python3", "manage.py", "runserver 0.0.0.0: 8000"]
 `CMD` 在`docker run`时运行, Dockerfile中只能在末尾有一条CMD指令
 
 `RUN` 在 `docker build`时运行, 可出现若干次
-
 
 ## 构建
 

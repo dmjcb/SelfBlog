@@ -2,7 +2,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2021-10-06 13:11:32
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-04 18:43:29
+ * @LastEditTime : 2024-09-28 01:46:33
 -->
 
 # Docker网络
@@ -13,7 +13,22 @@ Docker进程启动时会在主机上创建虚拟网桥 $docker0$, 处于七层�
 
 虚拟网桥的工作方式和物理交换机类似, 此时所有容器就通过交换机连在一个二层网络中
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20240904_010600.jpg)
+
+```mermaid
+graph TB;
+    subgraph 网络模式
+        N(node模式)
+        H(host模式)
+        B(bridge模式)
+    end
+
+    docker0(docker0)
+
+    eth(物理网卡eth0)
+
+    H<-->eth
+    B<-->docker0<-->eth
+```
 
 ## bridge
 
@@ -116,10 +131,3 @@ docker run -itd --net=host [容器名]
 ## none
 
 没有任何的网络资源, 不能和容器和宿主机之间进行正常的访问互动
-
-
-## container
-
-container模式是指定其和已经存在的某个容器共享一个网络命名空间
-
-此时这两个容器共同使用同一网卡、主机名、IP 地址,容器间通讯可直接通过本地回环 lo 接口通讯, 但这两个容器在其他的资源上,如文件系统、进程列表等还是隔离的

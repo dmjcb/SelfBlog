@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-03-11 11:44:56
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 13:22:51
+ * @LastEditTime : 2024-09-28 01:37:36
 -->
 
 # inode
@@ -42,28 +42,16 @@
 graph LR;
     n(inode)
 
-    a0(文件的字节数)
-    a1(文件拥有者User ID)
-    a2(文件 Group ID)
-    a3(文件的读、写、执行权限)
-    a4(文件的时间戳)
-    a41(ctime : inode上一次变动时间)
-    a42(mtime : 文件内容上一次变动时间)
-    a43(atime : 文件上一次打开的时间)
-
-    a5(链接数, 即有多少文件名指向该inode)
-    a6(文件数据block位置)
-
-    n-->a0
-    n-->a1
-    n-->a2
-    n-->a3
-    n-->a4
-        a4-->a41
-        a4-->a42
-        a4-->a43
-    n-->a5
-    n-->a6
+    n-->a0(文件的字节数)
+    n-->a1(文件拥有者User ID)
+    n-->a2(文件 Group ID)
+    n-->a3(文件的读、写、执行权限)
+    n-->a4(文件的时间戳)
+        a4-->a41(ctime : inode上一次变动时间)
+        a4-->a42(mtime : 文件内容上一次变动时间)
+        a4-->a43(atime : 文件上一次打开的时间)
+    n-->a5(链接数, 即有多少文件名指向该inode)
+    n-->a6(文件数据block位置)
 ```
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20220401223348.png)
@@ -84,7 +72,7 @@ graph LR;
 
 更新文件时, 新版文件以同样的文件名, 生成一个新的inode, 不会影响到运行中的文件, 
 
-下次运行软件的时候, 文件名就自动指向新版文件, 旧版文件的inode则被回收
+下次运行软件的时候, 文件名就自动指向新版文件, 旧版文件inode则被回收
 
 ## indoe命令
 

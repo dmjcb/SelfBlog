@@ -3,7 +3,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2023-09-16 16:02:42
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 21:03:03
+ * @LastEditTime : 2024-09-28 01:58:18
 -->
 
 # CMake使用
@@ -19,7 +19,7 @@ int main(void) {
 }
 ```
 
-## 创建 CMakeLists.txt
+## 创建
 
 ```sh
 
