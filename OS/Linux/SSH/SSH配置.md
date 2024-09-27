@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-03-14 13:31:07
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 13:46:47
+ * @LastEditTime : 2024-09-27 20:29:11
 -->
 
 # SSH
@@ -98,7 +98,7 @@ PubkeyAuthentication yes
 PasswordAuthentication no
 ```
 
-## SSH工具
+## 工具
 
 ### 获取登录信息
 
@@ -122,7 +122,7 @@ server=${ifconfig wlp2s0 | sed -n '2p' | awk '{print $2}'}
 echo ${user} ${ip} ${time} ${server}
 ```
 
-## Web工具
+### Web工具
 
 [https://github.com/huashengdun/webssh](https://github.com/huashengdun/webssh)
 

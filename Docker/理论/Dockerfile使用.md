@@ -2,7 +2,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-26 16:15:11
+ * @LastEditTime : 2024-09-27 23:17:30
 -->
 
 # Dockerfile
@@ -54,7 +54,7 @@ CMD python3 manage.py runserver 0.0.0.0:8000
 #### exec格式
 
 ```sh
-CMD ["可执行文件", "参数1", "参数2", ...
+CMD ["可执行文件", "参数1", "参数2", ...]
 ```
 
 - 执行Python指令
@@ -65,7 +65,7 @@ CMD ["python3", "manage.py", "runserver 0.0.0.0: 8000"]
 
 #### 区别
 
-`CMD` 在`docker run`时运行, Dockerfile中只能在末尾有**一条**CMD指令
+`CMD` 在`docker run`时运行, Dockerfile中只能在末尾有一条CMD指令
 
 `RUN` 在 `docker build`时运行, 可出现若干次
 

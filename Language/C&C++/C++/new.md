@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2024-09-21 21:03:49
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-22 01:29:25
+ * @LastEditTime : 2024-09-27 20:56:31
 -->
 
 # new
@@ -18,13 +18,13 @@ new 是高层次操作, 隐藏了底层的内存分配细节
 T *p = new T();
 ```
 
-#### 特点
-
-(1) new 同时进行内存分配和对象构造
-
-(2) 如果内存分配失败, 会抛出 std::bad_alloc 异常
-
-(3) 可以用于单个对象或数组的创建, 语法上区分为 new 和 new[]
+```mermaid
+graph LR;
+    A(new特点)
+    A-->B(同时进行内存分配和对象构造)
+    A-->C(若内存分配失败, 抛出 std::bad_alloc 异常)
+    A-->D(可用于单个对象或数组创建)
+```
 
 ### operator new 函数
 
@@ -38,17 +38,15 @@ void* operator new(std::size_t size) {
 }
 ```
 
-- 工作流程
-
 operator new 只负责从自由存储区(堆)中分配足够的内存, 不关心内存中存储的数据, 也不调用构造函数
 
-- 特点
-
-(1)只负责内存分配, 不初始化对象
-
-(2)可以为特定类重载 operator new 来自定义内存分配过程
-
-(3)如果分配失败, 也会抛出 std::bad_alloc 异常, 除非你使用 nothrow 版本
+```mermaid
+graph LR;
+    A(operator new特点)
+    A-->B(只负责内存分配, 不初始化对象)
+    A-->C(可重载以自定义内存分配过程)
+    A-->D(若分配失败也抛出 std::bad_alloc 异常, 除非使用 nothrow 版本)
+```
 
 #### 重载
 
@@ -86,8 +84,6 @@ operator new |只分配内存, 不构造对象, 允许类自定义内存分配�
 ### 分配内存
 
 new 关键字调用 operator new 默认从堆(自由存储区)中分配内存来存储对象
-
-- 特点
 
 (1) operator new 如果内存分配失败, 会抛出 std::bad_alloc 异常(而不像 malloc 返回 NULL)
 
@@ -129,15 +125,14 @@ T* obj = new(ptr) T();
 
 new 操作符需要处理确保内存泄漏不发生
 
-- 特点
-
 (1) 如果内存分配失败：operator new 会抛出 std::bad_alloc 异常
 
 (2) 如果构造函数抛出异常：会释放已经分配的内存, 并传播异常, C++ 通过 RAII异常处理机制, 确保不会泄漏资源
 
 ```c++
 // 1. 分配内存
-T* obj = static_cast<T*>(operator new(sizeof(T)));  
+T* obj = static_cast<T*>(operator new(sizeof(T)));
+
 try {
     // 2. 定位 new, 调用构造函数
     new (obj) T();  
@@ -151,7 +146,7 @@ try {
 
 ### 返回指针
 
-最后, 如果内存分配和对象构造都成功, new 操作符返回指向已初始化对象的指针, 此时, 对象已经完全初始化, 可以正常使用
+最后, 若内存分配和对象构造都成功, new 操作符返回指向已初始化对象的指针, 此时对象已经完全初始化, 可正常使用
 
 ```c++
 #include <iostream>

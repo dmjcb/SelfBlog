@@ -3,10 +3,12 @@
  * @Author       : dmjcb
  * @Date         : 2024-09-10 02:06:36
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-23 00:16:29
+ * @LastEditTime : 2024-09-27 21:21:49
 -->
 
 # boost编译过程
+
+> [使用Docker搭建C++ Boost开发环境](https://bryantchang.github.io/2019/02/25/docker-boost/)
 
 ## 下载
 
@@ -64,8 +66,3 @@ int main() {
     return 0;
 }
 ```
-
-
-## 参考
-
-- [使用Docker搭建C++ Boost开发环境](https://bryantchang.github.io/2019/02/25/docker-boost/)

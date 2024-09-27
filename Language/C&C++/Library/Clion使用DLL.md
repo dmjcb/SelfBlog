@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-01-20 11:26:41
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-06 23:50:22
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-01-20 11:26:41
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-27 21:23:17
 -->
 
 # Clion使用DLL

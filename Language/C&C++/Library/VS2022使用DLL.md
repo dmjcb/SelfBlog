@@ -3,9 +3,8 @@
  * @Author       : dmjcb
  * @Date         : 2023-11-09 21:31:16
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-20 00:53:03
+ * @LastEditTime : 2024-09-27 22:07:30
 -->
-
 
 # VS2022使用DLL
 
@@ -31,7 +30,6 @@ DLLEXPORT int add(int x, int y);
 void helloworld() {
     std::cout << "Hello World" << std::endl;
 }
-
 
 int add(int x, int y) {
     return x + y;

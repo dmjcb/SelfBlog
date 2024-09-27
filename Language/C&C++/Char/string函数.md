@@ -22,7 +22,6 @@
 int strcmp(const char *s1, const char *s2)
 ```
 
-
 ## strstr
 
 - 查找 s2在s1中首次出现的位置, 返回第一次出现s2的位置, 若未找到则返回NULL
@@ -85,7 +84,6 @@ printf("%s\n", a);
 ```c
 char *strncpy(char *dest, const char *src, size_t n)
 ```
-
 
 ## memset
 

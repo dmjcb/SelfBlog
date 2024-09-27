@@ -3,14 +3,14 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2021-01-16 17:59:35
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-07 00:42:52
+ * @LastEditTime : 2024-09-27 23:54:56
 -->
 
 # MySQL事务
 
-事务处理可以用来维护数据库的完整性, 保证 SQL 语句要么全执行, 要么全不执行
+事务处理可以用来维护数据库的完整性, 保证 $SQL$ 语句要么全执行, 要么全不执行
 
-事务用来管理 `INSERT`, `UPDATE`, `DELETE` 语句, 只有使用 Innodb 数据库引擎的数据库或表才支持事务
+事务用来管理 `INSERT`, `UPDATE`, `DELETE` 语句, 只有使用 $Innodb$ 数据库引擎的数据库或表才支持事务
 
 ## 特性
 
@@ -26,17 +26,16 @@
 
 隔离性可以防止多个事务并发执行时, 由于交叉执行而导致对数据进行读写和修改产生不一致的情况
 
-事务隔离分为不同级别, 包括, 
+```mermaid
+graph LR;
+    S(事务隔离级别)
 
-- 读未提交(Read uncommitted)
-
-- 读提交(Read committed)
-
-- 可重复读(Repeatable read)
-
-- 串行化(Serializable)
-
-- 持久性(Durability)
+    S-->A(读未提交<br>Read uncommitted)
+    S-->B(读提交<br>Read committed)
+    S-->C(可重复读<br>Repeatable read)
+    S-->D(串行化<br>Serializable)
+    S-->E(持久性<br>Durability)
+```
 
 事务处理结束后, 对数据的修改即是永久
 
@@ -50,9 +49,9 @@
 
 ```sql
 CREATE TABLE "info" (
-  "id" text NOT NULL, 
-  "name" text, 
-  PRIMARY KEY ("id")
+    "id"   text NOT NULL, 
+    "name" text, 
+    PRIMARY KEY ("id")
 );
 ```
 

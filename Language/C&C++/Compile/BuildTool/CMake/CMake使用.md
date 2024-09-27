@@ -3,14 +3,13 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2023-09-16 16:02:42
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-20 00:35:49
+ * @LastEditTime : 2024-09-27 21:03:03
 -->
 
 # CMake使用
 
-- Main.cpp
-
 ```cpp
+// Main.cpp
 #include<iostream>
 
 int main(void) {
@@ -41,7 +40,7 @@ add_executable(Hello ${SRC_LIST})
 cmake build
 ```
 
-- 使用当前目录CMakeList.txt,  指定build目录构建
+- 使用当前目录CMakeList.txt, 指定build目录构建
 
 ```sh
 cmake -B build

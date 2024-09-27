@@ -1,5 +1,8 @@
 # CMake语法
 
+> - [CMAKE手册](https://www.zybuluo.com/khan-lau/note/254724)
+> - [用CMake构建工程时 cmake -G "Unix Makefiles" 的使用](https://blog.csdn.net/yangjia_cheng/article/details/111408753)
+
 ## 设置
 
 ### cmake_minimum_required
@@ -75,8 +78,9 @@ name 对应于逻辑目标名称, 而且在一个工程的全局域内必须唯�
 #define DLL_EXPORT extern "C" __declspec(dllexport)
 
 DLL_EXPORT int add(int x, int y);
+```
 
-
+```c++
 // API.cpp
 #include "API.h"
 
@@ -84,7 +88,9 @@ int add(int x, int y)
 {
     return x + y;
 }
+```
 
+```c++
 // CMakeLists.txt
 project(Hello)
 
@@ -119,9 +125,3 @@ add_executable([可执行文件名] [源文件])
 ```
 
 生成可执行文件
-
-## 参考
-
-[CMAKE手册](https://www.zybuluo.com/khan-lau/note/254724)
-
-[用CMake构建工程时 cmake -G "Unix Makefiles" 的使用](https://blog.csdn.net/yangjia_cheng/article/details/111408753)

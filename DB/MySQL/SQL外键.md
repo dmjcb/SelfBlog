@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-01-16 17:59:35
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-26 15:42:25
+ * @LastEditTime : 2024-09-27 23:56:28
 -->
 
 # SQL外键
@@ -23,7 +23,7 @@
 ```sql
 # ---------------------------------------------------------------------------------------------------------
 CREATE TABLE `Stu` (
-  `s_id` varchar(255)  NOT NULL, 
+  `s_id`   varchar(255)  NOT NULL, 
   `s_name` varchar(255), 
   PRIMARY KEY (`s_id`) USING BTREE
 );
@@ -31,7 +31,7 @@ CREATE TABLE `Stu` (
 
 # ---------------------------------------------------------------------------------------------------------
 CREATE TABLE `Course` (
-  `c_id` varchar(255)  NOT NULL, 
+  `c_id`   varchar(255)  NOT NULL, 
   `c_name` varchar(255), 
   PRIMARY KEY (`c_id`) USING BTREE
 );
@@ -39,9 +39,9 @@ CREATE TABLE `Course` (
 
 # ---------------------------------------------------------------------------------------------------------
 CREATE TABLE `Score` (
-  `r_id` int(0) NOT NULL AUTO_INCREMENT, 
-  `s_id` varchar(255), 
-  `c_id` varchar(255), 
+  `r_id`  int(0) NOT NULL AUTO_INCREMENT, 
+  `s_id`  varchar(255), 
+  `c_id`  varchar(255), 
   `score` int(0), 
   PRIMARY KEY (`r_id`) USING BTREE, 
   INDEX `s_id`(`s_id`) USING BTREE, 
