@@ -1,14 +1,14 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-02-13 19:00:24
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-06 23:28:05
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-02-13 19:00:24
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 16:20:26
 -->
 
 # SPFA
+
+[详细代码SPFA.cpp](../Code/Graph/SPFA.cpp)
 
 ```mermaid
 graph LR
@@ -114,114 +114,3 @@ $7)$ 队头 $E$ 出队, 对以 $E$ 为起点的边进行松弛
 |        | A   | B    | C    | D    | E    |
 | ------ | --- | ---- | ---- | ---- | ---- |
 | $p[i]$ | `0` | `13` | `41` | `17` | `56` |
-
-
-## 代码
-
-```c++
-#include <iostream>
-#include <cstring>
-#include <queue>
-#include <map>
-#include <set>
-#include <vector>
-
-const int SIZE = 5;
-const int MAXV = 10000;
-
-typedef struct Line
-{
-    std::string startNode;
-    std::string endNode;
-    int weight;
-
-    Line(std::string s, std::string e, int w) : startNode(s), endNode(e), weight(w) {}
-} Line;
-
-
-class SPFAAlgorithm
-{
-public:
-    SPFAAlgorithm(std::vector<Line> lines) {
-        std::set<std::string> _node;
-        for (auto line : lines) {
-            _node.insert(line.startNode);
-            _node.insert(line.endNode);
-        }
-        mNode.assign(_node.begin(), _node.end());
-
-        mLines = std::move(lines);
-
-        for (auto node : mNode) {
-            mShortestPath[node] = 0x7FFFFFFF;
-            mIsInQueue[node] = false;
-        }
-    }
-
-    void RunSPFA(std::string node) {
-        std::queue<std::string> queue;
-
-        queue.push(node);
-        mShortestPath[node] = 0;
-        mIsInQueue[node] = true;
-
-        std::string startNode;
-        std::string endNode;
-        while (!queue.empty())
-        {
-            startNode = queue.front();
-            queue.pop();
-            mIsInQueue[startNode] = false;
-            // 遍历所有与a所连通的节点, 进行松弛操作
-            for (int i = 0; i < mLines.size(); i++)
-            {
-                if (startNode != mLines[i].startNode)
-                {
-                    continue;
-                }
-                // 某个边的起点是a,获取该边的终点e
-                endNode = mLines[i].endNode;
-                // 若从点node经过点x到点end的距离比S直接到end的距离短, 则可松弛
-                if (mShortestPath[startNode] + mLines[i].weight < mShortestPath[endNode])
-                {
-                    // 从点S到点end的距离更新为点S到X的距离与X到end的距离之和
-                    mShortestPath[endNode] = mShortestPath[startNode] + mLines[i].weight;
-                    if (!mIsInQueue[endNode])
-                    {
-                        queue.push(endNode);
-                        mIsInQueue[endNode] = 1;
-                    }
-                }
-            }
-        }
-    }
-
-    void PrintShortestPath() {
-        for (auto k : mShortestPath) {
-            std::cout << k.first << k.second << std::endl;
-        }
-    }
-
-
-private:
-    std::vector<Line> mLines;
-    std::vector<std::string> mNode;
-    std::map<std::string, double> mShortestPath;
-    std::map<std::string, bool> mIsInQueue;
-};
-
-
-int main()
-{
-    std::vector<Line> lines = { Line("A", "B", 13), Line("A", "E", 70), Line("B", "D", 4), Line("B", "C", 28), Line("C", "D", 23), Line("C", "E", 15) };
-    
-    std::string node = "A";
-    
-    SPFAAlgorithm spfa = SPFAAlgorithm(lines);
-
-    spfa.RunSPFA(node);
-    spfa.PrintShortestPath();
-
-    return 0;
-}
-```

@@ -1,11 +1,9 @@
 /*
- * @Description: SPFA求最短路径
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-04-13 22:33:00
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-30 13:22:33
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-02-13 19:00:24
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 16:17:59
  */
 
 #include <iostream>
@@ -15,21 +13,23 @@
 #include <set>
 #include <vector>
 
-// defintion of line
-typedef struct Line {
-    std::string mStartNode;
-    std::string mEndNode;
-    double      mWeight;
+ // defintion of line
 
-    Line(std::string s, std::string e, int w) : mStartNode(s), mEndNode(e), mWeight(w) {}
-} Line;
+template <class T>
+struct Line {
+    T         mStartNode;
+    T         mEndNode;
+    double    mWeight;
+
+    Line(T s, T e, double w) : mStartNode(s), mEndNode(e), mWeight(w) {}
+};
 
 
-class SPFAAlgorithm
-{
+template <class T>
+class SPFAAlgorithm {
 public:
-    SPFAAlgorithm(std::vector<Line> lines) {
-        std::set<std::string> nodes;
+    SPFAAlgorithm(std::vector<Line<T> > lines) {
+        std::set<T> nodes;
         for (const auto line : lines) {
             nodes.insert(line.mStartNode);
             nodes.insert(line.mEndNode);
@@ -37,22 +37,21 @@ public:
         mNode.assign(nodes.begin(), nodes.end());
 
         mLines = std::move(lines);
-
         for (const auto node : mNode) {
             mShortestPath[node] = 0x7FFFFFFF;
             mIsInQueue[node] = false;
         }
     }
 
-    void SPFA(std::string node) {
-        std::queue<std::string> queue;
+    void SPFA(T node) {
+        std::queue<T> queue;
 
         queue.push(node);
         mShortestPath[node] = 0;
         mIsInQueue[node] = true;
 
-        std::string startNode;
-        std::string endNode;
+        T startNode;
+        T endNode;
         while (!queue.empty()) {
             startNode = queue.front();
             queue.pop();
@@ -82,14 +81,16 @@ public:
     }
 
 private:
-    std::vector<Line>             mLines;
-    std::vector<std::string>      mNode;
-    std::map<std::string, double> mShortestPath;
-    std::map<std::string, bool>   mIsInQueue;
+    std::vector<Line<T>>    mLines;
+    std::vector<T>          mNode;
+    std::map<T, double>     mShortestPath;
+    std::map<T, bool>       mIsInQueue;
 };
 
 
 int main() {
+    using Line = Line<std::string>;
+
     std::vector<Line> lines = {
         Line("A", "B", 13), Line("A", "E", 70), Line("B", "D", 4),
         Line("B", "C", 28), Line("C", "D", 23), Line("C", "E", 15)
@@ -97,7 +98,7 @@ int main() {
 
     std::string node = "A";
 
-    SPFAAlgorithm spfa = SPFAAlgorithm(lines);
+    SPFAAlgorithm<std::string> spfa = SPFAAlgorithm<std::string>(lines);
     spfa.SPFA(node);
     spfa.PrintShortestPath();
 
