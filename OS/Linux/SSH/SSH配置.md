@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-03-14 13:31:07
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 20:29:11
+ * @LastEditTime : 2024-09-28 14:47:59
 -->
 
 # SSH
@@ -124,7 +124,7 @@ echo ${user} ${ip} ${time} ${server}
 
 ### Web工具
 
-[https://github.com/huashengdun/webssh](https://github.com/huashengdun/webssh)
+> [https://github.com/huashengdun/webssh](https://github.com/huashengdun/webssh)
 
 ```sh
 pip3 install webssh

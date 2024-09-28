@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-01-28 20:34:49
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 09:25:59
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-01-28 20:34:49
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 14:37:15
 -->
 
 # pandas

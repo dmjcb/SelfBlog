@@ -127,8 +127,8 @@ reverse()
 获取list中范围内的值
 
 | 语法        | 获取范围      |
-| ----------- | ------------- |
-| [start:end] | [start, end)  |
+| ----------- | ------------ |
+| [start:end] | [start, end) |
 | [start:]    | [start, 末尾] |
 | [:end]      | [开头, end)   |
 

@@ -1,12 +1,11 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: 
- * @Email: 
- * @Date: 2023-12-18 21:09:58
- * @LastEditors: 
- * @LastEditTime: 2023-12-18 21:10:23
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2023-12-18 21:09:58
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 14:36:57
 -->
+
 # PyQT
 
 ## 安装pyqt

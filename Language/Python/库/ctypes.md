@@ -1,18 +1,14 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: 
- * @Email: 
- * @Date: 2023-11-18 21:54:04
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-11-19 22:52:35
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2023-11-18 21:54:04
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 14:35:29
 -->
 
 # ctypes
 
-参考
-
-- [Python--ctypes(数据类型详细踩坑指南)](https://zhuanlan.zhihu.com/p/145165873)
+> [Python--ctypes(数据类型详细踩坑指南)](https://zhuanlan.zhihu.com/p/145165873)
 
 ## 普通函数
 

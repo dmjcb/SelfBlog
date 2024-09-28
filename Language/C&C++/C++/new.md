@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2024-09-21 21:03:49
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 20:56:31
+ * @LastEditTime : 2024-09-28 13:41:15
 -->
 
 # new
@@ -64,7 +64,7 @@ graph LR;
 
 全局的 operator new, 用于分配内存
 
-- 与 operator new 的区别在于
+- 与 operator new 的区别
 
 (1) ::operator new 强制调用全局作用域的 operator new, 即标准库提供的默认版本
 

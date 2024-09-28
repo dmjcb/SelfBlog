@@ -3,10 +3,12 @@
  * @Author       : dmjcb
  * @Date         : 2021-02-03 13:54:04
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-20 00:57:16
+ * @LastEditTime : 2024-09-28 14:33:13
 -->
 
-# uwsgi部署Django
+# 部署Django
+
+# uwsgi部署
 
 建立项目mysite
 

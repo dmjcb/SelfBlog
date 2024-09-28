@@ -3,9 +3,8 @@
  * @Author       : dmjcb
  * @Date         : 2024-05-05 22:59:15
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-26 00:55:38
+ * @LastEditTime : 2024-09-28 14:42:18
 -->
-
 
 # Ubuntu 安装RIME
 

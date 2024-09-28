@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-12-01 20:37:22
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 09:28:14
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-12-01 20:37:22
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 14:28:36
 -->
 
 # 字符串

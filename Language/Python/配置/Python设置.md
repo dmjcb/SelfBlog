@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-08-19 23:44:15
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:10:44
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-08-19 23:44:15
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 14:40:03
 -->
 
 # Python设置
