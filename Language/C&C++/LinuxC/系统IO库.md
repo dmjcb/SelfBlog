@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-04-07 23:26:04
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:40:22
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-04-07 23:26:04
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 22:22:21
 -->
 
 # 系统调用
@@ -31,10 +29,10 @@ size_t write(int fildes, const void *buf, size_t nbytes)
 
 int main(void) { 
 	const size_t WRITE_INFO_LEN = 18;
-    const size_t ERR_INFO_LEN = 46;
+    const size_t ERR_INFO_LEN   = 46;
 
     const char* WEITE_INFO = "Here is some data\n";
-    const char* ERR_INFO = "A write error has occurred on file descriptor 1 \n";
+    const char* ERR_INFO   = "A write error has occurred on file descriptor 1 \n";
 
     // 向fd1(屏幕)写入
     if (write(STDOUT_FILENO, WEITE_INFO, WRITE_INFO_LEN) != WRITE_INFO_LEN) {
@@ -72,8 +70,8 @@ size_t read(int fildes, void *buf, size_t nbytes)
 #include<unistd.h>
 
 int main(void) {
-	const int READ_INFO_LEN = 128;
-	const int READ_ERR_INFO_LEN = 26;
+	const int READ_INFO_LEN      = 128;
+	const int READ_ERR_INFO_LEN  = 26;
 	const int WRITE_ERR_INFO_LEN = 27;
 	
     char buffer[READ_INFO_LEN];

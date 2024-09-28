@@ -1,11 +1,9 @@
 /*
- * @Description:
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-11-19 22:04:55
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-06-28 22:30:45
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-11-19 22:04:55
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 22:24:34
  */
 
 #include <iostream>
@@ -30,10 +28,8 @@ int main(void)
     bool done = false;
 
     std::thread producer(
-        [&]() -> void
-        {
-            for (int i = 1; i < 10; ++i)
-            {
+        [&]() -> void {
+            for (int i = 1; i < 10; ++i) {
                 // 模拟实际生产过程
                 std::this_thread::sleep_for(std::chrono::milliseconds(10));
                 std::cout << "producing " << i << std::endl;
@@ -50,20 +46,16 @@ int main(void)
         });
 
     std::thread consumer(
-        [&]() -> void
-        {
+        [&]() -> void {
             std::unique_lock<std::mutex> lock(mtx);
             // 如果生成没有结束或者队列中还有产品没有消费, 则继续消费, 否则结束消费
-            while (!done || !production.empty())
-            {
+            while (!done || !production.empty()) {
                 // 防止误唤醒
-                while (!ready)
-                {
+                while (!ready) {
                     cv.wait(lock);
                 }
 
-                while (!production.empty())
-                {
+                while (!production.empty()) {
                     // 模拟消费过程
                     std::cout << "consuming " << production.front() << std::endl;
                     production.pop();

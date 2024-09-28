@@ -1,18 +1,9 @@
 /*
  * @Brief        : 
  * @Author       : dmjcb
- * @Date         : 2024-09-24 20:03:51
+ * @Date         : 2024-06-30 18:20:32
  * @LastEditors  : dmjcb@outlook.com
  * @LastEditTime : 2024-09-26 22:18:52
- */
-/*
- * @Description:
- * @Version: 1.0
- * @Author:
- * @Email:
- * @Date: 2024-06-30 18:20:32
- * @LastEditors:
- * @LastEditTime: 2024-06-30 18:20:38
  */
 
 #include <iostream>
@@ -27,11 +18,9 @@ static double gSum = 0;
 
 static std::mutex gMutex;
 
-void ConcurrentWorker(int min, int max)
-{
+void ConcurrentWorker(int min, int max) {
     double v = 0;
-    for (int i = min; i <= max; i++)
-    {
+    for (int i = min; i <= max; i++) {
         v += sqrt(i);
     }
 
@@ -39,23 +28,20 @@ void ConcurrentWorker(int min, int max)
     gSum += v;
 }
 
-void ConcurrentTask(int min, int max)
-{
+void ConcurrentTask(int min, int max) {
     unsigned concurrentCount = std::thread::hardware_concurrency();
     std::cout << "hardware_concurrency: " << concurrentCount << std::endl;
 
     std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
     std::vector<std::thread> threads;
-    for (int i = 0; i < concurrentCount; i++)
-    {
+    for (int i = 0; i < concurrentCount; i++) {
         int _max = max / concurrentCount * (i + 1);
         threads.push_back(std::thread(ConcurrentWorker, min, _max));
         min = _max + 1;
     }
 
-    for (int i = 0; i < threads.size(); i++)
-    {
+    for (int i = 0; i < threads.size(); i++) {
         threads[i].join();
     }
 
@@ -64,8 +50,7 @@ void ConcurrentTask(int min, int max)
     std::cout << "Concurrent task finish, " << ms << " ms consumed, Result: " << gSum << std::endl;
 }
 
-int main(void)
-{
+int main(void) {
     ConcurrentTask(0, MAX);
 
     return 0;
