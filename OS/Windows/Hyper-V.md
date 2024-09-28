@@ -3,9 +3,8 @@
  * @Author       : dmjcb
  * @Date         : 2021-02-07 14:02:02
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-18 21:37:17
+ * @LastEditTime : 2024-09-28 17:54:16
 -->
-
 
 # Hypervisor
 
@@ -35,7 +34,14 @@ Hypervisor不但协调着这些硬件资源的访问, 也同时在各个虚拟�
 
 - 运行效率高
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207190941.png)
+```mermaid
+graph TB
+    H(Hardware) --> H1(Hypervisor)
+
+    H1 --> O1(OS1)
+    H1 --> O2(OS2)
+    H1 --> O3(OS3)
+```
 
 ## 寄居或托管hypervisor
 
@@ -47,7 +53,15 @@ Hypervisor不但协调着这些硬件资源的访问, 也同时在各个虚拟�
 
 - 运行效率一般较原生低
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210207191615.png)
+```mermaid
+graph TB
+    H(Hardware) --> O(OS) --> H1(Hypervisor)
+
+    H1 --> O1(OS1)
+    H1 --> O2(OS2)
+    H1 --> O3(OS3)
+```
+
 
 ## Hyper-v
 

@@ -1,8 +1,20 @@
 # Git命令
 
-## 提交过程
+```mermaid
+graph TB;
+    R(远程仓库<br>Remote Repository)
+    L(本地仓库<br>Local Repository)
+    S(暂存区<br>Stage Area)
+    W(工作区<br>Work Space)
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/202407231550.svg)
+    W -- add --> S
+    S -- commit --> L
+    L -- push --> R
+
+    R -- pull --> W
+    R -- clone/fetch --> L
+    L -- checkout --> W
+```
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-17-2310.svg)
 
