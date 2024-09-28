@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-11-27 20:45:27
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-12-03 13:59:11
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-11-27 20:45:27
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 23:36:31
 -->
 
 # string函数

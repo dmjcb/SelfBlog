@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-10-26 19:54:53
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-31 01:08:58
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-10-26 19:54:53
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 23:16:15
 -->
 
 # decltype
@@ -65,8 +63,7 @@ decltype 能够根据变量、字面量、带有运算符的表达式推导出�
 #include <iostream>
 #include <string>
 
-class Student
-{
+class Student {
 public:
     static int total;
 
@@ -77,8 +74,7 @@ public:
 
 int Student::total = 0;
 
-int main()
-{
+int main() {
     int n = 0;
 
     const int &r = n;

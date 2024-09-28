@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-09-25 23:27:18
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-06 19:59:52
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-09-25 23:27:18
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 23:33:46
 -->
 
 # this

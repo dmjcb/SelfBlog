@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2022-04-07 23:26:04
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-28 22:22:21
+ * @LastEditTime : 2024-09-28 23:42:04
 -->
 
 # 系统调用
@@ -127,7 +127,7 @@ int main(void) {
     char block[1024];
     int nread;
 
-    int in = open("file.in", O_RDONLY);
+    int in  = open("file.in", O_RDONLY);
     int out = open("file.out", O_WRONLY|O_CREAT, S_IRUSR|S_IWUSR);
     while((nread = read(in, block, sizeof(block))) > 0) {
         write(out, block, nread);
