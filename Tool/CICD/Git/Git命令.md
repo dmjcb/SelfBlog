@@ -16,8 +16,6 @@ graph TB;
     L -- checkout --> W
 ```
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-17-2310.svg)
-
 ## init
 
 ### 新建代码仓库

@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-10-12 23:24:59
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-19 14:08:10
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-10-12 23:24:59
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-28 21:52:27
 -->
 
 # VSCode
@@ -40,8 +38,8 @@ sudo code --user-data-dir="~/.vscode-root"
 ### 查找
 
 | 功能             | 快捷键                                            |
-| ---------------- | ------------------------------------------------- |
-| 当前文件内容查找 | <kbd>Ctrl</kbd> + <kbd>F</kbd>                    |
+| ---------------- | -----------------------------------------------  |
+| 当前文件内容查找 | <kbd>Ctrl</kbd> + <kbd>F</kbd>                     |
 | 全局查找         | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
 | 回到查看前位置   | <kbd>Alt</kbd> + <kbd>←</kbd>                     |
 | 查找指定文件     | <kbd>Ctrl</kbd> + <kbd>E</kbd>                    |
@@ -64,18 +62,18 @@ highlight-icemode
 - C++ 文件查找
 
 | 功能         | 快捷键                                         |
-| ------------ | ---------------------------------------------- |
+| ------------ | --------------------------------------------- |
 | 查看函数定义 | <kbd>F12</kbd>                                 |
 | 查看函数引用 | <kbd>Ctrl</kbd> + <kbd>Alt</kbd>+ <kbd>F</kbd> |
 | 查看函数调用 | <kbd>Ctrl</kbd> + <kbd>Alt</kbd>+ <kbd>C</kbd> |
 
 ### 跳转
 
-| 功能                        | 快捷键                                                             |
-| --------------------------- | ----------------------------------------------------------------- |
+| 功能                        | 快捷键                                                              |
+| --------------------------- | -----------------------------------------------------------------  |
 | 跳转到下个/上个查找到的内容 | <kbd>F3</kbd> / <kbd>Shift</kbd> + <kbd>F3</kbd>                     |
-| 跳转指定行                  | <kbd>Ctrl</kbd> + <kbd>G</kbd>                                     |
-| 跳转到行首/尾               | <kbd>Home</kbd> / <kbd>End</kbd>                                   |
+| 跳转指定行                  | <kbd>Ctrl</kbd> + <kbd>G</kbd>                                      |
+| 跳转到行首/尾               | <kbd>Home</kbd> / <kbd>End</kbd>                                    |
 | 跳转到当前文件开头/结尾     | <kbd>Ctrl</kbd> + <kbd>Home</kbd> / <kbd>Ctrl</kbd> + <kbd>End</kbd> |
 
 ### 显示
