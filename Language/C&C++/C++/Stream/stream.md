@@ -91,16 +91,16 @@ cerr不经过缓冲而直接输出,一般用于迅速输出出错信息,是标�
 
 ### fstream
 
-- 打开方式
-
-| 定义        | 含义                         |
-| ----------- | ---------------------------- |
-| ios::in     | 为输入(读)而打开文件         |
-| ios::out    | 为输出(写)而打开文件         |
-| ios::ate    | 初始位置: 文件尾             |
-| ios::app    | 所有输出附加在文件末尾       |
-| ios::trunc  | 如果文件已存在则先删除该文件 |
-| ios::binary | 以二进制方式                 |
+```mermaid
+graph LR;
+    x(打开方式)
+    x --> a(ios::in) --> a1(为输入打开文件)
+    x --> b(ios::out) --> b1(为输出打开文件)
+    x --> c(ios::ate) --> c1(初始位置文件尾)
+    x --> d(ios::app) --> d1(所有输出附加在文件末尾)
+    x --> e(ios::trunc) --> e1(若文件已存在则先删除)
+    x --> f(ios::binary) --> f1(以二进制方式操作)
+```
 
 ```c
 const std::string path = "main.txt";
@@ -158,30 +158,14 @@ close()
 
 ## 字符串I/O流
 
-内存变量与表示字符串流的字符数组之间信息的传递
+内存变量与表示字符串流的字符数组之间信息传递
 
-```c
-sstream
-```
-
-- istringstream 从string读取数据
-
-- ostringstream 向string写入数据
-
-- stringstream 读写string 可用于数据类型转换
-
-```c++
-template <class SourceType, class TargetType>
-void ChangeType(SourceType &source, TargetType &target)
-{
-    std::stringstream ss;
-
-    ss << source;
-    ss >> target;
-
-    ss.str("");
-    ss.clear();
-}
+```mermaid
+graph LR;
+    x(类别)
+    x --> a(istringstream) --> a1(从string读取数据)
+    x --> b(ostringstream) --> b1(向string写入数据)
+    x --> c(stringstream) --> c1(读写string, 可用于数据类型转换)
 ```
 
 - string 转 int32_t
@@ -190,8 +174,18 @@ void ChangeType(SourceType &source, TargetType &target)
 #include <iostream>
 #include <sstream>
 
-int main()
-{
+template <class SourceType, class TargetType>
+void ChangeType(SourceType &source, TargetType &target){
+    std::stringstream ss;
+
+    ss << source;
+    ss >> target;
+
+    ss.str("");
+    ss.clear();
+}
+
+int main() {
 
     std::string source = "123456";
 
