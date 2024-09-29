@@ -1,12 +1,11 @@
 /*
- * @Description:
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:
- * @Date: 2022-03-29 21:57:16
- * @LastEditors: dmjcb
- * @LastEditTime: 2022-03-29 22:06:09
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-03-29 21:57:16
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-09-29 10:33:14
  */
+
 // 程序目的,求0 1 ... 99 100 这个数组中每个元素需几次二分查找才能找到的次数
 #include <iostream>
 using namespace std;
