@@ -3,14 +3,15 @@
  * @Author       : dmjcb
  * @Date         : 2024-09-26 02:58:19
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-26 03:08:56
+ * @LastEditTime : 2024-10-08 23:05:05
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct Node
 {
-    int data;
+    int          data;
     struct Node* next;
 } Node, *NodeList;
 

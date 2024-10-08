@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-03-17 17:59:27
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 15:24:58
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-03-17 17:59:27
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-08 23:12:38
 -->
 
 # git设置

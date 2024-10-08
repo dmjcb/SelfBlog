@@ -1,16 +1,16 @@
 /*
- * @Brief        : 
+ * @Brief        :
  * @Author       : dmjcb
  * @Date         : 2022-04-15 12:42:17
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-28 16:36:51
+ * @LastEditTime : 2024-10-08 23:00:11
  */
 
 #include <iostream>
 #include <vector>
 
 template <class T>
-void BubbleSort(std::vector<T> &v)
+void BubbleSort(std::vector<T>& v)
 {
     // 记录是否发生过交换
     bool isExchange;
@@ -35,7 +35,7 @@ void BubbleSort(std::vector<T> &v)
 }
 
 template <class T>
-void InsertSort(std::vector<T> &v)
+void InsertSort(std::vector<T>& v)
 {
     T temp = 0;
     int j;
@@ -48,7 +48,7 @@ void InsertSort(std::vector<T> &v)
             temp = v[i];
             j = i - 1;
             // 从前一个元素位置开始, 若未到表头且当前位置元素大于temp
-            whlie(j >= 0 && temp < v[j])
+            while(j >= 0 && temp < v[j])
             {
                 // 所有元素依次向后移动
                 v[j + 1] = v[j];
@@ -61,7 +61,7 @@ void InsertSort(std::vector<T> &v)
 }
 
 template <class T>
-void QuickSort(std::vector<T> &v, int left, int right)
+void QuickSort(std::vector<T>& v, int left, int right)
 {
     // index表示基准下标, index左侧值均比v[index]小;右侧值均比v[index]大
     int index = left;
@@ -92,7 +92,7 @@ void QuickSort(std::vector<T> &v, int left, int right)
 }
 
 template <class T>
-void SiftDown(std::vector<T> &v, int start, int end)
+void SiftDown(std::vector<T>& v, int start, int end)
 {
     int parent = start;
     int child = 2 * parent + 1;
@@ -144,11 +144,12 @@ void HeapSort(std::vector<T> v)
 
 int main(void)
 {
-    std::vector<int> v = {4, 5, 2, 6, 9, 3, 4, 7, 1, 5};
-    BubbleSort(v);
-    for (int i = 0; i < v.size(); i++)
-    {
-        printf("%d ", v[i]);
+    std::vector<int> v = { 4, 5, 2, 6, 9, 3, 4, 7, 1, 5 };
+    InsertSort(v);
+
+    for (auto _v : v) {
+        printf("%d ", _v);
     }
+
     return 0;
 }

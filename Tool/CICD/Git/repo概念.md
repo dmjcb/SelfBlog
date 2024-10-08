@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-02-13 19:00:24
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:57:48
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-02-13 19:00:24
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-08 23:13:01
 -->
 
 # Repo
@@ -80,6 +78,6 @@ repi sync (参数) [项目列表]
 
 
 | 参数 | 含义                             |
-| ---- | -------------------------------- |
+| ---- | ------------------------------ |
 | `-j` | 开启多线程同步操作, 加快执行速度 |
 | `-c` | 只同步指定的远程分支             |

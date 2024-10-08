@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2023-01-14 23:16:44
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 16:43:43
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-09-24 20:03:51
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-08 23:01:54
 -->
 
 # 两数之和

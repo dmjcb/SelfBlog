@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-08 20:18:15
+ * @LastEditTime : 2024-10-08 23:02:55
  */
 
 #include <iostream>
@@ -93,8 +93,8 @@ public:
     }
 
 private:
-    std::map<T, T>           mParent;
-    std::vector<Line<T> >    mLines;
+    std::map<T, T>          mParent;
+    std::vector<Line<T>>    mLines;
 };
 }
 
