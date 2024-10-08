@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-11-11 23:58:36
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-12-02 00:44:37
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-11-11 23:58:36
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-09 01:09:47
 -->
 
 # Makefile

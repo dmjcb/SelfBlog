@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-05-21 23:09:51
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-12-03 00:38:33
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-05-21 23:09:51
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-09 01:10:15
 -->
 
 # gcc选项

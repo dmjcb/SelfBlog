@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-12-12 23:58:17
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 16:06:37
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2022-12-12 23:58:17
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-09 01:09:16
 -->
 
 # ExternalProject
