@@ -3,7 +3,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2021-01-16 17:59:35
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 23:54:56
+ * @LastEditTime : 2024-10-08 19:38:23
 -->
 
 # MySQL事务
@@ -41,11 +41,16 @@ graph LR;
 
 ## 控制
 
-| 操作     | 指令       |
-| -------- | ---------- |
-| 事务开始 | `BEGIN`    |
-| 事务回滚 | `ROLLBACK` |
-| 事务确认 | `COMMIT`   |
+```mermaid
+graph LR;
+    S(操作指令)
+
+    S-->A(事务开始)-->A1(BEGIN)
+    S-->B(事务回滚)-->B1(ROLLBACK)
+    S-->C(事务确认)-->C1(COMMIT)
+```
+
+### 开始
 
 ```sql
 CREATE TABLE "info" (
@@ -54,8 +59,6 @@ CREATE TABLE "info" (
     PRIMARY KEY ("id")
 );
 ```
-
-### 开始
 
 ```sql
 BEGIN;

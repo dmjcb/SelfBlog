@@ -3,7 +3,7 @@
  * @Author       : dmjcb@outlook.com
  * @Date         : 2021-01-16 17:59:34
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-07 00:42:28
+ * @LastEditTime : 2024-10-08 19:37:33
 -->
 
 # Docker部署MySQL
@@ -11,10 +11,12 @@
 ## 指令
 
 ```sh
-docker run -itd --name=mysql_test                    \
-    -p 3306:3306                                     \
-    -v $PWD/mysql:/var/lib/mysql                     \
-    -e MYSQL_PASSWORD=456 -e MYSQL_ROOT_PASSWORD=123 \
+docker run -itd                  \
+    --name=mysql_test            \
+    -p 3306:3306                 \
+    -v $PWD/mysql:/var/lib/mysql \
+    -e MYSQL_PASSWORD=456        \ 
+    -e MYSQL_ROOT_PASSWORD=123   \
     mysql:5.7
 ```
 

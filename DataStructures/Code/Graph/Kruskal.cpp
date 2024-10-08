@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-28 16:10:56
+ * @LastEditTime : 2024-10-08 20:18:15
  */
 
 #include <iostream>
@@ -15,8 +15,7 @@
 namespace {
 
 template<class T = std::string>
-struct Line
-{
+struct Line {
     T         mStartNode;
     T         mEndNode;
     double    mWeight;

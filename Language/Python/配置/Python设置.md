@@ -23,17 +23,3 @@ pip config set global.index-url http://mirrors.aliyun.com/pypi/simple
 ```sh
 pip freeze > requirements.txt
 ```
-
-## 虚拟环境
-
-### 激活
-
-```sh
-source venv/bin/activate
-```
-
-### 退出
-
-```sh
-deactivate
-```

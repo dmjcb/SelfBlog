@@ -1,18 +1,16 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email: 
- * @Date: 2023-02-27 00:30:30
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 09:10:59
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-09-24 20:03:51
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-08 19:47:56
 -->
 
 # Qt 事件
 
-[参考链接](https://www.cnblogs.com/linuxAndMcu/)
+> [Qt 博客汇总](https://www.cnblogs.com/linuxAndMcu/)
 
-## Qt键盘事件
+## 键盘事件
 
 ```c
 #include <QKeyEvent>
@@ -22,7 +20,7 @@
 
 ### 释放
 
-## Qt鼠标事件
+## 鼠标事件
 
 ```c
 #include <QMouseEvent>
@@ -37,8 +35,7 @@ void mousePressEvent(QMouseEvent *event);
 - 判断鼠标键
 
 ```c
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{   
+void MainWindow::mousePressEvent(QMouseEvent *event) {   
     // 左键被按下
     if (event->button() == Qt::LeftButton) {
         // ...

@@ -13,8 +13,7 @@
 #include <set>
 #include <vector>
 
- // defintion of line
-
+// defintion of line
 template <class T>
 struct Line {
     T         mStartNode;

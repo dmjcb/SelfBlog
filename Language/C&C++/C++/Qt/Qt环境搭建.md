@@ -1,12 +1,11 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2023-04-19 00:22:12
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-04 00:58:29
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2024-09-24 20:03:51
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-08 19:45:18
 -->
+
 
 # Qt环境搭建
 
@@ -46,7 +45,7 @@ sudo apt install qml-module-qtquick-controls2
 
 [import QtQuick.Controls 2.0 not working - QQmlApplicationEngine failed to load component](https://stackoverflow.com/questions/38030140/import-qtquick-controls-2-0-not-working-qqmlapplicationengine-failed-to-load-c)
 
-## 安装模块
+### 安装模块
 
 ```sh
 sudo apt install qml-module-qtquick-dialogs
