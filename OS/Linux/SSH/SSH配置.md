@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2021-03-14 13:31:07
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-28 14:47:59
+ * @LastEditTime : 2024-10-10 02:00:20
 -->
 
 # SSH
@@ -53,7 +53,6 @@ ssh-keygen -t rsa
 ```
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20210312104415.png)
-
 
 ```mermaid
 graph LR;

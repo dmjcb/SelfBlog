@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2023-11-09 21:31:16
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-27 22:07:30
+ * @LastEditTime : 2024-10-10 01:12:02
 -->
 
 # VS2022使用DLL
@@ -70,7 +70,7 @@ DLLEXPORT int add(int x, int y);
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231109221410.png)
 
 
-### 运行
+## 运行
 
 cpp文件写入
 

@@ -98,7 +98,7 @@ CMake 会自动处理依赖关系, 如果某个源文件没有修改过, 那么�
 
 ### 输出可执行文件或库
 
-最终的可执行文件或库文件会出现在 CMake 配置的输出目录(通常是 build/ 目录）中
+最终的可执行文件或库文件会出现在 CMake 配置的输出目录(通常是 build/ 目录)中
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20231202004223.png)
 

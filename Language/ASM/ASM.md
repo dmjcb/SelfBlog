@@ -6,7 +6,7 @@
  * @LastEditTime : 2024-09-23 20:30:28
 -->
 
-> [NASM汇编初探（入门教程）](https://blog.csdn.net/qq_52300431/article/details/127397862)
+> [NASM汇编初探(入门教程)](https://blog.csdn.net/qq_52300431/article/details/127397862)
 
 > [搭建i386交叉编译环境](https://github.com/lordmilko/i686-elf-tools)
 
@@ -22,10 +22,10 @@ section .text
     global  _start
  
 _start:
-    mov	edx, 13     ; 待写入的字节数(每个字母一个字节，再加上换行符0Ah)
+    mov	edx, 13     ; 待写入的字节数(每个字母一个字节, 再加上换行符0Ah)
     mov ecx, msg    ; 将msg的内存地址移入ecx
     mov ebx, 1      ; 表示写入到标准输出STDOUT
-    mov eax, 4      ; 调用SYS_WRITE（OPCODE是4）
+    mov eax, 4      ; 调用SYS_WRITE(OPCODE是4)
     int 0x80
 
     mov ebx, 0

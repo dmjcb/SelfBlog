@@ -3,12 +3,10 @@
  * @Author       : dmjcb
  * @Date         : 2022-09-25 23:27:18
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-28 23:33:46
+ * @LastEditTime : 2024-10-10 01:08:19
 -->
 
 # this
-
-## 概念
 
 this 是 C++ 中的一个关键字, 是 const 指针
 

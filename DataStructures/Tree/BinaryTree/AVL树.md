@@ -1,11 +1,9 @@
 <!--
- * @Description: 
- * @Version: 1.0
- * @Autor: dmjcb
- * @Email:  
- * @Date: 2021-01-16 17:59:35
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 15:28:07
+ * @Brief        : 
+ * @Author       : dmjcb
+ * @Date         : 2021-01-16 17:59:35
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-10 01:53:27
 -->
 
 # AVL

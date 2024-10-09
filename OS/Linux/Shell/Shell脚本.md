@@ -3,12 +3,26 @@
  * @Author       : dmjcb
  * @Date         : 2021-10-10 00:15:19
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-24 23:14:05
+ * @LastEditTime : 2024-10-10 01:58:44
 -->
 
-# 变量
+# Shell
 
-## 定义
+- `#!`
+
+约定标记, 告诉系统脚本需要什么解释器执行
+
+```sh
+#!/bin/bash
+```
+
+- 赋予脚本权限
+
+```sh
+sudo chmod +x 脚本.sh
+```
+
+## 变量
 
 ```sh
 变量名=值
@@ -196,3 +210,86 @@ if ! "${pid}";then
     sudo kill -9 ${pid}
 fi
 ```
+
+
+## 脚本
+
+配置定时任务
+
+```sh
+#!/bin/bash
+
+# 每小时第mintue分钟执行任务
+read -p "输入分钟(00‐59):" mintue
+# 每天第hour小时执行任务
+read -p "输入小时(00‐24):" hour
+# 每月第date天执行任务
+read -p "输入日期(01‐31):" date
+# 每年第month月执行任务
+read -p "输入月份(01‐12):" month
+# 每周第weak天执行任务
+read -p "输入星期(00‐06):" weak
+read -p "输入计划任务的命令或脚本:" program
+# 追加命令至/etc/crontab文件中
+echo "$mintue $hour $date $month $weak $program" >> /etc/crontab
+```
+
+创建文件
+
+```sh
+#!/bin/bash
+
+read -p "输入文件路径与文件名:" path
+if ! -f "${path}";then
+    touch ${path}
+else
+    
+fi
+```
+
+## 并发
+
+Shell不支持多线程, 只能采用多进程的方式, 即在并发指令后加`&`
+
+```sh
+#!/bin/bash
+
+for i in {1..5};do
+    # 将命令转入后台执行
+    echo ${i} &
+done
+
+# 多线程同步
+wait
+echo "end"
+```
+
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211229172645.png)
+
+```sh
+#!/bin/bash
+
+# 并发建立3个docker busy_box容器
+
+for i in {1..3};do
+    docker run -itd --name box_${i} busybox /bin/sh &
+done
+
+wait
+```
+
+查询当前网段下所有主机
+
+```sh
+#!/bin/bash
+
+for i in {1..254};do
+    ip="192.168.43.${i}"
+    # 将标准/错误输出全部重定向到/dev/null中(将产生的所有信息丢弃)
+    ping -c 2 ${ip} > /dev/null && echo ${ip} is up &
+done
+
+wait
+```
+
+![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/20211229173115.png)
