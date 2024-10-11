@@ -3,18 +3,14 @@
  * @Author       : dmjcb
  * @Date         : 2024-10-11 19:22:53
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-11 19:33:26
+ * @LastEditTime : 2024-10-12 00:19:38
 -->
-
 
 # function
 
 std::function 是 C++11 引入的一个通用多态函数包装器, 可以存储、复制和调用任何可调用对象(如函数、函数指针、lambda表达式、仿函数等)
 
 它非常灵活, 能实现类似函数指针的功能, 并且支持存储复杂的可调用对象
-
-
-要使用std::function, 首先需要包含头文件
 
 ```c++
 #include <iostream>
