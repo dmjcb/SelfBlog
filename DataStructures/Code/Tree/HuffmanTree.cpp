@@ -1,150 +1,85 @@
-/*
- * @Brief        : 
- * @Author       : dmjcb
- * @Date         : 2018-04-13 22:13:16
- * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-08 23:07:31
- */
-
 #include <iostream>
+#include <utility>
 #include <vector>
+#include <memory>
+#include <queue>
+#include <map>
 
-// 用以进行哈夫曼编码
-int code[20];
+template<typename NodeType, typename WeightType>
+struct  Node {
+    NodeType              mName;
+    WeightType            mFrequency;
+    std::shared_ptr<Node> mLeftChild;
+    std::shared_ptr<Node> mRightChild;
 
-// 用以保存哈夫曼编码
-std::string huffman[6];
+    Node(NodeType name, WeightType freq):
+        mName(name), mFrequency(freq), mLeftChild(nullptr), mRightChild(nullptr) {}
 
-typedef struct Tree
-{
-    // 节点的权值
-    int data;
-    Tree *leftChild;
-    Tree *rightChild;
-    Tree(int data, Tree *left, Tree *right)
-    {
-        this->data = data;
-        this->leftChild = left;
-        this->rightChild = right;
-    }
-} Tree, *TreeList;
+    Node(NodeType name, WeightType freq, std::shared_ptr<Node> left, std::shared_ptr<Node> right):
+        mName(name), mFrequency(freq), mLeftChild(std::move(left)), mRightChild(std::move(right)) {}
+};
 
-// 建哈夫曼树,返回根节点
-TreeList createTree(std::vector<int> &v)
-{
-    // 建立指针数组用来保存节点信息
-    std::vector<TreeList> leaves;
-    for (int i = 0; i < v.size(); i++)
-    {
-        TreeList t = new Tree(v[i], NULL, NULL);
-        leaves.push_back(t);
-    }
-    TreeList root = NULL;
-    // 建立哈夫曼树
-    for (int i = 1; i < v.size(); i++)
-    {
-        // min1表示最小权值的树根结点的下标,min2为次小权值节点的下标
-        int min1 = -1;
-        int min2;
-        // 初始化min1与min2
-        for (int j = 0; j < v.size(); j++)
-        {
-            if (leaves[j] != NULL && min1 == -1)
-            {
-                min1 = j;
-                continue;
-            }
-            if (leaves[j] != NULL)
-            {
-                min2 = j;
-                break;
-            }
+template<typename NodeType, typename WeightType>
+class HuffmanTree {
+public:
+    using Node    = Node<NodeType, WeightType>;
+    using NodePtr = std::shared_ptr<Node>;
+
+    explicit HuffmanTree(std::map<NodeType, WeightType> &table) {
+        auto Compare = [](NodePtr node1, NodePtr node2) {return node1->mFrequency > node2->mFrequency;};
+        std::priority_queue<NodePtr, std::vector<NodePtr>, decltype(Compare)> minHeap(Compare);
+
+        for (const auto&[k, v] : table) {
+            minHeap.push(std::make_shared<Node>(k, v));
         }
 
-        // 找出最小值和次小值节点的下标
-        for (int j = min2; j < v.size(); j++)
-        {
-            if (leaves[j] != NULL)
-            {
-                if (leaves[j]->data < leaves[min1]->data)
-                {
-                    min2 = min1;
-                    min1 = j;
-                }
-                else if (leaves[j]->data < leaves[min2]->data)
-                {
-                    min2 = j;
-                }
-            }
+        while (minHeap.size() > 1) {
+            NodePtr left = minHeap.top();
+            minHeap.pop();
+            NodePtr right = minHeap.top();
+            minHeap.pop();
+
+            minHeap.push(std::make_shared<Node>('\0', left->mFrequency + right->mFrequency, left, right));
         }
-        // 建立一个节点作为哈夫曼树的根节点
-        // 用最小权值树和次小权值树建立一棵新树,root指向树根结点
-        int data = leaves[min1]->data + leaves[min2]->data;
-        root = new Tree(data, leaves[min1], leaves[min2]);
 
-        // 将指向新树的指针赋给leaves指针数组中min1位置
-        leaves[min1] = root;
-        // min2位置为空
-        leaves[min2] = NULL;
+        NodePtr root = minHeap.top();
+        BuildCodes(root, "");
     }
-    return root;
-}
 
-// 根据权值获取下标
-int getIndex(std::vector<int> v, int weight)
-{
-    for (int i = 0; i < v.size(); i++)
-    {
-        if (v[i] == weight)
-        {
-            return i;
+    ~HuffmanTree() = default;
+
+    void BuildCodes(const NodePtr& node, const std::string& code) {
+        if (!node) {
+            return;
+        }
+
+        if (node->mLeftChild == nullptr && node->mRightChild == nullptr) {
+            mCodeTable[node->mName] = code;
+        }
+
+        BuildCodes(node->mLeftChild, code + "0");
+        BuildCodes(node->mRightChild, code + "1");
+    }
+
+    void PrintCodeTable() const {
+        for (const auto& [k, v] : mCodeTable) {
+            std::cout << k << ": " << v << std::endl;
         }
     }
-    return -1;
-}
 
-// 递归进行哈夫曼树编码,len是当前树的层数
-void huffmanCoding(TreeList &root, int len, std::vector<int> &v)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    // 若到叶子节点
-    if (root->leftChild == NULL && root->rightChild == NULL)
-    {
-        // 获取该节点权值对应的字符下标
-        int index = getIndex(v, root->data);
-        // 保存该字符的哈夫曼编码
-        for (int i = 0; i < len; i++)
-        {
-            huffman[index].push_back(code[i] + '0');
-        }
-    }
-    // 否则继续进行哈夫曼编码的操作
-    else
-    {
-        // 左侧分支都记为零
-        code[len] = 0;
-        huffmanCoding(root->leftChild, len + 1, v);
+private:
+    std::map<NodeType, std::string> mCodeTable;
+};
 
-        // 右侧分支都记为一
-        code[len] = 1;
-        huffmanCoding(root->rightChild, len + 1, v);
-    }
-}
+int main() {
+    // 输入数据：字符与权值
+    std::map<char, int> table = {{'A', 12}, {'B', 24}, {'C', 35},
+        {'D', 67}, {'E', 46}, {'F', 55}
+    };
 
-int main(void)
-{
-    std::vector<int> v = {12, 24, 35, 67, 46, 55};
+    HuffmanTree huffmanTree(table);
 
-    std::vector<char> c = {'A', 'B', 'C', 'D', 'E', 'F'};
+    huffmanTree.PrintCodeTable();
 
-    TreeList root = createTree(v);
-    huffmanCoding(root, 0, v);
-    for (int i = 0; i < v.size(); i++)
-    {
-        std::cout << c[i] << "的哈夫曼编码是 : " << huffman[i] << std::endl;
-    }
     return 0;
 }

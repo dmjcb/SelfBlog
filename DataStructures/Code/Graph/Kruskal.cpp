@@ -3,11 +3,12 @@
  * @Author       : dmjcb
  * @Date         : 2024-08-27 00:16:31
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-08 23:02:55
+ * @LastEditTime : 2024-10-12 16:20:19
  */
 
 #include <iostream>
 #include <algorithm>
+#include <utility>
 #include <vector>
 #include <map>
 #include <set>
@@ -16,31 +17,30 @@ namespace {
 
 template<class T = std::string>
 struct Line {
-    T         mStartNode;
-    T         mEndNode;
-    double    mWeight;
-    bool      mIsSelect;
+    T      mStartNode;
+    T      mEndNode;
+    double mWeight;
+    bool   mIsSelect;
 
-    Line(T s, T e, double w) : mStartNode(s), mEndNode(e), mWeight(w), mIsSelect(false) {}
+    Line(T s, T e, double w) : mStartNode(std::move(s)), mEndNode(std::move(e)), mWeight(w), mIsSelect(false) {}
 };
 
 
 template<class T = std::string>
 class Graph {
 public:
-
-    Graph(std::vector<Line<T> > lines) {
+    explicit Graph(std::vector<Line<T> > lines) {
         mLines = std::move(lines);
 
         // count the number of nodes
         std::set<T> nodes;
-        for (auto line : mLines) {
+        for (const auto& line : mLines) {
             nodes.insert(line.mStartNode);
             nodes.insert(line.mEndNode);
         }
 
         // parent of each node is itself at initialization time
-        for (auto node : nodes) {
+        for (const auto& node : nodes) {
             mParent[node] = node;
         }
     };
@@ -69,7 +69,7 @@ public:
         mParent[Find(node1)] = Find(node2);
     }
 
-    const double GetKruskal() {
+    double GetKruskal() {
         std::sort(mLines.begin(), mLines.end(), [=](const Line<T>& e1, const Line<T>& e2) { return e1.mWeight < e2.mWeight; });
 
         double sum = 0;
@@ -85,21 +85,22 @@ public:
     }
 
     void PrintResult() const {
-        for (auto line : mLines) {
+        for (const auto& line : mLines) {
             if (line.mIsSelect) {
-                std::cout << "select Line: " << line.mStartNode << "-" << line.mEndNode << std::endl;
+                std::cout << "Select Line: " << line.mStartNode << "-" << line.mEndNode << std::endl;
             }
         }
     }
 
 private:
-    std::map<T, T>          mParent;
-    std::vector<Line<T>>    mLines;
+    std::map<T, T>       mParent;
+    std::vector<Line<T>> mLines;
 };
 }
 
-int main(void) {
-    using Line = Line<std::string>;
+int main() {
+    using Line = Line<>;
+    using Graph = Graph<>;
 
     std::vector<Line> lines = {
         Line("A", "B", 1), Line("A", "C", 9), Line("A", "D", 7),
@@ -108,7 +109,7 @@ int main(void) {
         Line("G", "D", 6), Line("G", "C", 2), Line("C", "D", 4),
     };
 
-    Graph<std::string> graph(lines);
+    Graph graph(lines);
 
     std::cout << "The minimum spanning tree mWeight = " << graph.GetKruskal() << std::endl;
     graph.PrintResult();
