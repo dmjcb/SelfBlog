@@ -7,170 +7,180 @@
  */
 
 #include <iostream>
+#include <utility>
 #include <vector>
+#include <memory>
 
-// 节点定义
 template <class T>
-struct BSTNode
-{
-    T           mValue;
-    BSTNode<T>* mLeftSon;
-    BSTNode<T>* mRightSon;
+struct BSTNode {
+    T                        mValue;
+    std::shared_ptr<BSTNode> mLeftSon;
+    std::shared_ptr<BSTNode> mRightSon;
 
-    BSTNode(T value, BSTNode<T> *leftSon, BSTNode<T> *rightSon) : mValue(value), mLeftSon(leftSon), mRightSon(rightSon){}
+    BSTNode(T value, std::shared_ptr<BSTNode> leftSon, std::shared_ptr<BSTNode> rightSon) :
+        mValue(value), mLeftSon(std::move(leftSon)), mRightSon(std::move(rightSon)){}
 };
 
-// 查找
 template <class T>
-BSTNode<T> *SearchNode(BSTNode<T>* node, const T value) {
-    while (node) {
-        if (node->mValue == value) {
-            return node;
-        }
-        if (node->mValue > value) {
-            node = node->mLeftSon;
-        }
-        if (node->mValue < value) {
-            node = node->mRightSon;
+class BinarySearchTree {
+public:
+    using BSTNode    = BSTNode<T>;
+    using BSTNodePtr = std::shared_ptr<BSTNode>;
+
+    explicit BinarySearchTree(const std::vector<T>& value) {
+        for (auto v : value) {
+            mRoot = InsertNode(mRoot, v);
         }
     }
-    return nullptr;
-}
 
-// 插入
-template <class T>
-BSTNode<T> *InsertNode(BSTNode<T>* node, const T value) {
-    // 当前节点为空,说明是叶子节点,可以插入
-    if (node == nullptr) {
-        node = new BSTNode<T>(value, nullptr, nullptr);
+    void Insert(const T value) {
+        mRoot = InsertNode(mRoot, value);
+    }
+
+    void Print() {
+        if (mRoot != nullptr) {
+            PrintBST(mRoot);
+        }
+    }
+
+    void Delete(const T value) {
+        DeleteNode(value);
+    }
+
+protected:
+    BSTNodePtr InsertNode(BSTNodePtr node, const T value) {
+        if (node == nullptr) {
+            node = std::make_shared<BSTNode>(value, nullptr, nullptr);
+            return node;
+        }
+        
+        if (node->mValue > value) {
+            node->mLeftSon = InsertNode(node->mLeftSon, value);
+        }
+        
+        if (node->mValue < value) {
+            node->mRightSon = InsertNode(node->mRightSon, value);
+        }
         return node;
     }
 
-    // 值小于根结点时,插入根节点的左子树
-    if (node->mValue > value) {
-        node->mLeftSon = InsertNode(node->mLeftSon, value);
-    }
-
-    // 值大于根结点时,插入根节点的右子树
-    if (node->mValue < value) {
-        node->mRightSon = InsertNode(node->mRightSon, value);
-    }
-    return node;
-}
-
-// 构建
-template <class T>
-void CreateBST(BSTNode<T> * &root, const std::vector<T> value) {
-    for (auto v : value) {
-        root = InsertNode(root, v);
-    }
-}
-
-// 遍历
-template <class T>
-void PrintBST(BSTNode<T> *root)
-{
-    if (root == nullptr) {
-        return;
-    }
-
-    PrintBST(root->mLeftSon);
-
-    std::cout << root->mValue << " ";
-
-    PrintBST(root->mRightSon);
-}
-
-// 删除
-template <class T>
-void DeleteNode(BSTNode<T> *root, const T value) {
-    if (root == nullptr) {
-        return;
-    }
-
-    // p为待删除节点,fp为其父节点
-    BSTNode<T>* p = root;
-    BSTNode<T>* fp = nullptr;
-    while (p->mValue != value) {
-        fp = p;
-        if (p->mValue > value) {
-            p = p->mLeftSon;
+    BSTNodePtr SearchNode(BSTNodePtr node, const T value) {
+        while (node) {
+            if (node->mValue == value) {
+                return node;
+            }
+            if (node->mValue > value) {
+                node = node->mLeftSon;
+            }
+            if (node->mValue < value) {
+                node = node->mRightSon;
+            }
         }
-        if (p->mValue < value) {
-            p = p->mRightSon;
+        return nullptr;
+    }
+
+    void PrintBST(BSTNodePtr node) {
+        if (node == nullptr) {
+            return;
         }
+
+        PrintBST(node->mLeftSon);
+
+        std::cout << node->mValue << " ";
+
+        PrintBST(node->mRightSon);
     }
 
-    // 情况1:p为叶子节点,则直接删
-    if (p->mLeftSon == nullptr && p->mRightSon == nullptr) {
-        if (fp->mLeftSon != nullptr) {
-            fp->mLeftSon = nullptr;
+    void DeleteNode(const T value) {
+        if (mRoot == nullptr) {
+            return;
         }
-        if (fp->mRightSon != nullptr) {
-            fp->mRightSon = nullptr;
+
+        // p为待删除节点,fp为其父节点
+        BSTNodePtr p = mRoot;
+        BSTNodePtr fp = nullptr;
+        while (p->mValue != value) {
+            fp = p;
+            if (p->mValue > value) {
+                p = p->mLeftSon;
+            }
+            if (p->mValue < value) {
+                p = p->mRightSon;
+            }
         }
-        delete (p);
-        return;
+
+        // 情况1:p为叶子节点, 直接删
+        if (p->mLeftSon == nullptr && p->mRightSon == nullptr) {
+            if (fp->mLeftSon != nullptr) {
+                fp->mLeftSon = nullptr;
+            }
+            if (fp->mRightSon != nullptr) {
+                fp->mRightSon = nullptr;
+            }
+            p.reset();
+            return;
+        }
+
+        // 情况2:p左子树为空,则重接右子树
+        if (p->mLeftSon == nullptr) {
+            p->mValue = p->mRightSon->mValue;
+            p->mRightSon = nullptr;
+            p.reset();
+            return;
+        }
+
+        // 情况3:p右子树为空,则重接左子树
+        if (p->mRightSon == nullptr) {
+            p->mValue = p->mLeftSon->mValue;
+            p->mLeftSon = nullptr;
+            p->mLeftSon.reset();
+            return;
+        }
+
+        // 情况4:p左右子树均不为空时,需要找p右子树中最小节点(最左节点)q
+        BSTNodePtr q = p->mRightSon;
+        BSTNodePtr fq = q;
+
+        // 循环查找左节点,就会找到最小值
+        while (q->mLeftSon != nullptr) {
+            fq = q;
+            q = q->mLeftSon;
+        }
+        fq->mLeftSon = nullptr;
+        // 用最小值节点代替欲删除节点
+        p->mValue = q->mValue;
+        q.reset();
     }
 
-    // 情况2:p左子树为空,则重接右子树
-    if (p->mLeftSon == nullptr) {
-        p->mValue = p->mRightSon->mValue;
-        p->mRightSon = nullptr;
-        delete (p);
-        return;
-    }
-
-    // 情况3:p右子树为空,则重接左子树
-    if (p->mRightSon == nullptr) {
-        p->mValue = p->mLeftSon->mValue;
-        p->mLeftSon = nullptr;
-        delete (p->mLeftSon);
-        return;
-    }
-
-    // 情况4:p左右子树均不为空时,需要找p右子树中最小节点(最左节点)q
-    BSTNode<T> *q = p->mRightSon;
-    // fq为q的父节点
-    BSTNode<T> *fq = q;
-    // 循环查找左节点,就会找到最小值
-    while (q->mLeftSon != nullptr) {
-        fq = q;
-        q = q->mLeftSon;
-    }
-    fq->mLeftSon = nullptr;
-    // 用最小值节点代替欲删除节点
-    p->mValue = q->mValue;
-    delete (q);
-}
+private:
+    BSTNodePtr mRoot = nullptr;
+};
 
 int main(int argv, char *argc[]) {
-    std::vector<int> v = {11, 45, 9, 23, 76, 68};
+    std::vector v = {11, 45, 9, 23, 76, 68};
 
-    BSTNode<int> *root = nullptr;
-
-    CreateBST(root, v);
+    BinarySearchTree tree(v);
 
     std::cout << "二叉排序树的中序遍历结果: ";
-    PrintBST(root);
+    tree.Print();
     std::cout << std::endl;
 
     // 插入值
     int newNode = 35;
     std::cout << "插入新值:" << newNode << std::endl;
-    root = InsertNode(root, newNode);
+    tree.Insert(newNode);
     std::cout << "插入新值后二叉排序树的中序遍历结果: ";
 
-    PrintBST(root);
+    tree.Print();
     std::cout << std::endl;
 
     // 删除值
     int delNode = 11;
     std::cout << "删除值:" << delNode << std::endl;
 
-    DeleteNode(root, delNode);
+    tree.Delete(delNode);
     std::cout << "删除值后二叉排序树的中序遍历结果: ";
 
-    PrintBST(root);
+    tree.Print();
     std::cout << std::endl;
 }
