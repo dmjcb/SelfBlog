@@ -1,10 +1,10 @@
-<!--
- * @Brief        : 
- * @Author       : dmjcb
- * @Date         : 2021-01-16 17:59:34
- * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-24 23:06:12
--->
+---
+title: "WSL2 Install"
+date: 2021-01-16
+categories: [OS]
+tags: [OS]
+excerpt: "WSL2 Install"
+---
 
 # WSL2
 

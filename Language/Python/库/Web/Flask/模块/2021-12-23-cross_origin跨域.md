@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-12-23 15:07:52
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-16 23:40:39
--->
+---
+title: "cross_origin跨域"
+date: 2021-12-23
+categories: [Python]
+tags: [Python]
+excerpt: "cross_origin跨域"
+---
 
 # Flask跨域
 

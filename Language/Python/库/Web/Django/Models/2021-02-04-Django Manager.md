@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-02-04 21:43:48
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-17 15:13:05
--->
+---
+title: "Django Manager"
+date: 2021-02-04
+categories: [Python]
+tags: [Python]
+excerpt: "Django Manager"
+---
 
 # Django Manager
 

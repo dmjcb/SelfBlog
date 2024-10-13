@@ -1,19 +1,10 @@
-<!--
- * @Brief        : 
- * @Author       : dmjcb
- * @Date         : 2024-09-10 02:06:37
- * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-24 19:44:13
--->
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-11-13 19:15:39
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 09:31:06
--->
+---
+title: "send_from_directory"
+date: 2024-09-10
+categories: [Python]
+tags: [Python]
+excerpt: "send_from_directory"
+---
 
 # send_from_directory
 

@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2021-12-01 20:37:22
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-11-03 22:24:19
--->
+---
+title: "Python Socket"
+date: 2021-12-01
+categories: [Network]
+tags: [Network]
+excerpt: "Python Socket"
+---
 
 # Socket
 

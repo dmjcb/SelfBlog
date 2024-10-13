@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-10-26 19:54:27
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-23 09:26:53
--->
+---
+title: "collections"
+date: 2022-10-26
+categories: [Python]
+tags: [Python]
+excerpt: "collections"
+---
 
 # collections 模块
 

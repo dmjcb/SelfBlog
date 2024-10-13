@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2020-02-13 19:00:24
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-19 12:03:09
--->
+---
+title: "Bootstrap表单验证"
+date: 2020-02-13
+categories: [Network]
+tags: [Network]
+excerpt: "Bootstrap表单验证"
+---
 
 # Bootstrap表单
 
@@ -55,7 +53,6 @@
 <body>
   <div class="container">
     <div class="row">
-      <!-- form: -->
       <section>
         <div class="col-lg-8 col-lg-offset-2">
           <div class="page-header">
@@ -155,7 +152,6 @@
           </form>
         </div>
       </section>
-      <!-- :form -->
     </div>
   </div>
 </body>

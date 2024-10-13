@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-02-13 19:00:24
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-19 12:03:34
--->
+---
+title: "Bootstrap选项卡"
+date: 2022-02-13
+categories: [Network]
+tags: [Network]
+excerpt: "Bootstrap选项卡"
+---
 
 # Bootstrap选项卡
 
@@ -47,7 +45,6 @@
 
   <body>
     <div class="container" style="margin-top:80px">
-      <!--选项卡部分-->
       <nav class="navbar nav-tabs" role="navigation">
         <ul class="nav nav-tabs">
           <li class="nav-item ">
@@ -64,9 +61,7 @@
         </ul>
       </nav>
 
-      <!--页面部分-->
       <div class="tab-content">
-        <!--页面一-->
         <div id="tab_login" class="tab-pane  in active">
           <form action="" method="POST">
             <div class="input-group mb-3">
@@ -100,7 +95,6 @@
           </form>
         </div>
 
-        <!--页面二-->
         <div id="tab_register" class="tab-pane fade">
           <form action="" method="POST">
             <div class="input-group mb-3">
@@ -173,7 +167,6 @@
           </form>
         </div>
 
-        <!--页面三-->
         <div id="tab_modify" class="tab-pane fade">
           <form action="" method="POST"></form>
         </div>

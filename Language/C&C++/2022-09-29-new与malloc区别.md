@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2022-09-29 23:05:52
- * @LastEditors: dmjcb
- * @LastEditTime: 2024-07-31 01:09:28
--->
+---
+title: "new与malloc区别"
+date: 2022-09-29
+categories: [C&C++]
+tags: [C&C++]
+excerpt: "new与malloc区别"
+---
 
 # new与malloc区别
 

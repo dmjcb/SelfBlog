@@ -1,9 +1,10 @@
-<!--
- * @Author       : dmjcb@outlook.com
- * @Date         : 2024-08-27 00:16:31
- * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-28 01:47:07
--->
+---
+title: "Dockerfile使用"
+date: 2024-08-27
+categories: [Docker]
+tags: [Docker]
+excerpt: "Dockerfile使用"
+---
 
 # Dockerfile
 

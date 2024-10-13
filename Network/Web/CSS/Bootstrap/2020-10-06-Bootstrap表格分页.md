@@ -1,12 +1,10 @@
-<!--
- * @Description: 
- * @Version: 1.0
- * @Author: dmjcb
- * @Email:  
- * @Date: 2020-10-06 13:11:32
- * @LastEditors: dmjcb
- * @LastEditTime: 2023-04-05 02:01:37
--->
+---
+title: "Bootstrap表格分页"
+date: 2020-10-06
+categories: [Network]
+tags: [Network]
+excerpt: "Bootstrap表格分页"
+---
 
 # Bootstrap表格分页
 
@@ -59,7 +57,6 @@
         </tr>
       </thead>
       <tbody>
-        <!--这里使用Flask作为后端-->
         {% for i in data %}
         <tr>
           <td>{{ i.num }}</td>
