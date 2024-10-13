@@ -3,28 +3,44 @@
  * @Author       : dmjcb
  * @Date         : 2021-01-16 17:59:35
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-10 01:53:27
+ * @LastEditTime : 2024-10-13 13:52:39
 -->
 
 # AVL
 
-## 性质
+```mermaid
+graph LR
+    X(性质)
 
-- 树中任意结点的平衡因子(左子树高度 - 右子树高度)绝对值不超过 1
+    X --> A(树中任意结点的平衡因子即左子树高度 - 右子树高度的绝对值不超过 1)
+    X --> B(树中的每个左子树和右子树都是 AVL 树)
+    X --> C(AVL 树是特殊的二叉搜索树)
+    X --> D(在平衡因子大于1时会通过旋转来调整树的结构, 以重新满足平衡因子不超过1)
+```
 
-- 树中的每个左子树和右子树都是 AVL 树
-
-- AVL 树是特殊的二叉搜索树
-
-- AVL 树的旋转操作
-
-    在平衡因子大于 $1$ 时, 会通过旋转来调整树的结构, 以重新满足平衡因子不超过$1$
-
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2311.svg)
+```mermaid
+graph TB
+    A((  ))
+    A --> B(( ))
+        B --> B2(( ))
+        B --> B3(( ))
+            B3 --> B4(( ))
+    A --> C(( ))
+        C --> C1(( ))
+```
 
 标记平衡因子
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2313.svg)
+```mermaid
+graph TB
+    A((1))
+    A --> B(("-1"))
+        B --> B2(("0"))
+        B --> B3(("1"))
+            B3 --> B4(("0"))
+    A --> C(("-1"))
+        C --> C1(("0"))
+```
 
 该树为$AVL$树
 
@@ -99,7 +115,6 @@ bool IsBalance(AVLNode<T> *node) {
 - $AVL$ 树若在`右子树`插入右孩子导致失衡时, 单左旋调整
 
 - 旋转围绕最小失衡子树的根节点进行
-
 
 ![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-26-2325.svg)
 
