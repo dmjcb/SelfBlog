@@ -1,10 +1,10 @@
-<!--
- * @Brief        : 
- * @Author       : dmjcb@outlook.com
- * @Date         : 2021-01-16 17:59:34
- * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-08 19:37:33
--->
+---
+title: "Docker部署MySQL"
+date: 2021-01-16
+categories: [计算机, 数据库]
+tags: [数据库, MySQL]
+excerpt: "Docker部署MySQL"
+---
 
 # Docker部署MySQL
 

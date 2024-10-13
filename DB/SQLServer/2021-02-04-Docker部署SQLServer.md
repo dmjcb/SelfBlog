@@ -1,10 +1,10 @@
-<!--
- * @Brief        : 
- * @Author       : dmjcb@outlook.com
- * @Date         : 2021-02-04 23:48:41
- * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-09-07 00:46:43
--->
+---
+title: "Docker部署SQLServer"
+date: 2021-02-04
+categories: [计算机, 数据库]
+tags: [数据库, SQLServer]
+excerpt: "Docker部署SQLServer"
+---
 
 # Docker部署SQLServer
 
