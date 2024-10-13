@@ -3,7 +3,7 @@
  * @Author       : dmjcb
  * @Date         : 2024-09-24 20:03:51
  * @LastEditors  : dmjcb@outlook.com
- * @LastEditTime : 2024-10-09 00:24:58
+ * @LastEditTime : 2024-10-13 13:23:46
 -->
 
 # Git命令
@@ -77,6 +77,14 @@ git reset HEAD
 git branch
 ```
 
+```mermaid
+gitGraph
+    commit
+    commit
+    branch dev
+    commit 
+```
+
 ### 查看所有分支
 
 ```sh
@@ -113,7 +121,12 @@ git checkout -b 分支名
 
 ## commit
 
-![](https://raw.githubusercontent.com/dmjcb/SelfImgur/main/2022-3-18-2158.svg)
+```mermaid
+gitGraph
+    commit
+    commit
+    commit 
+```
 
 将暂存区里的改动给提交到本地的版本库
 
@@ -185,10 +198,26 @@ git reset --hard HEAD^
 
 ## merge
 
-### 合并A分支到当前分支
+### 合并dev分支到main分支
 
 ```sh
-git merge A分支
+git checkout main
+
+git merge [dev分支]
+```
+
+```mermaid
+gitGraph
+    commit
+    commit
+    branch dev
+    commit
+    commit
+    commit
+    checkout main
+    merge dev
+    commit
+    commit 
 ```
 
 ## pull

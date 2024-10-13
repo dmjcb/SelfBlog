@@ -1,3 +1,12 @@
+/*
+ * @Brief        : 哈夫曼算法实现
+ * @Author       : dmjcb
+ * @Date         : 2024-09-24 20:03:51
+ * @LastEditors  : dmjcb@outlook.com
+ * @LastEditTime : 2024-10-13 12:12:22
+ */
+
+
 #include <iostream>
 #include <utility>
 #include <vector>
@@ -6,7 +15,7 @@
 #include <map>
 
 template<typename NodeType, typename WeightType>
-struct  Node {
+struct Node {
     NodeType              mName;
     WeightType            mFrequency;
     std::shared_ptr<Node> mLeftChild;
