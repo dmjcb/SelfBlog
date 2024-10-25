@@ -66,7 +66,7 @@ def replace_imgage_url():
                 with open(name, "rb", "utf-8", errors="ignore") as text:
                     lines = text.readlines()
                     
-                s = "https://raw.githubusercontent.com/dmjcb/SelfImgur/main/"
+                s = "/assets/SelfImgur/"
                 with open(name, 'w', encoding='utf-8') as file:
                     for line in lines:
                         if s in line:

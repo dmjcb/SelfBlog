@@ -18,7 +18,7 @@ def get_md_picture_url(dir_path):
                     with open(name, "rb", "utf-8", errors="ignore") as text:
                         for line in text:
                             line = line.replace("\r\n", "")
-                            if "https://raw.githubusercontent.com/dmjcb/SelfImgur/main/" in line:
+                            if "/assets/SelfImgur/" in line:
                                 line = line[:-1]
                                 urls.append(line.split('/')[-1])
                                 n+=1
