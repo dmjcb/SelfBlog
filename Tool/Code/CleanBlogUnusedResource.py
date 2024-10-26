@@ -4,20 +4,18 @@ import codecs
 import sys
 import subprocess
 
-class CleanUnusedResource:
+class CleanBlogUnusedResource:
     __SYSTEM_PATH            = "c:\\Users\\dmjcb\\Documents\\Code"
     __IMGUR_PATH             = "assets\\SelfImgur"
     
     __SELF_BLOG_NAME         = "SelfBlog"
     __SELF_IO_NAME           = "dmjcb.github.io"
 
-    __SELF_BLOG_DIR = "{0}\\{1}".format(__SYSTEM_PATH, __SELF_BLOG_NAME)
-    __SELE_IO_DIR = "{0}\\{1}".format(__SYSTEM_PATH, __SELF_IO_NAME)
+    __SELF_BLOG_DIR          = "{0}\\{1}".format(__SYSTEM_PATH, __SELF_BLOG_NAME)
+    __SELE_IO_DIR            = "{0}\\{1}".format(__SYSTEM_PATH, __SELF_IO_NAME)
 
-    __SELF_BLOG_IMGUR_DIR   = "{0}\\{1}".format(__SELF_BLOG_DIR, __IMGUR_PATH)
-    __SELF_IO_IMGUR_DIR = "{0}\\{1}".format(__SELE_IO_DIR, __IMGUR_PATH)
-
-    used_iamge_count         = 0
+    __SELF_BLOG_IMGUR_DIR    = "{0}\\{1}".format(__SELF_BLOG_DIR, __IMGUR_PATH)
+    __SELF_IO_IMGUR_DIR      = "{0}\\{1}".format(__SELE_IO_DIR, __IMGUR_PATH)
 
 
     # 从SelfBlog所有.md中获取图片url, 提取图片名
@@ -37,7 +35,7 @@ class CleanUnusedResource:
                                     line = line[:-1]
                                     image_name = line.split('/')[-1]
                                     used_images.append(image_name)
-                                    self.used_iamge_count += 1
+
         return used_images
 
 
@@ -64,7 +62,7 @@ class CleanUnusedResource:
                     name = os.path.join(fpathe, f)
                     os.remove(name)
 
-        print("SelfBlog SelfImfur del {0} imges".format(del_count))
+        print("SelfBlog SelfImgur del {0} images".format(del_count))
 
 
     def copy_self_imgur_dir(self):
@@ -86,7 +84,7 @@ class CleanUnusedResource:
                     os.remove(name)
                     del_count += 1
 
-        print("SelfBlog SelfImfur del {0} imges".format(del_count))
+        print("dmjgb.github.io SelfImgur del {0} images".format(del_count))
 
 
     def del_and_copy_image(self):
@@ -97,22 +95,30 @@ class CleanUnusedResource:
 
     def git_pipline(self):
         os.chdir(self.__SELF_BLOG_DIR)
-        pipline = ["git add .", "git commit -m {0}".format(sys.argv[1])]
-        for sh in pipline:
-            r = subprocess.run(sh, shell=True, capture_output=True, text=True)
+        sh = "git add . && git commit -m {0} && git push".format(sys.argv[1])
+        r = subprocess.run(sh, shell=True, capture_output=True, text=True)
+        print(r.stdout)
 
-        os.chdir("{0}\\_posts".format(self.__SELE_IO_DIR))
-        r = subprocess.run("git pull", shell=True, capture_output=True, text=True)
+        # os.chdir(self.__SELF_BLOG_DIR)
+        # pipline = ["git add .", "git commit -m {0}".format(sys.argv[1]), "git push"]
+        # for sh in pipline:
+        #     r = subprocess.run(sh, shell=True, capture_output=True, text=True)
+        #     print(r.stdout)
 
-        os.chdir(self.__SELE_IO_DIR)
-        pipline = ["git add .", "git commit -m {0}".format(sys.argv[1])]
-        for sh in pipline:
-            r = subprocess.run(sh, shell=True, capture_output=True, text=True)
+        # os.chdir("{0}\\_posts".format(self.__SELE_IO_DIR))
+        # r = subprocess.run("git pull", shell=True, capture_output=True, text=True)
+        # print(r.stdout)
+
+        # os.chdir(self.__SELE_IO_DIR)
+        # pipline = ["git add .", "git commit -m {0}".format(sys.argv[1]), "git push"]
+        # for sh in pipline:
+        #     r = subprocess.run(sh, shell=True, capture_output=True, text=True)
+        #     print(r.stdout)
 
     def run(self):
-        # self.del_and_copy_image()
+        self.del_and_copy_image()
         self.git_pipline()
 
 
-clean = CleanUnusedResource()
+clean = CleanBlogUnusedResource()
 clean.run()
