@@ -62,15 +62,19 @@ class CleanBlogUnusedResource:
                     name = os.path.join(fpathe, f)
                     os.remove(name)
 
-        print("SelfBlog SelfImgur del {0} images".format(del_count))
+        print("1. SelfBlog SelfImgur del {0} images".format(del_count))
 
 
     def copy_self_imgur_dir(self):
+        copy_count = 0
         src_files = os.listdir(self.__SELF_BLOG_IMGUR_DIR)
         for file_name in src_files:
             full_file_name = os.path.join(self.__SELF_BLOG_IMGUR_DIR, file_name)
             if os.path.isfile(full_file_name):
                 shutil.copy(full_file_name, self.__SELF_IO_IMGUR_DIR)
+                copy_count += 1
+        
+        print("2. Copy {0} images".format(copy_count))
 
     # 删除dmjcb.github.io/assets/SelfImgur中未使用的图片
     def del_io_imgur_unused_files(self):
@@ -84,7 +88,7 @@ class CleanBlogUnusedResource:
                     os.remove(name)
                     del_count += 1
 
-        print("dmjgb.github.io SelfImgur del {0} images".format(del_count))
+        print("3. dmjgb.github.io SelfImgur del {0} images".format(del_count))
 
 
     def del_and_copy_image(self):
@@ -94,22 +98,29 @@ class CleanBlogUnusedResource:
 
 
     def git_pipline(self):
-        os.chdir(self.__SELF_BLOG_DIR)
-        sh = "git add . && git commit -m {0} && git push".format(sys.argv[1])
-        r = subprocess.run(sh, shell=True, capture_output=True, text=True, encoding="utf8")
-        print(r.stdout)
-        print()
+        print("4. run git")
+        def __run(command):
+            r = subprocess.run(command, shell=True, capture_output=True, text=True, encoding="utf8")
+            print(r.stdout)
+            print()
         
-        os.chdir("{0}\\_posts".format(self.__SELE_IO_DIR))
-        sh = "git pull"
-        r = subprocess.run(sh, shell=True, capture_output=True, text=True, encoding="utf8")
-        print(r.stdout)
+        def __pull():
+            sh = "git pull"
+            __run(sh)
 
-        # os.chdir(self.__SELE_IO_DIR)
-        # pipline = ["git add .", "git commit -m {0}".format(sys.argv[1]), "git push"]
-        # for sh in pipline:
-        #     r = subprocess.run(sh, shell=True, capture_output=True, text=True)
-        #     print(r.stdout)
+        def __push():
+            sh = "git add . && git commit -m {0} && git push".format(sys.argv[1])
+            __run(sh)
+        
+        os.chdir(self.__SELF_BLOG_DIR)
+        __push()
+
+        os.chdir("{0}\\_posts".format(self.__SELE_IO_DIR))
+        __pull()
+
+        os.chdir(self.__SELE_IO_DIR)
+        __push()
+
 
     def run(self):
         self.del_and_copy_image()
