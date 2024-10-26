@@ -96,18 +96,14 @@ class CleanBlogUnusedResource:
     def git_pipline(self):
         os.chdir(self.__SELF_BLOG_DIR)
         sh = "git add . && git commit -m {0} && git push".format(sys.argv[1])
-        r = subprocess.run(sh, shell=True, capture_output=True, text=True)
+        r = subprocess.run(sh, shell=True, capture_output=True, text=True, encoding="utf8")
         print(r.stdout)
-
-        # os.chdir(self.__SELF_BLOG_DIR)
-        # pipline = ["git add .", "git commit -m {0}".format(sys.argv[1]), "git push"]
-        # for sh in pipline:
-        #     r = subprocess.run(sh, shell=True, capture_output=True, text=True)
-        #     print(r.stdout)
-
-        # os.chdir("{0}\\_posts".format(self.__SELE_IO_DIR))
-        # r = subprocess.run("git pull", shell=True, capture_output=True, text=True)
-        # print(r.stdout)
+        print()
+        
+        os.chdir("{0}\\_posts".format(self.__SELE_IO_DIR))
+        sh = "git pull"
+        r = subprocess.run(sh, shell=True, capture_output=True, text=True, encoding="utf8")
+        print(r.stdout)
 
         # os.chdir(self.__SELE_IO_DIR)
         # pipline = ["git add .", "git commit -m {0}".format(sys.argv[1]), "git push"]
