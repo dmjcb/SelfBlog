@@ -74,9 +74,7 @@ class AutoUploadBlog:
 
     # 删除dmjcb.github.io/assets/SelfImgur中未使用的图片
     def del_jeyll_unused_images(self):
-        
-
-        used_files = self._get_self_imgur()
+        used_files = self._get_imgur_list()
 
         count = 0
         for path, dirs, file_list in os.walk(self.__JEYLL_IMGUR_DIR):
