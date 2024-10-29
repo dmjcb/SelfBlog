@@ -16,72 +16,68 @@ class AutoUploadBlog:
     __JEYLL_IMGUR_DIR = "{0}\\{1}".format(__JEYLL_DIR, __IMGUR_DIR)
 
 
-    # 从所有.md中获取图片url
-    def _get_used_images(self):
-        used_images = []
-        for fpathe, dirs, fs in os.walk(self.__BLOG_DIR):
-            if ".git" not in fpathe:
-                for f in fs:
-                    name = os.path.join(fpathe, f)
-                    if ".md" in name:
-                        with codecs.open(name, "rb", "utf-8", errors="ignore") as text:
-                            for line in text:
-                                line = line.replace("\r\n", "")
-                                # 示例, ![](/assets/SelfImgur/20241022204809.png)
-                                if "/assets/SelfImgur/" in line:
-                                    # 去除末尾)符号
-                                    line = line[:-1]
-                                    image_name = line.split('/')[-1]
-                                    used_images.append(image_name)
-
-        return used_images
+    def __get_in_used_images(self):
+        in_used = []
+        for path, dirs, fs in os.walk(self.__BLOG_DIR):
+            if ".git" in path:
+                continue
+            for f in fs:
+                ap = os.path.join(path, f)
+                if ".md" == ap[-2:]:
+                    with codecs.open(ap, "rb", "utf-8", errors="ignore") as text:
+                        for line in text:
+                            line = line.replace("\r\n", "")
+                            # example: ![](/assets/SelfImgur/20241022204809.png)
+                            if "/assets/SelfImgur/" in line:
+                                name = line[:-1].split('/')[-1]
+                                in_used.append(name)
+                
+        return in_used
     
-    # 删除SelfBlog/assets/SelfImgur中未使用的图片
     def del_blog_unused_images(self):
-        used_files = self._get_used_images()
+        in_used = self.__get_in_used_images()
         count = 0
-        for path, dirs, file_list in os.walk(self.__BLOG_IMGUR_DIR):
-            for f in file_list:     
-                if f not in used_files:
+        for path, dirs, files in os.walk(self.__BLOG_IMGUR_DIR):
+            for f in files:     
+                if f not in in_used:
                     count += 1
-                    name = os.path.join(path, f)
-                    os.remove(name)
+                    ap = os.path.join(path, f)
+                    os.remove(ap)
 
         print("1. SelfBlog SelfImgur del {0} images".format(count))
 
 
     def copy_imgur_dir(self):
-        copy_count = 0
+        count = 0
         src_files = os.listdir(self.__BLOG_IMGUR_DIR)
         for name in src_files:
             f = os.path.join(self.__BLOG_IMGUR_DIR, name)
             if os.path.isfile(f):
                 shutil.copy(f, self.__JEYLL_IMGUR_DIR)
-                copy_count += 1
+                count += 1
         
-        print("2. Copy {0} images".format(copy_count))
+        print("2. Copy {0} images".format(count))
 
 
-    def _get_imgur_list(self):
-            files = []
-            for path, dirs, file_list in os.walk(__BLOG_IMGUR_DIR):
-                for f in file_list:
-                    path = os.path.join(path, f)
-                    files.append(f)
+    def __get_imgurs(self):
+        in_used = []
+        for path, dirs, files in os.walk(__BLOG_IMGUR_DIR):
+            for f in files:
+                path = os.path.join(path, f)
+                in_used.append(f)
 
-        return files
+        return in_used
 
 
     # 删除dmjcb.github.io/assets/SelfImgur中未使用的图片
     def del_jeyll_unused_images(self):
-        used_files = self._get_imgur_list()
-
+        in_used = self.__get_imgurs()
         count = 0
-        for path, dirs, file_list in os.walk(self.__JEYLL_IMGUR_DIR):
-            for f in file_list:
-                if f not in used_files:
-                    name = os.path.join(path, f)
-                    os.remove(name)
+        for path, dirs, files in os.walk(self.__JEYLL_IMGUR_DIR):
+            for f in files:
+                if f not in in_used:
+                    ap = os.path.join(path, f)
+                    os.remove(ap)
                     count += 1
 
         print("3. dmjgb.github.io SelfImgur del {0} images".format(count))

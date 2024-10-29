@@ -1,7 +1,6 @@
 from json import loads, dumps
 from requests import get, put
 
-
 class AutoSwitchNode:
     __IP = "192.168.3.3"
     __PORT = 9090
@@ -24,21 +23,20 @@ class AutoSwitchNode:
         return r['history'][0]['delay']
 
     def get_all_proxy_delay(self):
-        name_list = self.get_proxy_name_list()
-        delay_map = {}
+        names = self.get_proxy_name_list()
+        delay = {}
 
-        for name in name_list:
+        for name in names:
             t = self.get_proxy_delay(name)
             if t > 0:
-                delay_map[name] = t
+                delay[name] = t
 
-        x = sorted(delay_map.items(), key=lambda x:x[1], reverse=False)
+        x = sorted(delay.items(), key=lambda x:x[1], reverse=False)
         return x
-
 
     def switch_fastest_proxy(self):
         d = self.get_all_proxy_delay()
-        name, t = d[0]
+        name, _ = d[0]
         print(name)
 
         r = put('http://{0}/proxies/Proxy'.format(self.__url),
