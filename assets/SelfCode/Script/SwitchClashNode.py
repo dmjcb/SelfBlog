@@ -23,10 +23,8 @@ class AutoSwitchNode:
         return r['history'][0]['delay']
 
     def get_all_proxy_delay(self):
-        names = self.get_proxy_name_list()
         delay = {}
-
-        for name in names:
+        for name in self.get_proxy_name_list():
             t = self.get_proxy_delay(name)
             if t > 0:
                 delay[name] = t
@@ -42,6 +40,7 @@ class AutoSwitchNode:
         r = put('http://{0}/proxies/Proxy'.format(self.__url),
                 data=dumps({'name': name}),
                 headers={"Content-Type": "application/json"})
+
         print(r.text)
         if r.status_code == 204:
             return True
