@@ -6,20 +6,13 @@ import subprocess
 
 class AutoUploadBlog:
     __ROOT_DIR        = "c:\\Users\\dmjcb\\Documents\\Code"
-    __IMGUR_DIR       = "Resource\\Imgur"
-    __CODE_DIR        = "Resource\\Code"
 
     __BLOG_DIR        = "{0}\\SelfBlog".format(__ROOT_DIR)
     __JEYLL_DIR       = "{0}\\dmjcb.github.io".format(__ROOT_DIR)
 
-    __BLOG_IMGUR_DIR  = "{0}\\{1}".format(__BLOG_DIR, __IMGUR_DIR)
-    __JEYLL_IMGUR_DIR = "{0}\\{1}".format(__JEYLL_DIR, __IMGUR_DIR)
-
-    __BLOG_CODE_DIR   = "{0}\\{1}".format(__BLOG_DIR, __CODE_DIR)
-    __JEYLL_CODE_DIR  = "{0}\\{1}".format(__JEYLL_DIR, __CODE_DIR)
+    __RESOURCE_DIR    = "Resource"
 
     __used_imgs  = []
-
 
     def __init__(self):
         for f in self.get_files_ap(self.__BLOG_DIR):
@@ -55,8 +48,9 @@ class AutoUploadBlog:
         return x
 
     def del_unused_images(self):
+        imgur_path  = "{0}\\{1}\\Imgur".format(self.__BLOG_DIR, self.__RESOURCE_DIR)
         count = 0
-        for ap in self.get_files_ap(self.__BLOG_IMGUR_DIR):
+        for ap in self.get_files_ap(imgur_path):
             name = self.extract_file_name(ap)
             
             if name not in self.__used_imgs:
@@ -83,13 +77,14 @@ class AutoUploadBlog:
             print(f"{source_dir} already copy {target_dir}")
 
     def manage_resource(self):
+        blog_resouce_dir = "{0}\\{1}".format(self.__BLOG_DIR, self.__RESOURCE_DIR)
+        jeyll_resource_dir = "{0}\\{1}".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
+
         count = self.del_unused_images()
         print("SelfBlog SelfImgur del {0} images".format(count))
 
-        self.clean_folder(self.__JEYLL_IMGUR_DIR)
-        self.clean_folder(self.__JEYLL_CODE_DIR)
-        self.copy_folder(self.__BLOG_IMGUR_DIR, self.__JEYLL_IMGUR_DIR)
-        self.copy_folder(self.__BLOG_CODE_DIR, self.__JEYLL_CODE_DIR)
+        self.clean_folder(jeyll_resource_dir)
+        self.copy_folder(blog_resouce_dir, jeyll_resource_dir)
 
     def git_pipline(self):
         def __run(command):
