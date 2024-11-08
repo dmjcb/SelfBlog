@@ -1,0 +1,3 @@
+[submodule "Resource/Imgur"]
+	path = Resource/Imgur
+	url = git@github.com:dmjcb/Imgur.git
