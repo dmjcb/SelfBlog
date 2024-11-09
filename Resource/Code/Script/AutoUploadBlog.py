@@ -73,32 +73,28 @@ class AutoUploadBlog:
         r = subprocess.run(command, shell=True, capture_output=True, text=True, encoding="utf8")
         print(r.stdout)
     
-
-    def git_push(self, msg):
-        if msg == "":
-            msg = "defualt add"
-
-        sh = "git add . && git commit -m {0} && git push".format(msg)
-        self.run_cmd(sh)
-
-
-    def upload_blog(self):
-        count = self.del_unused_images()
-        # 子模块更新
-        if count != 0:
-            msg = "update {0} imgs".format(count)
-            print(msg)
-
-            # os.chdir("{0}\\{1}\\Imgur".format(self.__BLOG_DIR, self.__RESOURCE_DIR))
-            # self.git_push(msg)
-
-        # os.chdir(self.__BLOG_DIR)
-        # self.git_push()
     
+    def upload_blog(self):
+        msg = sys.argv[1]
+        count = self.del_unused_images()
+        if count != 0:
+            msg += ";update {0} imgs".format(count)
 
-    def update_resource(self):
+        os.chdir(self.__BLOG_DIR)
+        self.run_cmd("git add . && git commit -m {0} && git push".format(msg))
+
+
+    def upload_jekyll(self):
         SOURRC_DIR = "{0}\\_posts\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
         TARGET_DIR = "{0}\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
+
+        def _pull_blog(self):
+            os.chdir("{0}\\_posts".format(self.__JEYLL_DIR))
+            self.run_cmd("git pull")
+
+        def _push(self):
+            os.chdir(self.__JEYLL_DIR)
+            self.run_cmd("git add . && git commit -m {0} && git push".format(sys.argv[1]))
 
         def copy_with_ignore_git(src_dir, dst_dir):
             # 检查目标目录是否存在，如果存在则先删除它
@@ -112,19 +108,11 @@ class AutoUploadBlog:
             # 复制目录，并忽略 ".git" 文件夹
             shutil.copytree(src_dir, dst_dir, ignore=ignore_git, dirs_exist_ok=True)
 
+        self._pull_blog()
         copy_with_ignore_git(SOURRC_DIR, TARGET_DIR)
-
-    def upload_jekyll(self):
-        # os.chdir("{0}\\_posts".format(self.__JEYLL_DIR))
-        # self.run_cmd("git pull")
-
-        self.update_resource()
-
-        # os.chdir(self.__JEYLL_DIR)
-        # self.git_push()
-
+        self._push()
 
 if __name__ == "__main__":
     auto = AutoUploadBlog()
     auto.upload_blog()
-    #auto.upload_jekyll()
+    auto.upload_jekyll()
