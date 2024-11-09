@@ -25,7 +25,9 @@ class AutoUploadBlog:
     __BLOG_DIR        = "{0}\\SelfBlog".format(__ROOT_DIR)
     __JEYLL_DIR       = "{0}\\dmjcb.github.io".format(__ROOT_DIR)
 
-    __RESOURCE_DIR    = "Resource"
+    __IMGUR_DIR       = "Resource\\Imgur"
+
+    __PUBLIC_BLOG_DIR = "Resource\\PublicBlog"
 
     auto_git = AutoGit()
         
@@ -66,7 +68,7 @@ class AutoUploadBlog:
                 used_imgs.extend(urls)
 
         # 删除未使用图片
-        imgur_dir  = "{0}\\{1}\\Imgur".format(self.__BLOG_DIR, self.__RESOURCE_DIR)
+        imgur_dir  = "{0}\\{1}".format(self.__BLOG_DIR, self.__IMGUR_DIR)
         img_count = 0
         del_count = 0
         for ap in __get_files_ap(imgur_dir):
@@ -87,16 +89,15 @@ class AutoUploadBlog:
         return 0
 
 
-    def upload_blog(self):
-        msg = sys.argv[1]
+    def upload_blog(self, msg):
         count = self.del_unused_images()
         if count != 0:
-            msg += ";update {0} imgs".format(count)
-        print(msg)
+            print("update {0} imgs".format(count))
+        
         self.auto_git.push(self.__BLOG_DIR, msg)
 
 
-    def upload_jekyll(self):
+    def upload_jekyll(self, msg):
         def copy_with_ignore_git(src_dir, dst_dir):
             if os.path.exists(dst_dir):
                 shutil.rmtree(dst_dir)
@@ -105,20 +106,74 @@ class AutoUploadBlog:
             def ignore_git(dir, files):
                 return [".git"] if ".git" in files else []
 
-            # 复制目录，并忽略 ".git" 文件夹
             shutil.copytree(src_dir, dst_dir, ignore=ignore_git, dirs_exist_ok=True)
         
-        SOURRC_DIR = "{0}\\_posts\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
-        TARGET_DIR = "{0}\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
+        SOURRC_DIR = "{0}\\_posts\\{1}".format(self.__JEYLL_DIR, self.__IMGUR_DIR)
+        TARGET_DIR = "{0}\\{1}".format(self.__JEYLL_DIR, self.__IMGUR_DIR)
 
-        auto_git.pull("{0}\\_posts".format(self.__JEYLL_DIR))
+        self.auto_git.pull("{0}\\_posts".format(self.__JEYLL_DIR))
 
         copy_with_ignore_git(SOURRC_DIR, TARGET_DIR)
 
-        self.auto_git.push(self.__JEYLL_DIR, sys.argv[1])
+        self.auto_git.push(self.__JEYLL_DIR, msg)
+
+    # 将博客转换为发布模式
+    def change_md_to_public(self, md_name):
+        def find_file_in_directory(md_name):
+            for root, dirs, files in os.walk(self.__BLOG_DIR):
+                if md_name in files:
+                    return os.path.abspath(os.path.join(root, md_name))
+            return None
+
+        path = find_file_in_directory(md_name)
+        if path == None:
+            return
+
+        with open(path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+
+        new_text = ['> - [**dmjcb个人博客**](https://dmjcb.github.io/)\n', ]
+        for i, text in enumerate(lines):
+            if i < 7:
+                continue
+
+            if text == '```c++\n' or text == '```cmake\n':
+                text = '```c\n'
+            
+            if text == '```sh\n':
+                text = '```shell\n'
+
+            if '/Resource/Imgur' in text:
+                text = text.replace('/Resource/Imgur', 'https://raw.githubusercontent.com/dmjcb/Imgur/main')
+
+            new_text.append(text)
+
+        title = lines[1].replace("/r", "").replace("/n", "").split(":")[-1]
+        path = "{0}\\{1}\\{2}.md".format(self.__BLOG_DIR, self.__PUBLIC_BLOG_DIR, title[2:-2])
+        print('path = ', path)
+        with open(path, 'w', encoding='utf-8') as f:
+            f.writelines(new_text)
 
 
 if __name__ == "__main__":
     auto = AutoUploadBlog()
-    auto.upload_blog()
-    # auto.upload_jekyll()
+
+    index = input('1. 删除无用图片\n2. 上传blog\n3. 上传jekyll\n4. 都上传\n5. 转换博客\n')
+    index = int(index)
+    if index == 1:
+        r = auto.del_unused_images()
+        print(r)
+    elif index == 2:
+        msg = input('commit info: ')
+        auto.upload_blog(msg)
+    elif index == 3:
+        msg = input('commit info: ')
+        auto.upload_jekyll(msg)
+    elif index == 4:
+        msg = input('commit info: ')
+        auto.upload_blog(msg)
+        auto.upload_jekyll(msg)
+    elif index == 5:
+        path = input('path: ')
+        auto.change_md_to_public(path)
+    

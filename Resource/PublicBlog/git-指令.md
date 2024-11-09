@@ -1,10 +1,4 @@
----
-title: "git-指令"
-date: 2024-09-24
-categories: [git]
-tags: [git]
-excerpt: "git配置"
----
+> - [**dmjcb个人博客**](https://dmjcb.github.io/)
 
 > - [廖雪峰git教程](https://liaoxuefeng.com/books/git/introduction/index.html)
 > - [Git 如何移除一个子模块](https://geek-docs.com/git/git-questions/26_git_how_do_i_remove_a_submodule.html)
@@ -34,25 +28,25 @@ graph TB;
 
 在需创建git仓库目录下执行
 
-```sh
+```shell
 git init
 ```
 
 自动创建.git目录, 用于管理版本库
 
-![](/Resource/Imgur/20241105_200625.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241105_200625.jpg)
 
 ### 状态
 
 查看目录中文件状态
 
-```sh
+```shell
 git status
 ```
 
 添加Main.cpp, 红色表示该文件未添加至暂存区
 
-![](/Resource/Imgur/20241031_210259.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_210259.jpg)
 
 ### 添加暂存区
 
@@ -66,19 +60,19 @@ graph LR;
 
 - 添加指定文件
 
-```sh
+```shell
 git add [文件名]
 ```
 
 - 添加全部文件
 
-```sh
+```shell
 git add .
 ```
 
 添加后文件变为绿色, 此时文件已添加进暂存区
 
-![](/Resource/Imgur/20241031_210551.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_210551.jpg)
 
 
 
@@ -86,11 +80,11 @@ git add .
 
 将添加至暂存区文件撤回至工作区
 
-```sh
+```shell
 git restore --staged [文件名]
 ```
 
-![](/Resource/Imgur/20241031_215726.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_215726.jpg)
 
 ### 提交
 
@@ -98,30 +92,30 @@ git restore --staged [文件名]
 
 - 编写commit信息后提交
 
-```sh
+```shell
 # 
 git commit 
 ```
 
 - 一步提交
 
-```sh
+```shell
 git commit -m "[commit 信息]"
 ```
 
 #### 提交记录
 
-```sh
+```shell
 git log
 ```
 
-![](/Resource/Imgur/20241031_212440.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_212440.jpg)
 
 #### 修改提交
 
 - 修改最近一次 `commit`
 
-```sh
+```shell
 git commit --amend
 ```
 
@@ -129,7 +123,7 @@ git commit --amend
 
 设原始 Main.cpp如下
 
-```c++
+```c
 #include<iostream>
 int main() {
     std::cout << "[Master] Hello World" << std::endl;
@@ -139,7 +133,7 @@ int main() {
 
 设修改后Main.cpp如下
 
-```c++
+```c
 #include<iostream>
 int main() {
     std::cout << "[Update] Hello World" << std::endl;
@@ -159,13 +153,13 @@ git checkout -- [文件名]
 
 - 放弃所有修改
 
-```sh
+```shell
 git checkout .
 ```
 
 修改Main.cpp, 还未添加到暂存区, 撤销修改, Main.cpp恢复至修改前状态
 
-![](/Resource/Imgur/20241103_175723.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_175723.jpg)
 
 #### 已暂存修改
 
@@ -173,19 +167,19 @@ git checkout .
 
 - 放弃已暂存指定文件修改
 
-```sh
+```shell
 git reset HEAD [文件名]
 ```
 
 - 放弃所有已暂存修改
 
-```sh
+```shell
 git reset
 ```
 
 此时只撤销添加操作, 文件修改并未撤销, 若想撤销修改还需执行上面未暂存修改撤回指令
 
-![](/Resource/Imgur/20241103_175855.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_175855.jpg)
 
 
 #### 已commit修改
@@ -198,7 +192,7 @@ git中用`HEAD` 表示当前提交, 上个版本表示为`HEAD^`, 前100个版�
 
 删除工作空间改动, 撤销`commit`, 撤销`git add .`
 
-```sh
+```shell
 # 回退到上次commit
 git reset --hard HEAD^
 
@@ -208,43 +202,43 @@ git reset --hard [commit id]
 
 修改后commit
 
-![](/Resource/Imgur/20241103_171014.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_171014.jpg)
 
 回退至上次commit, 此时暂存区和工作区均会回到上次提交时状态, 所有自上次后修改全被恢复
 
-![](/Resource/Imgur/20241103_171357.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_171357.jpg)
 
 - reset --soft
 
 `不删除`工作空间改动, 撤销`commit`, 不撤销`git add .`
 
-```sh
+```shell
 git reset --soft HEAD^
 ```
 
 修改后commit
 
-![](/Resource/Imgur/20241103_172230.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_172230.jpg)
 
 回退至上次commit, 修改后文件仍在暂存区, 且修改后内容未删除
 
-![](/Resource/Imgur/20241103_172428.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_172428.jpg)
 
 - reset --mixed
 
 不删除工作空间改动代码, 撤销`commit`, 并撤销`git add .`
 
-```sh
+```shell
 git reset --mixed HEAD^
 ```
 
 修改后commit
 
-![](/Resource/Imgur/20241103_172644.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_172644.jpg)
 
 回退至上次commit, 修改后文件在工作区, 且修改后内容未删除
 
-![](/Resource/Imgur/20241103_172810.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241103_172810.jpg)
 
 ## 分支
 
@@ -256,25 +250,25 @@ git reset --mixed HEAD^
 
 创建分支并切换
 
-```sh
+```shell
 git switch -c [分支名]
 ```
 
 - 查看当前分支
 
-```sh
+```shell
 git branch 
 ```
 
 - 切换分支
 
-```sh
+```shell
 git switch [分支名]
 ```
 
 #### 删除
 
-```sh
+```shell
 git branch -d [分支名]
 ```
 
@@ -282,7 +276,7 @@ git branch -d [分支名]
 
 #### 合并至当前分支
 
-```sh
+```shell
 git switch main
 
 git merge [待合并分支名]
@@ -312,7 +306,7 @@ int main() {
 }
 ```
 
-![](/Resource/Imgur/20241031_224017.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_224017.jpg)
 
 切换回master分支, 此时再修改Main.cpp, 并提交
 
@@ -325,11 +319,11 @@ int main() {
 }
 ```
 
-![](/Resource/Imgur/20241031_224216.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_224216.jpg)
 
 此时使用`git merge`将dev分支合并到master分支, 提示冲突
 
-![](/Resource/Imgur/20241031_224913.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_224913.jpg)
 
 Main.cpp显示
 
@@ -361,9 +355,9 @@ int main() {
 }
 ```
 
-![](/Resource/Imgur/20241031_225327.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_225327.jpg)
 
-![](/Resource/Imgur/20241031_225513.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241031_225513.jpg)
 
 ## 标签
 
@@ -371,7 +365,7 @@ int main() {
 
 - 以最新commit打标签
 
-```sh
+```shell
 git tag [标签名]
 ```
 
@@ -389,7 +383,7 @@ git tag -a [标签名] -m [描述信息] [commit id]
 
 ### 查看
 
-```sh
+```shell
 git tag
 ```
 
@@ -403,13 +397,13 @@ git tag
 
 `push` 将本地分支版本上传到远程并合并
 
-```sh
+```shell
 git push [远程主机名] [本地分支名]:[远程分支名]
 ```
 
 #### 推送已创建仓库
 
-```sh
+```shell
 git remote add origin [仓库地址]
 
 git push origin [分支]
@@ -417,13 +411,13 @@ git push origin [分支]
 
 - 将本地仓库master分支推送到远程仓库master分支
 
-![](/Resource/Imgur/20241104_230351.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_230351.jpg)
 
-![](/Resource/Imgur/20241104_230422.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_230422.jpg)
 
 #### 普通推送
 
-```sh
+```shell
 git push [远程主机名] [本地分支名]:[远程分支名]
 ```
 
@@ -431,15 +425,15 @@ git push [远程主机名] [本地分支名]:[远程分支名]
 
 若本地分支与远程分支一致, 则可简写为`git push`
 
-![](/Resource/Imgur/20241104_231856.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_231856.jpg)
 
-![](/Resource/Imgur/20241104_231935.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_231935.jpg)
 
 #### 上传到远程分支
 
 建立本地到上游(远端)仓链接
 
-```sh
+```shell
 git branch --set-upstream-to=origin/[分支]
 
 git push origin [分支]
@@ -447,55 +441,55 @@ git push origin [分支]
 
 - 本地建立dev分支并上传到远程
 
-![](/Resource/Imgur/20241104_230634.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_230634.jpg)
 
-![](/Resource/Imgur/20241104_230708.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_230708.jpg)
 
 #### 上传所有标签
 
-```sh
+```shell
 git push origin master --tags
 ```
 
 - 本地master分支建立tag:v0.1并上传
 
-![](/Resource/Imgur/20241104_230946.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_230946.jpg)
 
-![](/Resource/Imgur/20241104_231023.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_231023.jpg)
 
 ### 配置
 
 #### 查看
 
-```sh
+```shell
 git remote -v
 ```
 
-![](/Resource/Imgur/20241104_232051.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_232051.jpg)
 
 #### 删除
 
 - 名称
 
-```sh
+```shell
 git remote rm [远程分支名]
 ```
 
 - URL
 
-```sh
+```shell
 git remote set-url --delete origin [远程 URL]
 ```
 
 #### 添加
 
-```sh
+```shell
 git remote add [远程用户名] [远程 URL]
 ```
 
 - 多地址
 
-```sh
+```shell
 git remote set-url --add origin [远程 URL]
 ```
 
@@ -503,36 +497,36 @@ git remote set-url --add origin [远程 URL]
 
 ### 克隆
 
-```sh
+```shell
 git clone [仓库地址] (存放路径)
 ```
 
 #### 默认路径
 
-![](/Resource/Imgur/20241109_141102.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_141102.jpg)
 
 
 #### 指定路径
 
 - 克隆到当前目录
 
-![](/Resource/Imgur/20241109_141139.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_141139.jpg)
 
 - 克隆到任意目录
 
-![](/Resource/Imgur/20241110_011915.jpg) 
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241110_011640.jpg) 
 
 ### 拉取
 
 `git pull` 将远程主机最新内容拉下来后直接合并, 可能会产生冲突, 需手动解决
 
-```sh
+```shell
 git pull [远程主机名] [远程分支名]:[本地分支名]
 ```
 
 #### 直接拉取合并
 
-```sh
+```shell
 git pull origin master
 ```
 
@@ -542,7 +536,7 @@ git pull origin master
 
 设此时远程仓库master分支存在修改, 本地master分支直接拉取
 
-![](/Resource/Imgur/20241104_233013.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_233013.jpg)
 
 - 有冲突情况
 
@@ -550,7 +544,7 @@ git pull origin master
 
 直接`git pull`会提示冲突, 按照教程中解冲突步骤处理后提交即可
 
-![](/Resource/Imgur/20241104_235502.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_235502.jpg)
 
 #### 拉取后手动合并
 
@@ -558,7 +552,7 @@ git pull origin master
 
 (1) 通过`git fetch`从远程主机将远程最新内容拉到本地, 用户可决定是否合并到本地分支中
 
-```sh
+```shell
 git fetch [远程主机名] [远程分支名]
 ```
 
@@ -570,7 +564,7 @@ git fetch [远程主机名] [远程分支名]
 
 将远程更新merge到当前分支
 
-```sh
+```shell
 git merge FETCH_HEAD
 ```
 
@@ -580,40 +574,40 @@ git merge FETCH_HEAD
 
 执行`git fetch`, 并查看更新内容
 
-![](/Resource/Imgur/20241104_234618.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_234618.jpg)
 
 执行`git merge`, 提示冲突
 
-![](/Resource/Imgur/20241104_234718.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_234718.jpg)
 
 按照教程中解冲突步骤处理后提交即可
 
-![](/Resource/Imgur/20241104_235020.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_235020.jpg)
 
 此时本地和远程分支已一致
 
-![](/Resource/Imgur/20241104_235040.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_235040.jpg)
 
-![](/Resource/Imgur/20241104_235057.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241104_235057.jpg)
 
 
 ## 子模块
 
 ### 查看
 
-```sh
+```shell
 git submodule
 ```
 
-![](/Resource/Imgur/20241109_135746.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_135746.jpg)
 
 ### 添加
 
-```sh
+```shell
 git submodule add [子模块地址]
 ```
 
-![](/Resource/Imgur/20241109_135511.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_135511.jpg)
 
 ### 克隆
 
@@ -621,33 +615,33 @@ git submodule add [子模块地址]
 
 克隆项目同时拉取子模块
 
-```sh
+```shell
 git clone --recursive [仓库地址] (克隆路径)
 ```
 
-![](/Resource/Imgur/20241109_140001.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_140001.jpg)
 
 #### 手动拉取子模块
 
 若克隆项目时未拉取子模块, 则进入主项目根目录, 使用以下命令使Git意识到项目包含子模块
 
-```sh
+```shell
 git submodule init
 ```
 
 更新子模块内容
 
-```sh
+```shell
 git submodule update
 ```
 
-![](/Resource/Imgur/20241109_140317.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_140317.jpg)
 
 ### 更新
 
 主项目根目录中, 更新子模块以获取最新改动
 
-```sh
+```shell
 git submodule update --remote
 ```
 
@@ -655,7 +649,7 @@ git submodule update --remote
 
 在子模块中修改完毕后, 与普通项目一致提交就行
 
-```sh
+```shell
 git add 
 
 git commit -m "" 
@@ -667,18 +661,18 @@ git push
 
 移除子模块
 
-```sh
+```shell
 git submodule deinit -f [子模块路径]
 ```
 
 删除子模块目录
 
-```sh
+```shell
 git rm [子模块路径]
 ```
 
 - 移除Imgur子模块
 
-![](/Resource/Imgur/20241109_140605.jpg)
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241109_140605.jpg)
 
 
