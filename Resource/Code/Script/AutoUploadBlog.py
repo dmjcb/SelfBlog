@@ -57,7 +57,7 @@ class AutoUploadBlog:
             if name not in used_imgs:
                 del_count += 1
                 os.remove(ap)
-                print('del: ', ap)
+                print('del: ', name)
         
         # 有新增
         if img_count > len(used_imgs):
