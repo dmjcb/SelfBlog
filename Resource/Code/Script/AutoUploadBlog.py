@@ -79,7 +79,7 @@ class AutoUploadBlog:
         count = self.del_unused_images()
         if count != 0:
             msg += ";update {0} imgs".format(count)
-
+        print(msg)
         os.chdir(self.__BLOG_DIR)
         self.run_cmd("git add . && git commit -m {0} && git push".format(msg))
 
@@ -115,4 +115,4 @@ class AutoUploadBlog:
 if __name__ == "__main__":
     auto = AutoUploadBlog()
     auto.upload_blog()
-    auto.upload_jekyll()
+    # auto.upload_jekyll()
