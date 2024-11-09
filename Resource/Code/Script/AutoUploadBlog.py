@@ -4,6 +4,21 @@ import codecs
 import sys
 import subprocess
 
+
+class AutoGit:
+    def run_cmd(self, command):
+        r = subprocess.run(command, shell=True, capture_output=True, text=True, encoding="utf8")
+        print(r.stdout)
+    
+    def pull(self, path):
+        os.chdir(path)
+        self.run_cmd("git pull")
+
+    def push(self, path, msg):
+        os.chdir(path)
+        self.run_cmd("git add . && git commit -m {0} && git push".format(msg))
+
+
 class AutoUploadBlog:
     __ROOT_DIR        = "c:\\Users\\dmjcb\\Documents\\Code"
 
@@ -11,6 +26,9 @@ class AutoUploadBlog:
     __JEYLL_DIR       = "{0}\\dmjcb.github.io".format(__ROOT_DIR)
 
     __RESOURCE_DIR    = "Resource"
+
+    auto_git = AutoGit()
+        
 
     def del_unused_images(self):
         def __extract_file_name(path):
@@ -69,48 +87,36 @@ class AutoUploadBlog:
         return 0
 
 
-    def run_cmd(self, command):
-        r = subprocess.run(command, shell=True, capture_output=True, text=True, encoding="utf8")
-        print(r.stdout)
-    
-    
     def upload_blog(self):
         msg = sys.argv[1]
         count = self.del_unused_images()
         if count != 0:
             msg += ";update {0} imgs".format(count)
         print(msg)
-        os.chdir(self.__BLOG_DIR)
-        self.run_cmd("git add . && git commit -m {0} && git push".format(msg))
+        self.auto_git.push(self.__BLOG_DIR, msg)
 
 
     def upload_jekyll(self):
-        SOURRC_DIR = "{0}\\_posts\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
-        TARGET_DIR = "{0}\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
-
-        def _pull_blog(self):
-            os.chdir("{0}\\_posts".format(self.__JEYLL_DIR))
-            self.run_cmd("git pull")
-
-        def _push(self):
-            os.chdir(self.__JEYLL_DIR)
-            self.run_cmd("git add . && git commit -m {0} && git push".format(sys.argv[1]))
-
         def copy_with_ignore_git(src_dir, dst_dir):
-            # 检查目标目录是否存在，如果存在则先删除它
             if os.path.exists(dst_dir):
                 shutil.rmtree(dst_dir)
 
-            # 定义忽略函数，忽略 ".git" 文件夹
+            # 忽略函数，忽略 ".git" 文件夹
             def ignore_git(dir, files):
                 return [".git"] if ".git" in files else []
 
             # 复制目录，并忽略 ".git" 文件夹
             shutil.copytree(src_dir, dst_dir, ignore=ignore_git, dirs_exist_ok=True)
+        
+        SOURRC_DIR = "{0}\\_posts\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
+        TARGET_DIR = "{0}\\{1}\\Imgur".format(self.__JEYLL_DIR, self.__RESOURCE_DIR)
 
-        self._pull_blog()
+        auto_git.pull("{0}\\_posts".format(self.__JEYLL_DIR))
+
         copy_with_ignore_git(SOURRC_DIR, TARGET_DIR)
-        self._push()
+
+        self.auto_git.push(self.__JEYLL_DIR, sys.argv[1])
+
 
 if __name__ == "__main__":
     auto = AutoUploadBlog()
