@@ -514,7 +514,7 @@ git clone [仓库地址] (存放路径)
 
 - 克隆到任意目录
 
-![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241110_011640.jpg) 
+![](https://raw.githubusercontent.com/dmjcb/Imgur/main/20241110_012022.jpg) 
 
 ### 拉取
 

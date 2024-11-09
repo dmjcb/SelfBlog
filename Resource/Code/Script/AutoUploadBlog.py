@@ -42,7 +42,7 @@ class AutoUploadBlog:
         def __get_files_ap(dir_path):
             files = []
             for path, dirs, fs in os.walk(dir_path):
-                if ".git" in path:
+                if ".git" in path or "PublicBlog" in path:
                     continue
                 for f in fs:
                     ap = os.path.join(path, f)
@@ -54,9 +54,10 @@ class AutoUploadBlog:
             with codecs.open(md_file, "rb", "utf-8", errors="ignore") as text:
                 for line in text:
                     line = line.replace("\r\n", "")
+                    
                     # example: ![](/Resource/Imgur/20241022204809.png)
                     if "/Resource/Imgur/" in line:
-                        name = __extract_file_name(line[:-1])
+                        name = __extract_file_name(line.strip()[:-1])
                         imgs.append(name)
             return imgs
 
@@ -75,8 +76,10 @@ class AutoUploadBlog:
             img_count += 1
             name = __extract_file_name(ap)
             if name not in used_imgs:
+                print('ap = ', ap)
+                print('name = ', name)
                 del_count += 1
-                os.remove(ap)
+                # os.remove(ap)
                 print('del: ', name)
         
         # 有新增
@@ -90,9 +93,9 @@ class AutoUploadBlog:
 
 
     def upload_blog(self, msg):
-        # count = self.del_unused_images()
-        # if count != 0:
-        #     print("update {0} imgs".format(count))
+        count = self.del_unused_images()
+        if count != 0:
+            print("update {0} imgs".format(count))
         
         self.auto_git.push(self.__BLOG_DIR, msg)
 
