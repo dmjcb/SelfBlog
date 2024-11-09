@@ -20,6 +20,7 @@ class AutoGit:
 
 
 class AutoUploadBlog:
+    __URL             = "https://dmjcb.github.io"
     __ROOT_DIR        = "c:\\Users\\dmjcb\\Documents\\Code"
 
     __BLOG_DIR        = "{0}\\SelfBlog".format(__ROOT_DIR)
@@ -82,10 +83,9 @@ class AutoUploadBlog:
                 # os.remove(ap)
                 print('del: ', name)
         
-        # 有新增
         if img_count > len(used_imgs):
             return img_count - len(used_imgs)
-        # 有删除
+
         if del_count > 0:
             return -1 * del_count
         
@@ -122,20 +122,35 @@ class AutoUploadBlog:
 
     # 将博客转换为发布模式
     def change_md_to_public(self, md_name):
+        # 获取原文地址
+        def get_original_address(categories, file_name):
+            categories = categories.replace("/r", "").replace("/n", "").split(":")[-1]
+            categories = categories[2:-2].lower()
+            title = file_name.split('-')[-1]
+            title = title[:-3]
+
+            url = "{0}/{1}/{2}".format(self.__URL, categories, title)
+            return url
+
+        # 根据文件名查找绝对地址
         def find_file_in_directory(md_name):
             for root, dirs, files in os.walk(self.__BLOG_DIR):
                 if md_name in files:
                     return os.path.abspath(os.path.join(root, md_name))
             return None
 
-        path = find_file_in_directory(md_name)
-        if path == None:
-            return
+        def get_md_content(md_name):
+            path = find_file_in_directory(md_name)
+            if path == None:
+                return
 
-        with open(path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
+            with open(path, 'r', encoding='utf-8') as f:
+                x = f.readlines()
+            return x
 
-        new_text = ['> - [**dmjcb个人博客**](https://dmjcb.github.io/)\n', ]
+        lines = get_md_content(md_name)
+        origin_url = get_original_address(lines[3], md_name)
+        new_text = ['> - [**dmjcb个人博客**](https://dmjcb.github.io/)\n', '> - [原文地址]({0})\n'.format(origin_url)]
         for i, text in enumerate(lines):
             if i < 7:
                 continue
@@ -153,7 +168,6 @@ class AutoUploadBlog:
 
         title = lines[1].replace("/r", "").replace("/n", "").split(":")[-1]
         path = "{0}\\{1}\\{2}.md".format(self.__BLOG_DIR, self.__PUBLIC_BLOG_DIR, title[2:-2])
-        print('path = ', path)
         with open(path, 'w', encoding='utf-8') as f:
             f.writelines(new_text)
 
