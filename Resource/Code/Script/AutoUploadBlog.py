@@ -90,9 +90,9 @@ class AutoUploadBlog:
 
 
     def upload_blog(self, msg):
-        count = self.del_unused_images()
-        if count != 0:
-            print("update {0} imgs".format(count))
+        # count = self.del_unused_images()
+        # if count != 0:
+        #     print("update {0} imgs".format(count))
         
         self.auto_git.push(self.__BLOG_DIR, msg)
 
