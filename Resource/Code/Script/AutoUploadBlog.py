@@ -121,12 +121,17 @@ class AutoUploadBlog:
     def change_md_to_public(self, md_name):
         # 获取原文地址
         def get_original_address(categories, file_name):
-            categories = categories.replace("/r", "").replace("/n", "").split(":")[-1]
-            categories = categories[2:-2].lower()
+            x = categories.replace("/r", "").replace("/n", "").replace(" ", "").split(":")[-1]
+            x = x[1:-2].lower().split(',')
+            
+            y = ''
+            for i in x:
+                y = '{0}/{1}'.format(y, i)
+
             title = file_name.split('-')[-1]
             title = title[:-3]
 
-            url = "{0}/{1}/{2}".format(self.__URL, categories, title)
+            url = "{0}{1}/{2}".format(self.__URL, y, title)
             return url
 
         # 根据文件名查找绝对地址
