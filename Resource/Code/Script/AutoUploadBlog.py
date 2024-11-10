@@ -55,7 +55,6 @@ class AutoUploadBlog:
             with codecs.open(md_file, "rb", "utf-8", errors="ignore") as text:
                 for line in text:
                     line = line.replace("\r\n", "")
-                    
                     # example: ![](/Resource/Imgur/20241022204809.png)
                     if "/Resource/Imgur/" in line:
                         name = __extract_file_name(line.strip()[:-1])
@@ -77,11 +76,9 @@ class AutoUploadBlog:
             img_count += 1
             name = __extract_file_name(ap)
             if name not in used_imgs:
-                print('ap = ', ap)
                 print('name = ', name)
                 del_count += 1
-                # os.remove(ap)
-                print('del: ', name)
+                os.remove(ap)
         
         if img_count > len(used_imgs):
             return img_count - len(used_imgs)
