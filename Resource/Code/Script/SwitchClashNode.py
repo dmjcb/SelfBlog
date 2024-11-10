@@ -5,7 +5,6 @@ class AutoSwitchNode:
     __IP = "192.168.3.3"
     __PORT = 9090
 
-
     def __init__(self):
         self.__url = '{0}:{1}'.format(self.__IP, self.__PORT)
 
@@ -23,30 +22,23 @@ class AutoSwitchNode:
         r = loads(r.text)
         return r['history'][0]['delay']
 
-    def get_all_proxy_delay(self):
+    def get_fastest_proxy_delay(self):
         delay = {}
         for name in self.get_proxy_name_list():
             t = self.get_proxy_delay(name)
             if t > 0:
                 delay[name] = t
-
         x = sorted(delay.items(), key=lambda x:x[1], reverse=False)
-        return x
+        return x[0]
 
     def switch_fastest_proxy(self):
-        d = self.get_all_proxy_delay()
-        name, _ = d[0]
-        print(name)
+        name, v = self.get_fastest_proxy_delay()
 
-        r = put('http://{0}/proxies/Proxy'.format(self.__url),
-                data=dumps({'name': name}),
-                headers={"Content-Type": "application/json"})
-
-        print(r.text)
+        r = put('http://{0}/proxies/Proxy'.format(self.__url), data=dumps({'name': name}),headers={"Content-Type": "application/json"})
         if r.status_code == 204:
-            return True
-
-        return False
+            print('select: {0}, delay: {1}'.format(name, v))
+        else:
+            print('select error')
 
 if __name__ == "__main__":
     auto = AutoSwitchNode()
