@@ -1,5 +1,4 @@
 # 监听粘贴板, 发现内容为Snipaste截取图片地址后修改为图床地址
-
 import pyperclip
 import time
 import re

@@ -3,7 +3,7 @@ import shutil
 import codecs
 import sys
 import subprocess
-
+from datetime import datetime
 
 class AutoGit:
     def run_cmd(self, command):
@@ -31,6 +31,13 @@ class AutoUploadBlog:
     __PUBLIC_BLOG_DIR = "Resource\\PublicBlog"
 
     auto_git = AutoGit()
+
+    def get_root_path(self):
+        absolute_path = os.path.abspath(__file__)
+        x = absolute_path
+        for i in range(5):
+            x = os.path.dirname(x)
+        return x
         
 
     def del_unused_images(self):
@@ -172,12 +179,30 @@ class AutoUploadBlog:
         path = "{0}\\{1}\\{2}.md".format(self.__BLOG_DIR, self.__PUBLIC_BLOG_DIR, title[2:-2])
         with open(path, 'w', encoding='utf-8') as f:
             f.writelines(new_text)
+    
+    def create_new_blog(self, name):        
+        date = datetime.now().strftime("%Y-%m-%d")
+        file_name = "{0}-{1}.md".format(date, name)
+
+        lines = [
+            "---\n",
+            'title: "{0}"\n'.format(name),
+            "date: {0}\n".format(date),
+            "categories: []\n",
+            "tags: []\n",
+            'excerpt: "{0}"\n'.format(name),
+            "---\n"
+        ]
+
+        with open(file_name, "w") as f:
+            f.writelines(lines)
 
 
 if __name__ == "__main__":
     auto = AutoUploadBlog()
+    print(auto.get_root_path())
 
-    index = input('1. 删除无用图片\n2. 上传blog\n3. 上传jekyll\n4. 都上传\n5. 转换博客\n')
+    index = input('1. 删除无用图片\n2. 上传blog\n3. 上传jekyll\n4. 都上传\n5. 转换博客为发行格式\n6. 创建新博客\n')
     index = int(index)
     if index == 1:
         r = auto.del_unused_images()
@@ -193,6 +218,9 @@ if __name__ == "__main__":
         auto.upload_blog(msg)
         auto.upload_jekyll(msg)
     elif index == 5:
-        path = input('path: ')
+        path = input('name: ')
         auto.change_md_to_public(path)
+    elif index == 6:
+        name = input('name: ')
+        auto.create_new_blog(name)
     
