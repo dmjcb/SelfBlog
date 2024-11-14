@@ -9,6 +9,7 @@ class AutoGit:
     def run_cmd(self, command):
         r = subprocess.run(command, shell=True, capture_output=True, text=True, encoding="utf8")
         print(r.stdout)
+        return r.stdout
     
     def pull(self, path):
         os.chdir(path)
@@ -17,6 +18,14 @@ class AutoGit:
     def push(self, path, msg):
         os.chdir(path)
         self.run_cmd("git add . && git commit -m {0} && git push".format(msg))
+    
+    def status(self, path):
+        os.chdir(path)
+        r =  self.run_cmd("git status {0}".format(path))
+        if "Your branch is up to date" in r and "nothing to commit, working tree clean" in r:
+            return True
+        return False
+
 
 class AutoUploadBlog:
     _ROOT            = "c:\\Users\\dmjcb\\Documents\\Code"
@@ -95,7 +104,7 @@ class AutoUploadBlog:
         return 0
 
     # 上传图床
-    def upload_imgur(self, count):
+    def upload_imgur(self):
         print("更新 Imgur")
         def delete_files_in_directory(directory):
             for root, dirs, files in os.walk(directory, topdown=True):
@@ -118,16 +127,17 @@ class AutoUploadBlog:
 
         shutil.copytree(SOURCE_DIR, self._IMGUR, dirs_exist_ok=True)
 
-        msg = "{0} {1} imgs".format("add" if count else "del", count)
+        msg = "update imgs"
         self.auto_git.push(self._IMGUR, msg)
 
 
     def upload_blog(self, msg):
         print("更新SelfBlog项目")
         count = self.del_unused_images()
-        if count != 0:
-            print("update {0} imgs".format(count))
-            self.upload_imgur(count)
+
+        # 若Resource/Imgur 有更新, 同步更新Imgur项目
+        if self.auto_git.status(self._BLOG) is False:
+            self.upload_imgur()
         
         self.auto_git.push(self._BLOG, msg)
 
@@ -251,4 +261,3 @@ if __name__ == "__main__":
     elif index == 6:
         name = input('name: ')
         auto.create_new_blog(name)
-    
