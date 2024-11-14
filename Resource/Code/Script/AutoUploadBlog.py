@@ -18,17 +18,16 @@ class AutoGit:
         os.chdir(path)
         self.run_cmd("git add . && git commit -m {0} && git push".format(msg))
 
-
 class AutoUploadBlog:
-    __URL             = "https://dmjcb.github.io"
-    __ROOT_DIR        = "c:\\Users\\dmjcb\\Documents\\Code"
+    _ROOT            = "c:\\Users\\dmjcb\\Documents\\Code"
+    _BLOG            = "{0}\\SelfBlog".format(_ROOT)
+    _JEKYLL          = "{0}\\dmjcb.github.io".format(_ROOT)
+    _IMGUR           = "{0}\\Imgur".format(_ROOT)
 
-    __BLOG_DIR        = "{0}\\SelfBlog".format(__ROOT_DIR)
-    __JEYLL_DIR       = "{0}\\dmjcb.github.io".format(__ROOT_DIR)
+    _RESOURCE_IMGUR  = "Resource\\Imgur"
+    _PUBLIC_BLOG     = "Resource\\PublicBlog"
 
-    __IMGUR_DIR       = "Resource\\Imgur"
-
-    __PUBLIC_BLOG_DIR = "Resource\\PublicBlog"
+    _URL             = "https://dmjcb.github.io"
 
     auto_git = AutoGit()
 
@@ -70,16 +69,16 @@ class AutoUploadBlog:
 
         # 提取md中已使用图片URL
         used_imgs = ["head.jpg", "workbench.jpg"]
-        for f in __get_files_ap(self.__BLOG_DIR):
+        for f in __get_files_ap(self._BLOG):
             if "md" == f[-2:]:              
                 urls = __extract_imgurs_url(f)
                 used_imgs.extend(urls)
 
         # 删除未使用图片
-        imgur_dir  = "{0}\\{1}".format(self.__BLOG_DIR, self.__IMGUR_DIR)
+        IMGUR_DIR  = "{0}\\{1}".format(self._BLOG, self._RESOURCE_IMGUR)
         img_count = 0
         del_count = 0
-        for ap in __get_files_ap(imgur_dir):
+        for ap in __get_files_ap(IMGUR_DIR):
             img_count += 1
             name = __extract_file_name(ap)
             if name not in used_imgs:
@@ -95,16 +94,46 @@ class AutoUploadBlog:
         
         return 0
 
+    # 上传图床
+    def upload_imgur(self, count):
+        print("更新 Imgur")
+        def delete_files_in_directory(directory):
+            for root, dirs, files in os.walk(directory, topdown=True):
+                # 排除 .git 目录及其子目录
+                if '.git' in dirs:
+                    dirs.remove('.git')
+
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    try:
+                        os.remove(file_path)
+                    except Exception as e:
+                        print(f"删除文件 {file_path} 时发生错误: {e}")
+                    
+        # 删除Imgur下文件
+        delete_files_in_directory(self._IMGUR)
+
+        # 从Blog中拷贝最新图片
+        SOURCE_DIR = "{0}\\{1}".format(self._BLOG, self._RESOURCE_IMGUR)
+
+        shutil.copytree(SOURCE_DIR, self._IMGUR, dirs_exist_ok=True)
+
+        msg = "{0} {1} imgs".format("add" if count else "del", count)
+        self.auto_git.push(self._IMGUR, msg)
+
 
     def upload_blog(self, msg):
+        print("更新SelfBlog项目")
         count = self.del_unused_images()
         if count != 0:
             print("update {0} imgs".format(count))
+            self.upload_imgur(count)
         
-        self.auto_git.push(self.__BLOG_DIR, msg)
+        self.auto_git.push(self._BLOG, msg)
 
 
     def upload_jekyll(self, msg):
+        print("更新dmjcb.github.io项目")
         def copy_with_ignore_git(src_dir, dst_dir):
             if os.path.exists(dst_dir):
                 shutil.rmtree(dst_dir)
@@ -115,14 +144,13 @@ class AutoUploadBlog:
 
             shutil.copytree(src_dir, dst_dir, ignore=ignore_git, dirs_exist_ok=True)
         
-        SOURRC_DIR = "{0}\\_posts\\{1}".format(self.__JEYLL_DIR, self.__IMGUR_DIR)
-        TARGET_DIR = "{0}\\{1}".format(self.__JEYLL_DIR, self.__IMGUR_DIR)
+        self.auto_git.pull("{0}\\_posts".format(self._JEKYLL))
 
-        self.auto_git.pull("{0}\\_posts".format(self.__JEYLL_DIR))
+        SOURCE_DIR = "{0}\\_posts\\{1}".format(self._JEKYLL, self._RESOURCE_IMGUR)
+        TARGET_DIR = "{0}\\{1}".format(self._JEKYLL, self._RESOURCE_IMGUR)
+        copy_with_ignore_git(SOURCE_DIR, TARGET_DIR)
 
-        copy_with_ignore_git(SOURRC_DIR, TARGET_DIR)
-
-        self.auto_git.push(self.__JEYLL_DIR, msg)
+        self.auto_git.push(self._JEKYLL, msg)
 
     # 将博客转换为发布模式
     def change_md_to_public(self, md_name):
@@ -138,12 +166,12 @@ class AutoUploadBlog:
             title = file_name.split('-')[-1]
             title = title[:-3]
 
-            url = "{0}{1}/{2}".format(self.__URL, y, title)
+            url = "{0}{1}/{2}".format(self._URL, y, title)
             return url
 
         # 根据文件名查找绝对地址
         def find_file_in_directory(md_name):
-            for root, dirs, files in os.walk(self.__BLOG_DIR):
+            for root, dirs, files in os.walk(self._BLOG):
                 if md_name in files:
                     return os.path.abspath(os.path.join(root, md_name))
             return None
@@ -176,7 +204,7 @@ class AutoUploadBlog:
             new_text.append(text)
 
         title = lines[1].replace("/r", "").replace("/n", "").split(":")[-1]
-        path = "{0}\\{1}\\{2}.md".format(self.__BLOG_DIR, self.__PUBLIC_BLOG_DIR, title[2:-2])
+        path = "{0}\\{1}\\{2}.md".format(self._BLOG, self._PUBLIC_BLOG, title[2:-2])
         with open(path, 'w', encoding='utf-8') as f:
             f.writelines(new_text)
     

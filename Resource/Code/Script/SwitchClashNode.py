@@ -43,3 +43,4 @@ class AutoSwitchNode:
 if __name__ == "__main__":
     auto = AutoSwitchNode()
     auto.switch_fastest_proxy()
+    #http://112.126.28.203/
