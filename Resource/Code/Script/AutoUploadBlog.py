@@ -84,10 +84,10 @@ class AutoUploadBlog:
                 used_imgs.extend(urls)
 
         # 删除未使用图片
-        IMGUR_DIR  = "{0}\\{1}".format(self._BLOG, self._RESOURCE_IMGUR)
         img_count = 0
         del_count = 0
-        for ap in __get_files_ap(IMGUR_DIR):
+        dirs  = "{0}\\{1}".format(self._BLOG, self._RESOURCE_IMGUR)
+        for ap in __get_files_ap(dirs):
             img_count += 1
             name = __extract_file_name(ap)
             if name not in used_imgs:
@@ -123,9 +123,8 @@ class AutoUploadBlog:
         delete_files_in_directory(self._IMGUR)
 
         # 从Blog中拷贝最新图片
-        SOURCE_DIR = "{0}\\{1}".format(self._BLOG, self._RESOURCE_IMGUR)
-
-        shutil.copytree(SOURCE_DIR, self._IMGUR, dirs_exist_ok=True)
+        src_dir = "{0}\\{1}".format(self._BLOG, self._RESOURCE_IMGUR)
+        shutil.copytree(src_dir, self._IMGUR, dirs_exist_ok=True)
 
         msg = "update imgs"
         self.auto_git.push(self._IMGUR, msg)
@@ -136,7 +135,7 @@ class AutoUploadBlog:
         count = self.del_unused_images()
 
         # 若Resource/Imgur 有更新, 同步更新Imgur项目
-        if self.auto_git.status(self._BLOG) is False:
+        if self.auto_git.status("{0}//{1}".format(self._BLOG, self._RESOURCE_IMGUR)) is False:
             self.upload_imgur()
         
         self.auto_git.push(self._BLOG, msg)
@@ -156,9 +155,9 @@ class AutoUploadBlog:
         
         self.auto_git.pull("{0}\\_posts".format(self._JEKYLL))
 
-        SOURCE_DIR = "{0}\\_posts\\{1}".format(self._JEKYLL, self._RESOURCE_IMGUR)
-        TARGET_DIR = "{0}\\{1}".format(self._JEKYLL, self._RESOURCE_IMGUR)
-        copy_with_ignore_git(SOURCE_DIR, TARGET_DIR)
+        src_dir = "{0}\\_posts\\{1}".format(self._JEKYLL, self._RESOURCE_IMGUR)
+        tar_dir = "{0}\\{1}".format(self._JEKYLL, self._RESOURCE_IMGUR)
+        copy_with_ignore_git(src_dir, tar_dir)
 
         self.auto_git.push(self._JEKYLL, msg)
 
@@ -225,7 +224,7 @@ class AutoUploadBlog:
         lines = [
             "---\n",
             'title: "{0}"\n'.format(name),
-            "date: {0}\n".format(date),
+            "date: {0}\n".format(datetime.now().strftime("%Y-%m-%d")),
             "categories: []\n",
             "tags: []\n",
             'excerpt: "{0}"\n'.format(name),
