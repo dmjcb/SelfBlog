@@ -33,8 +33,8 @@ class AutoUploadBlog:
     _JEKYLL_PROJECT  = "{0}\\dmjcb.github.io".format(_ROOT)
     _IMGUR_PROJECT   = "{0}\\Imgur".format(_ROOT)
 
-    _BLOG_IMAGE      = "assets\\blog_image"
-    _BLOG_PUBLIC     = "assets\\public_blog"
+    _BLOG_IMAGE      = "assets\\image"
+    _BLOG_PUBLIC     = "assets\\public"
 
     _BLOG_IMAGE_PATH = "{0}\\{1}".format(_BLOG_PROJECT, _BLOG_IMAGE)
 
@@ -109,7 +109,7 @@ class AutoUploadBlog:
 
         count = self.del_unused_images()
 
-        # 若Resource/Imgur 有更新, 同步更新Imgur项目
+        # 若assets/image 有更新, 同步更新Imgur项目
         if self.is_exist_modify(self._BLOG_IMAGE_PATH):
             print("更新 Imgur")
 
@@ -135,18 +135,17 @@ class AutoUploadBlog:
         
         print("更新dmjcb.github.io项目")
     
-        # 这里修改成直接把SelfBlog拷贝过来, 避免出现文件
+        # 直接把SelfBlog下目录拷贝到_posts 
         src_dir = self._BLOG_PROJECT
         des_dir =  "{0}\\_posts".format(self._JEKYLL_PROJECT)
         copy_with_ignore_git(src_dir, des_dir)
 
-        if self.is_imgur_modify:
-            # 更新Resource/Imgut
-            src_dir = "{0}\\_posts\\{1}".format(self._JEKYLL_PROJECT, self._BLOG_IMAGE)
-            des_dir = "{0}\\{1}".format(self._JEKYLL_PROJECT, self._BLOG_IMAGE)
-            copy_with_ignore_git(src_dir, des_dir)
+        # 更新assets/image
+        src_dir = "{0}\\_posts\\{1}".format(self._JEKYLL_PROJECT, self._BLOG_IMAGE)
+        des_dir = "{0}\\{1}".format(self._JEKYLL_PROJECT, self._BLOG_IMAGE)
+        copy_with_ignore_git(src_dir, des_dir)
 
-        self.auto_git.push(self._JEKYLL_PROJECT, msg)
+        # self.auto_git.push(self._JEKYLL_PROJECT, msg)
 
     # 将博客转换为发布模式
     def change_md_to_public(self, md_name):
@@ -193,8 +192,8 @@ class AutoUploadBlog:
             if text == '```sh\n':
                 text = '```shell\n'
 
-            if '/assets/Imgur' in text:
-                text = text.replace('/assets/Imgur', 'https://raw.githubusercontent.com/dmjcb/Imgur/main')
+            if '/assets/image' in text:
+                text = text.replace('/assets/image', 'https://raw.githubusercontent.com/dmjcb/Imgur/main')
 
             new_text.append(text)
 

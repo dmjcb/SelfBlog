@@ -31,7 +31,7 @@ SELECT Name FROM Master..SysDatabases ORDER BY Name
 go
 ```
 
-![](/Resource/Imgur/20241026_135742.jpg)
+![](/assets/image/20241026_135742.jpg)
 
 ### 显示表
 

@@ -15,7 +15,7 @@ def listen_clipboard():
             v = e[0]
             # 匹配图片格式为 20241110_235952.jpg
             if '.jpg' in v and match_datetime_format(v.split('.')[0]):
-                v = "![](/Resource/Imgur/{0})".format(v)
+                v = "![](/assets/image/{0})".format(v)
                 pyperclip.copy(v)
                 print(v)
         else:
