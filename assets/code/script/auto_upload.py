@@ -41,7 +41,7 @@ class AutoUploadBlog:
     _BLOG_ASSETS_IMAGE_DIR= "{0}\\assets\\image".format(_BLOG_DIR)
 
     _URL            = "https://dmjcb.github.io"
-    _BLOG_PROJECT   = "git@github.com:dmjcb/SelfBlog.git"
+    _BLOG_PROJECT   = "git@github.com:dmjcb/self_blog.git"
     _JEKYLL_PROJECT = "git@github.com:dmjcb/dmjcb.github.io.git"
     _ASSETS_PROJECT  = "git@github.com:dmjcb/self_assets.git"
 
@@ -111,7 +111,7 @@ class AutoUploadBlog:
 
 
     def upload_blog(self, msg):
-        print("更新SelfBlog项目")
+        print("更新self_blog项目")
 
         count = self.clean_unused_images()
 
@@ -205,7 +205,7 @@ class AutoUploadBlog:
                 text = '```shell\n'
 
             if '/assets/image' in text:
-                text = text.replace('/assets/image', 'https://raw.githubusercontent.com/dmjcb/Imgur/main')
+                text = text.replace('/assets/image', 'https://raw.githubusercontent.com/dmjcb/self_assets/main/image')
 
             new_text.append(text)
 
